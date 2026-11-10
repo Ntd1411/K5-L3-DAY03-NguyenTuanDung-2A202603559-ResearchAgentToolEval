@@ -72,7 +72,7 @@ Kết quả cần bàn giao:
 - [x] Setup môi trường và kiểm tra đầy đủ API key.
 - [x] Provider preflight thành công.
 - [x] Chạy baseline `v0` và ghi version log.
-- [ ] Hoàn thành `v1`.
+- [x] Hoàn thành `v1` (`case_accuracy=1.00`, `routing=1.00`).
 - [ ] Hoàn thành `v2`.
 - [ ] Hoàn thành `v3`.
 - [ ] Thêm tool mới và unit test.
