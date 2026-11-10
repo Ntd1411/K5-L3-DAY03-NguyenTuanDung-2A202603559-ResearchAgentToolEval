@@ -86,8 +86,8 @@ Sản phẩm đã thực hiện:
 - [X] Setup môi trường và kiểm tra đầy đủ API key.
 - [X] Provider preflight thành công.
 - [X] Chạy baseline `v0` và ghi version log.
-- [x] Hoàn thành `v1` (`case_accuracy=1.00`, `routing=1.00`).
-- [x] Hoàn thành `v2` (`case_accuracy=1.00`, `routing=1.00`, `group_single_turn=1.00`).
+- [x] Hoàn thành `v1` (`case_accuracy=0.85`, `routing=0.95`, `arguments=0.85`).
+- [x] Hoàn thành `v2` (`case_accuracy=0.95`, `routing=1.00`, `arguments=0.95`, `group_single_turn=1.00`).
 - [x] Hoàn thành `v3` (`case_accuracy=1.00`, `routing=1.00`, `group_accuracy=1.00`).
 - [x] Thêm tool mới (`github_search`) và unit test (84 passed, 0 skipped, 0 failed).
 - [x] Viết 10 group eval case: 5 single-turn (đã xong `G01`–`G05`), 5 multi-turn (`G06`–`G10`).
