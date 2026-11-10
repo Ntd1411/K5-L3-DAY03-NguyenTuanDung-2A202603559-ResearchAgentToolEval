@@ -73,8 +73,8 @@ Kết quả cần bàn giao:
 - [x] Provider preflight thành công.
 - [x] Chạy baseline `v0` và ghi version log.
 - [x] Hoàn thành `v1` (`case_accuracy=1.00`, `routing=1.00`).
-- [ ] Hoàn thành `v2`.
+- [x] Hoàn thành `v2` (`case_accuracy=1.00`, `routing=1.00`, `group_single_turn=1.00`).
 - [ ] Hoàn thành `v3`.
-- [ ] Thêm tool mới và unit test.
-- [ ] Viết 10 group eval case: 5 single-turn, 5 multi-turn.
+- [x] Thêm tool mới (`github_search`) và unit test (84 passed, 0 skipped, 0 failed).
+- [ ] Viết 10 group eval case: 5 single-turn (đã xong `G01`–`G05`), 5 multi-turn.
 - [ ] Hoàn thành UI, transcript và report.

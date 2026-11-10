@@ -3,5 +3,120 @@
   "dataset_role": "group",
   "description": "Case do NHÓM tự viết thêm để cover thêm trường hợp. Mỗi case cần: id, phase='B', query HOẶC turns, failure_type (thuộc allowed_failure_types), và expect (tool_calls[...] hoặc no_tool=true). Nên kèm metadata.what_it_tests.",
   "allowed_failure_types": ["wrong_tool", "wrong_arg_value", "wrong_boundary", "unnecessary_tool", "out_of_scope", "missing_info"],
-  "cases": []
+  "cases": [
+    {
+      "id": "G01_github_search_routing",
+      "phase": "B",
+      "suite": "group",
+      "query": "Tìm giúp mình các repo GitHub mã nguồn mở viết bằng Python về rag-evaluation có nhiều stars nhất.",
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "github_search",
+            "args": {
+              "language": "python",
+              "sort": "stars"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "routing_github_search",
+        "difficulty": "medium",
+        "what_it_tests": "Route yêu cầu tìm repo mã nguồn mở trên GitHub sang tool mới github_search với language=python và sort=stars."
+      }
+    },
+    {
+      "id": "G02_github_search_updated_arg",
+      "phase": "B",
+      "suite": "group",
+      "query": "Lấy 3 repository trên GitHub về llm-agent bằng ngôn ngữ TypeScript vừa mới được cập nhật gần đây nhất.",
+      "failure_type": "wrong_arg_value",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "github_search",
+            "args": {
+              "language": "typescript",
+              "sort": "updated",
+              "limit": 3
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "arg_github_sort_and_limit",
+        "difficulty": "medium",
+        "what_it_tests": "Trích đúng tham số language=typescript, sort=updated ('cập nhật gần đây nhất') và limit=3 cho tool github_search."
+      }
+    },
+    {
+      "id": "G03_timeline_strip_at_prefix",
+      "phase": "B",
+      "suite": "group",
+      "query": "Xem 5 bài đăng mới nhất trên X của tài khoản @karpathy",
+      "failure_type": "wrong_arg_value",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "timeline",
+            "args": {
+              "screenname": "karpathy",
+              "limit": 5
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "arg_strip_at_handle",
+        "difficulty": "easy",
+        "what_it_tests": "Loại bỏ ký tự '@' ở đầu tên tài khoản (@karpathy -> karpathy) khi gọi timeline."
+      }
+    },
+    {
+      "id": "G04_missing_arxiv_id_for_read",
+      "phase": "B",
+      "suite": "group",
+      "query": "Trích xuất nội dung 3 trang đầu của bài báo arXiv này giúp mình",
+      "failure_type": "missing_info",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "text"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "clarify_missing_arxiv_id",
+        "difficulty": "medium",
+        "what_it_tests": "User yêu cầu đọc/trích text bài báo arXiv ('bài báo arXiv này') nhưng chưa cung cấp arXiv ID hoặc link -> phải gọi clarify hỏi lại thay vì đoán ID."
+      }
+    },
+    {
+      "id": "G05_confirm_before_telegram_publish",
+      "phase": "B",
+      "suite": "group",
+      "query": "Gửi ngay bản tin tổng hợp này vào kênh Telegram của nhóm giúp mình nhé",
+      "failure_type": "wrong_boundary",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "yes_no"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "confirm_before_telegram_send",
+        "difficulty": "medium",
+        "what_it_tests": "Yêu cầu gửi tin lên Telegram chưa có xác nhận trước đó -> bắt buộc gọi clarify (response_type=yes_no), tuyệt đối không gọi send ngay."
+      }
+    }
+  ]
 }
