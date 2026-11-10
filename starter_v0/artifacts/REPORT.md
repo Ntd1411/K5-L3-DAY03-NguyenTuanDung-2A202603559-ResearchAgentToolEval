@@ -67,7 +67,7 @@ Fill from `artifacts/version_log.csv` and `runs/*.json`.
 | v0 | baseline | Đánh giá hành vi mặc định của starter code với prompt xấu và khai báo tool sơ sài | N/A | case_acc=0.65; routing=0.75; args=0.65; multi=1.00 | `runs/v0_B_base_openrouter_20261110T095040302355.json` |
 | v1 | `artifacts/system_prompt.md` | Bỏ các chỉ dẫn xấu (đoán mò, tự gửi), bổ sung quy tắc phân vai, routing nguồn tin, rào chắn xác nhận và từ chối ngoài phạm vi | case_acc=0.65; routing=0.75; args=0.65; multi=1.00 | case_acc=1.00; routing=1.00; args=1.00; multi=1.00 | `runs/v1_B_base_openrouter_20261110T104118879391.json` |
 | v2 | `artifacts/tools.yaml` | Viết lại mô tả WHEN TO USE/WHEN NOT TO USE, chuẩn hóa quy ước tham số (handle không có `@`, timeframe, search_type) và đăng ký tool `github_search` | case_acc=1.00; routing=1.00; args=1.00; multi=1.00 | base: 1.00 (20/20 PASS); group: 1.00 (10/10 PASS) | `runs/v2_B_base_openrouter_20261110T111009359329.json`<br>`runs/v2_B_group_openrouter_20261110T112355859027.json` |
-| v3 | `system_prompt.md` & UI | Bổ sung quy tắc nhất quán ngôn ngữ, hoàn thiện 10 case group eval (5 multi-turn) và tích hợp Web UI | case_acc=1.00; routing=1.00; args=1.00; multi=1.00 | case_acc=1.00; routing=1.00; args=1.00; multi=1.00 | `runs/v3_B_base_openrouter_20261110T115201955866.json` |
+| v3 | `system_prompt.md` & UI | Bổ sung quy tắc nhất quán ngôn ngữ, hoàn thiện 10 case group eval (5 multi-turn) và tích hợp Web UI | case_acc=1.00; routing=1.00; args=1.00; multi=1.00 | base: 1.00 (20/20 PASS); group: 1.00 (10/10 PASS) | `runs/v3_B_base_openrouter_20261110T115201955866.json`<br>`runs/v3_B_group_openrouter_20261110T122551492952.json` |
 
 ## B2. Failure Analysis
 
