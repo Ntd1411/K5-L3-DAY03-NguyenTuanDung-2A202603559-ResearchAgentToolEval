@@ -1,62 +1,66 @@
 Danh sách sinh viên thực hiện:
 
-1. Nguyễn Tuấn Dũng | 2A202603559
-2. Lý Thanh Lâm | 2A202603475
-3. Nguyễn Vũ Khanh | 2A202603427
+1. Nguyễn Tuấn Dũng | 2A202603559 | https://github.com/Ntd1411
+2. Lý Thanh Lâm | 2A202603475 | https://github.com/LysLama
+3. Nguyễn Vũ Khanh | 2A202603427 | https://github.com/vukhanhkg2005-lang
 
-## Phân công công việc
+## Công việc đã thực hiện
 
-### 1. Nguyễn Tuấn Dũng — Prompt, eval và tích hợp
+### 1. Nguyễn Tuấn Dũng — Prompt, baseline, v1 và UI ban đầu
 
 - Setup môi trường, API key và kiểm tra provider/tool.
 - Chạy baseline `v0`, phân tích các case fail và lưu run JSON.
 - Chỉnh `artifacts/system_prompt.md` và chạy phiên bản `v1`.
-- Theo dõi kết quả `v0`–`v3`, cập nhật `artifacts/version_log.csv`.
-- Review thay đổi của các thành viên, chạy test và eval tổng trước khi nộp.
-- Kiểm tra repo không chứa `.env`, API key hoặc file không cần thiết.
+- Ghi kết quả baseline và `v1` vào `artifacts/version_log.csv`.
+- Xây dựng UI Streamlit ban đầu: chat nhiều vòng, chọn provider/model, hiển thị tool trace và tải transcript JSON.
+- Thêm chế độ so sánh ba phiên bản từ run eval đã lưu.
+- Bổ sung quy tắc trả lời theo ngôn ngữ người dùng trong system prompt.
+- Thêm cấu hình theme, dependency Streamlit và hướng dẫn chạy UI trong `README.md`.
+- Cập nhật danh sách thành viên và thông tin GitHub trong `TEAM.md`.
 
-Kết quả cần bàn giao:
+Sản phẩm đã thực hiện:
 
 - `runs/v0_*.json`, `runs/v1_*.json`.
 - `artifacts/system_prompt.md`.
-- `artifacts/version_log.csv` có đủ `v0`, `v1`, `v2`, `v3`.
-- Kết quả `pytest` và base eval cuối cùng.
+- Các dòng `v0`, `v1` trong `artifacts/version_log.csv`.
+- UI ban đầu trong `app.py`, cấu hình `.streamlit/config.toml` và các transcript demo ban đầu.
+- Phần hướng dẫn UI trong `README.md` và dependency trong `requirements.txt`.
 
-### 2. Lý Thanh Lâm — Tool declaration, tool mới và unit test
+### 2. Lý Thanh Lâm — Tools, unit test, group eval, v2–v3 và báo cáo
 
 - Viết lại description và parameter convention trong `artifacts/tools.yaml`.
 - Chạy phiên bản `v2` để đo ảnh hưởng của tool declaration.
-- Thiết kế và cài đặt ít nhất 1 tool mới, gồm `tool.py` và `TOOL.md`.
+- Thiết kế và cài đặt tool mới `github_search`, gồm `tool.py` và `TOOL.md`.
 - Đăng ký tool mới trong `tools/__init__.py` và `artifacts/tools.yaml`.
-- Viết ít nhất 3 unit test cho tool mới: happy path, input không hợp lệ và failure path.
-- Hoàn thiện các test TODO nếu còn thời gian; đảm bảo contract test luôn pass.
-- Viết 5 eval case single-turn trong `data/eval_group.json`, có ít nhất 1 case cho tool mới.
+- Viết 3 unit test cho tool mới: happy path, input không hợp lệ và failure path.
+- Hoàn thiện các test TODO; toàn bộ suite đạt 84 passed, 0 skipped, 0 failed.
+- Viết đủ 10 eval case trong `data/eval_group.json`: 5 single-turn (`G01`–`G05`) và 5 multi-turn (`G06`–`G10`).
+- Chạy và lưu base/group eval cho `v2`, `v3`; cập nhật các dòng version log tương ứng.
+- Bổ sung transcript live chat 3 lượt và bảng phân tích run CSV.
+- Hoàn thiện `artifacts/REPORT.md` Phần A, Phần B và poster HTML phục vụ demo.
 
-Kết quả cần bàn giao:
+Sản phẩm đã thực hiện:
 
 - `artifacts/tools.yaml`.
-- `tools/<ten_tool_moi>/tool.py`.
-- `tools/<ten_tool_moi>/TOOL.md`.
-- Phần test tool mới trong `tests/test_tools_todo.py`.
-- 5 eval case single-turn.
-- `runs/v2_*.json`.
+- `tools/github_search/tool.py`, `tools/github_search/TOOL.md` và đăng ký trong `tools/__init__.py`.
+- Các test đã hoàn thiện trong `tests/test_tools_todo.py`.
+- `data/eval_group.json` với 10 case.
+- `runs/v2_*.json`, `runs/v3_*.json` và các dòng `v2`, `v3` trong `artifacts/version_log.csv`.
+- `transcripts/v3_openrouter_20261110T115449639505.transcript.json`.
+- `analysis/base_runs.csv`, `artifacts/REPORT.md`, `artifacts/poster.html`.
 
-### 3. Nguyễn Vũ Khanh — Group eval, UI và báo cáo
+### 3. Nguyễn Vũ Khanh — Cải tiến UI, snapshot phiên bản và tích hợp
 
-- Viết 5 eval case multi-turn trong `data/eval_group.json`.
-- Phân tích lỗi còn lại sau `v2`, đề xuất một giả thuyết và chạy phiên bản `v3`.
-- Xây dựng UI bằng Streamlit và kiểm tra luồng chat/tool call.
-- Chạy `chat.py` ít nhất 3 tình huống và lưu transcript.
-- Deploy UI hoặc mở Cloudflare Tunnel, ghi lại link dùng thử.
-- Hoàn thiện `artifacts/REPORT.md`: Phần A cho demo và Phần B dựa trên log thật.
+- Cải tiến giao diện Streamlit phục vụ demo local: bố cục, màu sắc và các thành phần hiển thị phiên nghiên cứu.
+- Bổ sung snapshot system prompt và tool declaration cho `v0`, `v1`, `v2`, `v3` trong `artifacts/versions/`.
+- Tích hợp chọn phiên bản trong UI để nạp prompt/tool declaration tương ứng khi chat.
+- Merge các thay đổi UI với run group eval, dữ liệu phân tích và báo cáo của nhóm.
 
-Kết quả cần bàn giao:
+Sản phẩm đã thực hiện:
 
-- 5 eval case multi-turn.
-- `runs/v3_*.json` và run group eval.
-- File UI, dự kiến `app.py`.
-- `transcripts/*.transcript.json`.
-- `artifacts/REPORT.md` và link demo.
+- Các phần cải tiến UI và chọn phiên bản trong `app.py`.
+- `artifacts/versions/v0/`, `artifacts/versions/v1/`, `artifacts/versions/v2/`, `artifacts/versions/v3/`.
+- Bản tích hợp UI, run eval và báo cáo tại merge commit `9660387`.
 
 ## Quy ước phối hợp
 
@@ -77,4 +81,7 @@ Kết quả cần bàn giao:
 - [x] Hoàn thành `v3` (`case_accuracy=1.00`, `routing=1.00`, `group_accuracy=1.00`).
 - [x] Thêm tool mới (`github_search`) và unit test (84 passed, 0 skipped, 0 failed).
 - [x] Viết 10 group eval case: 5 single-turn (đã xong `G01`–`G05`), 5 multi-turn (`G06`–`G10`).
-- [x] Hoàn thành UI Streamlit (`app.py`), transcripts và report Phần A + poster demo.
+- [x] Hoàn thành UI Streamlit (`app.py`), gồm chat và so sánh ba phiên bản.
+- [x] Bổ sung snapshot prompt/tool declaration cho `v0`–`v3` và chọn phiên bản khi chat.
+- [x] Có transcript live chat 3 lượt đã lưu trong repo.
+- [x] Hoàn thiện report Phần A, Phần B và poster demo.
