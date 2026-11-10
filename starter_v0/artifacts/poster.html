@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research Agent - Team Showdown Poster (Nhóm 2A)</title>
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --border: #e2e8f0;
+      --success: #16a34a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background: var(--bg); color: var(--text); padding: 32px 16px; display: flex; justify-content: center; }
+    .container { max-width: 960px; width: 100%; background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05); padding: 40px; }
+    header { border-bottom: 2px solid var(--primary); padding-bottom: 20px; margin-bottom: 28px; display: flex; justify-content: space-between; align-items: flex-start; }
+    h1 { font-size: 28px; color: var(--primary-dark); margin-bottom: 6px; }
+    .subtitle { font-size: 15px; color: var(--muted); }
+    .badge { background: #dbeafe; color: #1e40af; padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: 600; display: inline-block; }
+    .badge.success { background: #dcfce7; color: #15803d; }
+    .section { margin-bottom: 28px; }
+    h2 { font-size: 18px; color: var(--text); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; border-left: 4px solid var(--primary); padding-left: 10px; }
+    p { font-size: 15px; line-height: 1.6; color: #334155; }
+    .highlight-box { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 10px; padding: 16px 20px; font-size: 15px; line-height: 1.6; color: #1e3a8a; margin-top: 10px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 14px; }
+    th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border); }
+    th { background: #f1f5f9; color: #334155; font-weight: 600; }
+    tr:hover { background: #f8fafc; }
+    .tag-new { background: #fef08a; color: #854d0e; font-size: 11px; padding: 2px 8px; border-radius: 10px; font-weight: 700; }
+    .qa-card { background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; margin-bottom: 10px; }
+    .qa-card strong { color: var(--primary); display: block; font-size: 14px; margin-bottom: 4px; }
+    .footer { margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 13px; color: var(--muted); display: flex; justify-content: space-between; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div>
+        <h1>Research Agent — Showdown Poster</h1>
+        <div class="subtitle">AI Engineering Lab Day 03 • VinUni</div>
+      </div>
+      <div>
+        <span class="badge">Nhóm 2A</span>
+        <span class="badge success" style="margin-left: 6px;">Eval Accuracy: 100%</span>
+      </div>
+    </header>
+
+    <div class="section">
+      <h2>A1. Giới thiệu tổng quan</h2>
+      <div class="highlight-box">
+        <strong>Research Agent</strong> là trợ lý nghiên cứu và tổng hợp tin tức tự động. Agent có khả năng tra cứu tin tức thời sự trên web, quét timeline & tìm kiếm bài viết trên X (Twitter), đọc tài liệu quy định nội bộ công ty (Policy), tìm kiếm & trích xuất văn bản bài báo khoa học (arXiv), khám phá mã nguồn mở trên GitHub, tự động định dạng bản tin Markdown và gửi tin an toàn lên kênh Telegram khi có xác nhận.
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>A2. Hệ thống Công cụ (11 Tools)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 20%;">Tên công cụ</th>
+            <th>Chức năng & Nhiệm vụ</th>
+            <th style="width: 22%; text-align: center;">Phân loại</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>clarify</code></td>
+            <td>Hỏi lại người dùng khi thiếu thông tin hoặc yêu cầu xác nhận an toàn</td>
+            <td style="text-align: center;"><span class="badge">Core</span></td>
+          </tr>
+          <tr>
+            <td><code>lookup</code></td>
+            <td>Tra cứu tin tức thời sự và sự kiện trên web qua Tavily Search</td>
+            <td style="text-align: center;"><span class="badge">Core</span></td>
+          </tr>
+          <tr>
+            <td><code>fetch</code></td>
+            <td>Trích xuất toàn bộ nội dung bài viết từ một đường link URL qua Firecrawl</td>
+            <td style="text-align: center;"><span class="badge">Core</span></td>
+          </tr>
+          <tr>
+            <td><code>timeline</code></td>
+            <td>Lấy bài đăng gần đây của tài khoản X/Twitter cụ thể (tự chuẩn hóa handle)</td>
+            <td style="text-align: center;"><span class="badge">Core</span></td>
+          </tr>
+          <tr>
+            <td><code>social_search</code></td>
+            <td>Tìm kiếm bài viết công khai trên X/Twitter theo từ khóa hoặc hashtag</td>
+            <td style="text-align: center;"><span class="badge">Core</span></td>
+          </tr>
+          <tr>
+            <td><code>format</code></td>
+            <td>Định dạng bản tin Markdown theo các khuôn mẫu (brief, sections, thread,...)</td>
+            <td style="text-align: center;"><span class="badge">Core</span></td>
+          </tr>
+          <tr>
+            <td><code>send</code></td>
+            <td>Gửi tin nhắn lên kênh Telegram (bắt buộc rào chắn xác nhận an toàn)</td>
+            <td style="text-align: center;"><span class="badge">Action</span></td>
+          </tr>
+          <tr>
+            <td><code>policy</code></td>
+            <td>Tra cứu quy định nội bộ công ty (bảo mật, PII, trích dẫn nguồn, publish)</td>
+            <td style="text-align: center;"><span class="badge">Policy</span></td>
+          </tr>
+          <tr>
+            <td><code>papers</code></td>
+            <td>Tìm kiếm bài báo khoa học trên kho học thuật arXiv</td>
+            <td style="text-align: center;"><span class="badge">Academic</span></td>
+          </tr>
+          <tr>
+            <td><code>paper_text</code></td>
+            <td>Tải file PDF arXiv và trích xuất text phục vụ tóm tắt bài báo</td>
+            <td style="text-align: center;"><span class="badge">Academic</span></td>
+          </tr>
+          <tr>
+            <td><code>github_search</code></td>
+            <td>Tìm kiếm các kho mã nguồn mở trên GitHub theo ngôn ngữ, từ khóa và số sao</td>
+            <td style="text-align: center;"><span class="tag-new">⭐ Tool mới nhóm tự viết</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>A3. Câu hỏi mẫu để thử ngay (Demo Prompts)</h2>
+      <div class="qa-card">
+        <strong>1. Thử tool mới GitHub Search</strong>
+        <p>"Tìm giúp mình các repo GitHub mã nguồn mở viết bằng Python về rag-evaluation có nhiều stars nhất."</p>
+      </div>
+      <div class="qa-card">
+        <strong>2. Theo dõi bài viết của chuyên gia trên X/Twitter</strong>
+        <p>"Tweet mới nhất của Andrej Karpathy trên Twitter là gì?"</p>
+      </div>
+      <div class="qa-card">
+        <strong>3. Điểm tin thời sự công nghệ hôm nay</strong>
+        <p>"Tin tức AI hôm nay có gì nổi bật trên web?"</p>
+      </div>
+      <div class="qa-card">
+        <strong>4. Đọc & Trích xuất bài báo arXiv</strong>
+        <p>"Trích xuất nội dung 2 trang đầu của bài báo arXiv 2303.08774 giúp mình."</p>
+      </div>
+      <div class="qa-card">
+        <strong>5. Kiểm tra rào chắn an toàn (Action Guardrail)</strong>
+        <p>"Gửi ngay bản tin tổng hợp này vào kênh Telegram của nhóm nhé." <em>(Agent sẽ hỏi xác nhận yes/no trước khi gửi)</em></p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div>Thành viên: Nguyễn Tuấn Dũng • Lý Thanh Lâm • Nguyễn Vũ Khanh</div>
+      <div>Giao diện Web: <code>streamlit run app.py</code> • Model: OpenRouter (gpt-4o-mini)</div>
+    </div>
+  </div>
+</body>
+</html>

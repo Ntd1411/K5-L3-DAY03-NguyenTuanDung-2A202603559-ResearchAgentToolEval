@@ -117,6 +117,137 @@
         "difficulty": "medium",
         "what_it_tests": "Yêu cầu gửi tin lên Telegram chưa có xác nhận trước đó -> bắt buộc gọi clarify (response_type=yes_no), tuyệt đối không gọi send ngay."
       }
+    },
+    {
+      "id": "G06_multiturn_github_search_refine",
+      "phase": "B",
+      "suite": "group",
+      "turns": [
+        {"role": "user", "content": "Tìm repo GitHub về AI agent"},
+        {"role": "user", "content": "Chỉ lấy các repo viết bằng ngôn ngữ Python thôi"},
+        {"role": "user", "content": "Sắp xếp theo số stars nhiều nhất và lấy 3 repo thôi nhé"}
+      ],
+      "failure_type": "wrong_arg_value",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "github_search",
+            "args": {
+              "language": "python",
+              "sort": "stars",
+              "limit": 3
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "multiturn_github_search_refine",
+        "difficulty": "hard",
+        "what_it_tests": "3 turns: tích lũy query 'AI agent' từ lượt 1, filter language='python' từ lượt 2, sort='stars' và limit=3 từ lượt 3 cho tool github_search."
+      }
+    },
+    {
+      "id": "G07_multiturn_confirm_telegram_send",
+      "phase": "B",
+      "suite": "group",
+      "turns": [
+        {"role": "user", "content": "Đăng bản tin tổng hợp AI này lên Telegram channel giúp mình"},
+        {"role": "user", "content": "Mình xác nhận đồng ý gửi bản tin này, bạn tiến hành gửi lên Telegram đi nhé"}
+      ],
+      "failure_type": "wrong_boundary",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "send",
+            "args": {
+              "confirmed": true
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "multiturn_confirm_telegram_send",
+        "difficulty": "medium",
+        "what_it_tests": "2 turns: lượt 1 yêu cầu gửi cần xác nhận, lượt 2 user xác nhận 'đồng ý gửi' -> model phải gọi send với confirmed=true."
+      }
+    },
+    {
+      "id": "G08_multiturn_clarify_then_arxiv_paper_text",
+      "phase": "B",
+      "suite": "group",
+      "turns": [
+        {"role": "user", "content": "Tải và đọc giúp mình nội dung bài báo khoa học này"},
+        {"role": "user", "content": "Bài báo có mã arXiv là 2303.08774 nhé"},
+        {"role": "user", "content": "Trích xuất nội dung 2 trang đầu của bài báo đó"}
+      ],
+      "failure_type": "missing_info",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "paper_text",
+            "args": {
+              "arxiv_url": "2303.08774",
+              "max_pages": 2
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "multiturn_clarify_arxiv_text",
+        "difficulty": "hard",
+        "what_it_tests": "3 turns: ban đầu thiếu ID, lượt 2 cung cấp arxiv ID 2303.08774, lượt 3 yêu cầu 2 trang đầu -> gọi paper_text với đúng ID và max_pages=2."
+      }
+    },
+    {
+      "id": "G09_multiturn_switch_to_company_policy",
+      "phase": "B",
+      "suite": "group",
+      "turns": [
+        {"role": "user", "content": "Tìm kiếm trên web về xu hướng AI trong năm nay"},
+        {"role": "user", "content": "Thôi không tìm web nữa, kiểm tra policy công ty thuộc mảng data privacy về bảo mật dữ liệu khách hàng"}
+      ],
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "policy",
+            "args": {
+              "policy_area": "data_privacy"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "multiturn_switch_policy",
+        "difficulty": "medium",
+        "what_it_tests": "2 turns: chuyển hướng rõ ràng từ tìm kiếm web sang tra cứu nội bộ policy công ty với policy_area='data_privacy'."
+      }
+    },
+    {
+      "id": "G10_multiturn_news_timeframe_change",
+      "phase": "B",
+      "suite": "group",
+      "turns": [
+        {"role": "user", "content": "Tin công nghệ trong tuần này có gì hot?"},
+        {"role": "user", "content": "Thu hẹp lại chỉ tìm tin công nghệ trong ngày hôm nay thôi nhé"}
+      ],
+      "failure_type": "wrong_arg_value",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "lookup",
+            "args": {
+              "topic": "news",
+              "timeframe": "day"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "skill": "multiturn_timeframe_refine",
+        "difficulty": "medium",
+        "what_it_tests": "2 turns: sửa khoảng thời gian từ 'tuần này' (week) sang 'hôm nay' (day), giữ nguyên topic='news'."
+      }
     }
   ]
 }
