@@ -41,8 +41,8 @@ SUGGESTED_PROMPTS = [
     ("Tìm paper", "Tìm 3 paper gần đây về đánh giá AI agent, ưu tiên bài liên quan tool use."),
     ("Tra policy", "Chính sách nội bộ nói gì về việc trích dẫn nguồn trong báo cáo nghiên cứu?"),
 ]
-USER_AVATAR = "🧑‍💻"
-ASSISTANT_AVATAR = "🔎"
+USER_AVATAR = "user"
+ASSISTANT_AVATAR = "assistant"
 
 load_lab_env(ROOT)
 
@@ -51,250 +51,488 @@ def inject_styles() -> None:
     st.markdown(
         """
         <style>
-        :root {
-            --ink: #13231c;
-            --muted: #66736d;
-            --paper: #f7f5ef;
-            --card: rgba(255, 255, 255, .82);
-            --line: rgba(19, 35, 28, .11);
-            --green: #0d6b4f;
-            --mint: #dff4e8;
-            --orange: #e36d3a;
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+        @font-face {
+            font-family: 'Material Symbols Rounded';
+            font-style: normal;
+            font-weight: 400;
+            font-display: block;
+            src: local('Material Symbols Rounded'),
+                 url('./static/media/MaterialSymbols-Rounded.nEdyypZU.woff2') format('woff2');
         }
+
+        :root {
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-display: 'Plus Jakarta Sans', var(--font-sans);
+            --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+            /* Design System Palette (Slate, Teal, Tangerine) */
+            --bg-app: #f8fafc;
+            --bg-surface: #ffffff;
+            --bg-subtle: #f1f5f9;
+            --bg-card: #ffffff;
+
+            --ink: #0f172a;
+            --ink-secondary: #334155;
+            --muted: #64748b;
+            --line: #e2e8f0;
+            --line-subtle: rgba(15, 23, 42, 0.06);
+
+            --primary: #0d9488;
+            --primary-hover: #0f766e;
+            --primary-light: #f0fdfa;
+            --primary-border: #99f6e4;
+            --accent: #ea580c;
+            --accent-light: #fff7ed;
+
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+
+            --shadow-subtle: 0 1px 3px 0 rgba(15, 23, 42, 0.04), 0 1px 2px -1px rgba(15, 23, 42, 0.02);
+            --shadow-card: 0 4px 6px -1px rgba(15, 23, 42, 0.05), 0 2px 4px -2px rgba(15, 23, 42, 0.03);
+            --shadow-hover: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.04);
+        }
+
+        /* Targeted Typography: Scoped to text elements only */
         .stApp {
-            background:
-                radial-gradient(circle at 8% 8%, rgba(237, 209, 151, .28), transparent 26rem),
-                radial-gradient(circle at 92% 22%, rgba(86, 170, 137, .16), transparent 30rem),
-                var(--paper);
             color: var(--ink);
         }
-        .stApp::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            opacity: .18;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.08'/%3E%3C/svg%3E");
+
+        .stApp [data-testid="stMarkdownContainer"] p,
+        .stApp [data-testid="stMarkdownContainer"] li,
+        .stApp h1, .stApp h2, .stApp h3, .stApp h4,
+        .brand-name, .brand-kicker,
+        .session-title strong, .session-title span,
+        .session-metric strong, .session-metric span,
+        .version-card, .status-card, .prompt-card {
+            font-family: var(--font-sans);
         }
+
+        /* Protect Streamlit icon ligatures and prevent text overflow */
+        span[data-testid="stIconMaterial"],
+        .material-symbols-rounded {
+            font-family: 'Material Symbols Rounded' !important;
+            font-weight: 400 !important;
+            font-style: normal !important;
+            line-height: 1 !important;
+            letter-spacing: normal !important;
+            text-transform: none !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            white-space: nowrap !important;
+            word-wrap: normal !important;
+            direction: ltr !important;
+            font-feature-settings: 'liga' 1 !important;
+            -webkit-font-feature-settings: 'liga' 1 !important;
+            -webkit-font-smoothing: antialiased !important;
+            overflow: hidden !important;
+            text-overflow: clip !important;
+            max-width: 1.5rem !important;
+            flex-shrink: 0 !important;
+        }
+
+        .stApp {
+            background:
+                radial-gradient(at 0% 0%, rgba(240, 253, 250, 0.85) 0px, transparent 55%),
+                radial-gradient(at 100% 0%, rgba(241, 245, 249, 0.9) 0px, transparent 45%),
+                radial-gradient(at 50% 100%, rgba(240, 253, 250, 0.5) 0px, transparent 50%),
+                var(--bg-app);
+            color: var(--ink);
+        }
+
+        /* Sleek Scrollbars */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 999px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        /* Text Selection */
+        ::selection { background: #ccfbf1; color: #0f766e; }
+
+        /* Header & Sidebar */
         [data-testid="stHeader"] { background: transparent; }
         [data-testid="stSidebar"] {
-            background: rgba(246, 243, 234, .92);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border-right: 1px solid var(--line);
         }
-        [data-testid="stSidebar"] > div:first-child { padding-top: 1.35rem; }
-        .block-container { max-width: 980px; padding-top: 2.2rem; padding-bottom: 7rem; }
-        h1, h2, h3 { letter-spacing: -.035em; color: var(--ink); }
+        [data-testid="stSidebar"] > div:first-child {
+            padding-top: 1.5rem !important;
+        }
+
+        .block-container {
+            max-width: 1000px;
+            padding-top: 2rem;
+            padding-bottom: 6rem;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            color: var(--ink);
+        }
+
+        /* Brand Identity */
         .brand {
             display: flex;
             align-items: center;
-            gap: .75rem;
-            margin-bottom: 1.8rem;
+            gap: 0.85rem;
+            margin-bottom: 1.6rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--line);
         }
         .brand-mark {
             display: grid;
             place-items: center;
-            width: 2.4rem;
-            height: 2.4rem;
-            border-radius: 12px;
-            color: white;
+            width: 2.6rem;
+            height: 2.6rem;
+            border-radius: var(--radius-md);
+            color: #ffffff;
             font-weight: 800;
-            background: var(--green);
-            box-shadow: 0 8px 24px rgba(13, 107, 79, .18);
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
+            box-shadow: 0 4px 12px rgba(13, 148, 136, 0.25);
         }
-        .brand-name { font-weight: 760; line-height: 1.05; letter-spacing: -.02em; }
-        .brand-kicker { color: var(--muted); font-size: .72rem; margin-top: .2rem; }
-        .eyebrow {
+        .brand-name {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.05rem;
+            line-height: 1.2;
+            color: var(--ink);
+        }
+        .brand-kicker {
+            color: var(--muted);
+            font-size: 0.72rem;
+            font-weight: 500;
+            margin-top: 0.15rem;
+        }
+
+        /* Badge Pill */
+        .badge-pill {
             display: inline-flex;
             align-items: center;
-            gap: .45rem;
-            color: var(--green);
-            font-size: .72rem;
-            font-weight: 750;
-            letter-spacing: .12em;
-            text-transform: uppercase;
+            gap: 0.45rem;
+            padding: 0.28rem 0.75rem;
+            border-radius: 999px;
+            background: var(--primary-light);
+            border: 1px solid var(--primary-border);
+            color: var(--primary);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
         }
-        .eyebrow-dot {
-            width: .45rem;
-            height: .45rem;
+        .pulse-dot {
+            width: 0.45rem;
+            height: 0.45rem;
             border-radius: 50%;
-            background: #25a875;
-            box-shadow: 0 0 0 .28rem rgba(37, 168, 117, .12);
+            background: var(--primary);
+            box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.2);
         }
-        .hero { padding: 2.3rem 0 1.4rem; }
+
+        /* Hero Section */
+        .hero {
+            padding: 1.5rem 0 1.2rem;
+        }
         .hero h1 {
-            max-width: 780px;
-            font-size: clamp(2.45rem, 6vw, 4.35rem);
-            line-height: .98;
-            margin: .85rem 0 1.05rem;
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            line-height: 1.08;
+            margin: 0.85rem 0 1rem;
+            color: var(--ink);
         }
-        .hero h1 em { color: var(--green); font-style: normal; }
-        .hero p { max-width: 620px; color: var(--muted); font-size: 1.02rem; line-height: 1.65; }
+        .hero h1 em {
+            color: var(--primary);
+            font-style: normal;
+            background: linear-gradient(135deg, #0d9488, #14b8a6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            max-width: 65ch;
+            color: var(--ink-secondary);
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        /* Meta Pills */
         .meta-row {
             display: flex;
             flex-wrap: wrap;
-            gap: .55rem;
-            margin: 1.4rem 0 2.2rem;
+            gap: 0.5rem;
+            margin: 1.2rem 0 1.8rem;
         }
         .meta-pill {
-            padding: .48rem .72rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.35rem 0.75rem;
             border: 1px solid var(--line);
             border-radius: 999px;
-            background: rgba(255, 255, 255, .58);
-            color: #4b5a53;
-            font-size: .76rem;
+            background: #ffffff;
+            color: var(--ink-secondary);
+            font-size: 0.78rem;
+            font-weight: 500;
+            box-shadow: var(--shadow-subtle);
         }
-        .suggestion-label { color: var(--muted); font-size: .76rem; margin: 0 0 .6rem .1rem; }
+
+        /* Suggestion Buttons Grid */
+        .suggestion-label {
+            color: var(--muted);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin: 0 0 0.75rem 0.2rem;
+        }
+        .stButton > button {
+            border: 1px solid var(--line);
+            border-radius: var(--radius-md);
+            background: #ffffff;
+            color: var(--ink);
+            font-size: 0.88rem;
+            font-weight: 500;
+            min-height: 2.85rem;
+            box-shadow: var(--shadow-subtle);
+            transition: all 180ms cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .stButton > button:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: #ffffff;
+            box-shadow: var(--shadow-card);
+            transform: translateY(-1px);
+        }
+
+        /* Session Header Bar */
         .session-bar {
             display: grid;
             grid-template-columns: minmax(200px, 1fr) repeat(3, auto);
             align-items: center;
-            gap: .65rem;
-            margin: .75rem 0 1.4rem;
-            padding: .75rem .85rem;
+            gap: 0.75rem;
+            margin: 0.75rem 0 1.4rem;
+            padding: 0.85rem 1.1rem;
             border: 1px solid var(--line);
-            border-radius: 16px;
-            background: rgba(255, 255, 255, .62);
-            box-shadow: 0 8px 28px rgba(27, 45, 36, .035);
+            border-radius: var(--radius-lg);
+            background: #ffffff;
+            box-shadow: var(--shadow-subtle);
         }
         .session-title { min-width: 0; }
-        .session-title strong { display: block; font-size: .86rem; }
+        .session-title strong {
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--ink);
+        }
         .session-title span {
             display: block;
             overflow: hidden;
             color: var(--muted);
-            font-size: .7rem;
+            font-size: 0.75rem;
             text-overflow: ellipsis;
             white-space: nowrap;
+            margin-top: 0.15rem;
         }
         .session-metric {
-            min-width: 4.6rem;
-            padding: .35rem .6rem;
+            min-width: 4.8rem;
+            padding: 0.3rem 0.75rem;
             border-left: 1px solid var(--line);
             text-align: center;
         }
-        .session-metric strong { display: block; color: var(--ink); font-size: .94rem; }
-        .session-metric span { color: var(--muted); font-size: .65rem; }
-        .stButton > button {
-            border: 1px solid var(--line);
-            border-radius: 14px;
-            background: var(--card);
+        .session-metric strong {
+            display: block;
             color: var(--ink);
-            min-height: 2.8rem;
-            box-shadow: 0 4px 18px rgba(28, 42, 35, .035);
+            font-size: 1.05rem;
+            font-weight: 700;
+            font-family: var(--font-display);
         }
-        .stButton > button:hover { border-color: rgba(13, 107, 79, .45); color: var(--green); }
+        .session-metric span {
+            color: var(--muted);
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        /* Chat Messages */
         [data-testid="stChatMessage"] {
             border: 1px solid var(--line);
-            border-radius: 18px;
-            background: rgba(255, 255, 255, .68);
-            padding: .45rem .55rem;
-            margin-bottom: .8rem;
-            box-shadow: 0 8px 34px rgba(27, 45, 36, .035);
+            border-radius: var(--radius-lg);
+            background: #ffffff;
+            padding: 0.75rem 0.95rem;
+            margin-bottom: 0.85rem;
+            box-shadow: var(--shadow-subtle);
         }
         [data-testid="stChatMessage"]:has([data-testid="chatAvatarIcon-user"]) {
-            background: rgba(223, 244, 232, .54);
+            background: #f0fdfa;
+            border-color: #ccfbf1;
         }
         [data-testid="stChatInput"] {
-            border: 1px solid rgba(13, 107, 79, .24);
-            background: rgba(255, 255, 255, .93);
-            box-shadow: 0 15px 45px rgba(35, 57, 47, .12);
+            border: 1px solid #cbd5e1;
+            border-radius: var(--radius-lg);
+            background: #ffffff;
+            box-shadow: var(--shadow-hover);
         }
+        [data-testid="stChatInput"]:focus-within {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.18), var(--shadow-hover);
+        }
+
+        /* Expanders */
         [data-testid="stExpander"] {
             border: 1px solid var(--line);
-            border-radius: 12px;
-            background: rgba(255,255,255,.45);
+            border-radius: var(--radius-md);
+            background: #ffffff;
+            box-shadow: var(--shadow-subtle);
+            overflow: hidden;
+            margin-bottom: 0.75rem;
         }
+        [data-testid="stExpander"] summary {
+            padding: 0.75rem 1rem !important;
+        }
+
+        /* Tool Chips & Trace */
         .tool-chip {
-            display: inline-block;
-            margin: 0 .35rem .35rem 0;
-            padding: .28rem .56rem;
-            border-radius: 8px;
-            color: #0a5d44;
-            background: var(--mint);
-            font-size: .72rem;
-            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            margin: 0 0.35rem 0.35rem 0;
+            padding: 0.25rem 0.6rem;
+            border-radius: var(--radius-sm);
+            color: #0f766e;
+            background: #f0fdfa;
+            border: 1px solid #ccfbf1;
+            font-size: 0.75rem;
+            font-weight: 600;
+            font-family: var(--font-mono);
         }
         .trace-summary {
             display: flex;
             flex-wrap: wrap;
-            gap: .45rem;
-            margin-bottom: .8rem;
+            gap: 0.45rem;
+            margin-bottom: 0.85rem;
         }
         .trace-stat {
-            padding: .3rem .55rem;
+            padding: 0.3rem 0.6rem;
             border: 1px solid var(--line);
-            border-radius: 8px;
-            background: rgba(255,255,255,.62);
-            color: var(--muted);
-            font-size: .7rem;
+            border-radius: var(--radius-sm);
+            background: var(--bg-subtle);
+            color: var(--ink-secondary);
+            font-size: 0.72rem;
+            font-weight: 500;
         }
+
+        /* Comparison UI */
         .compare-hero {
-            margin: .8rem 0 1.5rem;
-            padding: 1.2rem 1.3rem;
+            margin: 0.8rem 0 1.6rem;
+            padding: 1.4rem 1.6rem;
             border: 1px solid var(--line);
-            border-radius: 18px;
-            background: linear-gradient(120deg, rgba(223,244,232,.72), rgba(255,255,255,.58));
+            border-radius: var(--radius-lg);
+            background: linear-gradient(135deg, rgba(240, 253, 250, 0.9) 0%, #ffffff 100%);
+            box-shadow: var(--shadow-subtle);
         }
-        .compare-hero h2 { margin: 0 0 .35rem; font-size: 1.55rem; }
-        .compare-hero p { margin: 0; color: var(--muted); font-size: .86rem; }
+        .compare-hero h2 {
+            margin: 0 0 0.4rem;
+            font-size: 1.65rem;
+        }
+        .compare-hero p {
+            margin: 0;
+            color: var(--ink-secondary);
+            font-size: 0.92rem;
+        }
         .version-card {
-            min-height: 9.4rem;
-            padding: 1rem;
+            min-height: 9.6rem;
+            padding: 1.15rem;
             border: 1px solid var(--line);
-            border-radius: 16px;
-            background: rgba(255,255,255,.7);
-            box-shadow: 0 8px 28px rgba(27,45,36,.04);
+            border-radius: var(--radius-lg);
+            background: #ffffff;
+            box-shadow: var(--shadow-subtle);
         }
         .version-card .version-label {
             display: inline-block;
-            padding: .25rem .5rem;
-            border-radius: 7px;
-            color: #0a5d44;
-            background: var(--mint);
-            font-size: .7rem;
+            padding: 0.25rem 0.55rem;
+            border-radius: var(--radius-sm);
+            color: #0f766e;
+            background: #f0fdfa;
+            border: 1px solid #ccfbf1;
+            font-size: 0.72rem;
+            font-weight: 700;
+            font-family: var(--font-mono);
+        }
+        .version-card .score {
+            margin: 0.65rem 0 0.15rem;
+            font-size: 2.1rem;
             font-weight: 800;
-        }
-        .version-card .score { margin: .65rem 0 .2rem; font-size: 2rem; font-weight: 780; letter-spacing: -.05em; }
-        .version-card .score-label { color: var(--muted); font-size: .7rem; }
-        .version-card .version-meta { margin-top: .7rem; color: var(--muted); font-size: .68rem; line-height: 1.45; }
-        .response-kicker {
-            margin-bottom: .55rem;
-            color: var(--muted);
-            font-size: .68rem;
-            font-weight: 750;
-            letter-spacing: .08em;
-            text-transform: uppercase;
-        }
-        .prompt-card {
-            margin: .6rem 0 1rem;
-            padding: .9rem 1rem;
-            border-left: 3px solid var(--green);
-            border-radius: 0 12px 12px 0;
-            background: rgba(255,255,255,.58);
+            letter-spacing: -0.04em;
+            font-family: var(--font-display);
             color: var(--ink);
         }
-        .side-section {
-            margin: 1.2rem 0 .55rem;
+        .version-card .score-label {
             color: var(--muted);
-            font-size: .68rem;
-            font-weight: 750;
-            letter-spacing: .1em;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+        }
+        .version-card .version-meta {
+            margin-top: 0.8rem;
+            color: var(--muted);
+            font-size: 0.7rem;
+            line-height: 1.45;
+        }
+
+        .prompt-card {
+            margin: 0.8rem 0 1.2rem;
+            padding: 1rem 1.2rem;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-md);
+            background: #ffffff;
+            color: var(--ink);
+            box-shadow: var(--shadow-subtle);
+        }
+        .prompt-card strong {
+            display: block;
+            font-size: 0.78rem;
+            color: var(--muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.35rem;
+        }
+
+        /* Sidebar Sections */
+        .side-section {
+            margin: 1.3rem 0 0.6rem;
+            color: var(--muted);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
         }
         .status-card {
-            padding: .8rem .9rem;
+            padding: 0.85rem 1rem;
             border: 1px solid var(--line);
-            border-radius: 13px;
-            background: rgba(255,255,255,.58);
-            font-size: .77rem;
-            color: var(--muted);
+            border-radius: var(--radius-md);
+            background: var(--bg-subtle);
+            font-size: 0.78rem;
+            color: var(--ink-secondary);
         }
-        .status-card strong { color: var(--ink); }
-        code { font-size: .8em !important; }
+        .status-card strong { color: var(--ink); font-weight: 600; }
+
+        code {
+            font-family: var(--font-mono) !important;
+            font-size: 0.82em !important;
+        }
+
         @media (max-width: 720px) {
             .block-container { padding-top: 1rem; }
-            .hero { padding-top: 1rem; }
-            .hero h1 { font-size: 2.55rem; }
+            .hero { padding-top: 0.5rem; }
+            .hero h1 { font-size: 2.2rem; }
             .session-bar { grid-template-columns: 1fr 1fr 1fr; }
             .session-title { grid-column: 1 / -1; }
             .session-metric { border-left: 0; border-top: 1px solid var(--line); }
@@ -305,22 +543,35 @@ def inject_styles() -> None:
     )
 
 
-def config_paths() -> tuple[Path, Path]:
+def config_paths(version: str = "v3") -> tuple[Path, Path]:
+    v_clean = version.strip().lower()
+    version_dir = ARTIFACTS_DIR / "versions" / v_clean
+    if version_dir.exists() and (version_dir / "system_prompt.md").exists() and (version_dir / "tools.yaml").exists():
+        return version_dir / "system_prompt.md", version_dir / "tools.yaml"
     return ARTIFACTS_DIR / "system_prompt.md", ARTIFACTS_DIR / "tools.yaml"
 
 
 @st.cache_data(show_spinner=False)
-def load_agent_assets(prompt_mtime: float, tools_mtime: float) -> tuple[str, list[dict[str, Any]]]:
-    del prompt_mtime, tools_mtime
-    prompt_path, tools_path = config_paths()
+def load_agent_assets(
+    version_key: str, prompt_path_str: str, tools_path_str: str, prompt_mtime: float, tools_mtime: float
+) -> tuple[str, list[dict[str, Any]]]:
+    del version_key, prompt_mtime, tools_mtime
+    prompt_path = Path(prompt_path_str)
+    tools_path = Path(tools_path_str)
     system_prompt = prompt_path.read_text(encoding="utf-8")
     declarations = load_tool_declarations(tools_path)
     return system_prompt, declarations
 
 
-def get_agent_assets() -> tuple[str, list[dict[str, Any]]]:
-    prompt_path, tools_path = config_paths()
-    return load_agent_assets(prompt_path.stat().st_mtime, tools_path.stat().st_mtime)
+def get_agent_assets(version: str = "v3") -> tuple[str, list[dict[str, Any]]]:
+    prompt_path, tools_path = config_paths(version)
+    return load_agent_assets(
+        version.strip().lower(),
+        str(prompt_path),
+        str(tools_path),
+        prompt_path.stat().st_mtime,
+        tools_path.stat().st_mtime,
+    )
 
 
 @st.cache_data(show_spinner=False)
@@ -365,7 +616,7 @@ def latest_base_runs(runs: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
 
 
 def new_chat_state(provider_name: str, model: str, version: str) -> None:
-    prompt_path, tools_path = config_paths()
+    prompt_path, tools_path = config_paths(version)
     timestamp = datetime.now().strftime("%Y%m%dT%H%M%S%f")
     transcript_id = "_".join([safe_slug(version), safe_slug(provider_name), timestamp])
     artifact_version = build_artifact_version(version, prompt_path, tools_path)
@@ -479,9 +730,8 @@ def render_tool_trace(turn: dict[str, Any]) -> None:
 
 
 def render_sidebar(
-    tool_declarations: list[dict[str, Any]],
     eval_runs: list[dict[str, Any]],
-) -> tuple[str, str, str, str]:
+) -> tuple[str, str, str, str, str, list[dict[str, Any]]]:
     with st.sidebar:
         st.markdown(
             """
@@ -508,7 +758,7 @@ def render_sidebar(
         model = st.session_state.get(f"model_{provider_name}", default_model)
 
         if mode == "chat":
-            st.markdown('<div class="side-section">Runtime</div>', unsafe_allow_html=True)
+            st.markdown('<div class="side-section">Runtime & Phiên bản</div>', unsafe_allow_html=True)
             provider_name = st.selectbox(
                 "Provider",
                 PROVIDERS,
@@ -525,12 +775,25 @@ def render_sidebar(
                 help="Để trống để dùng model mặc định của provider.",
             )
             st.session_state[f"model_{provider_name}"] = model
-            version = st.text_input(
-                "Artifact version",
-                value=version,
-                help="Nhãn version được lưu trong transcript.",
+
+            version_options = ["v3", "v2", "v1", "v0"]
+            version_descriptions = {
+                "v3": "v3 · Full multi-turn & tiếng Việt chuẩn (11 tools)",
+                "v2": "v2 · Tools WHEN TO USE & github_search (11 tools)",
+                "v1": "v1 · System Prompt 4 phần có rào chắn (10 tools)",
+                "v0": "v0 · Baseline starter (Đoán mò, tự gửi) (10 tools)",
+            }
+            version = st.selectbox(
+                "Phiên bản Agent",
+                options=version_options,
+                index=version_options.index(version) if version in version_options else 0,
+                format_func=lambda item: version_descriptions.get(item, item),
+                help="Chọn phiên bản để model tự động tải System Prompt và bộ Tools tương ứng.",
             )
             st.session_state.last_version = version
+
+            # Tải prompt và tools tương ứng với version đã chọn
+            system_prompt, tool_declarations = get_agent_assets(version)
 
             ready = provider_is_ready(provider_name)
             state_text = "Sẵn sàng" if ready else f"Thiếu {PROVIDER_KEY_ENV.get(provider_name, 'API key')}"
@@ -560,6 +823,7 @@ def render_sidebar(
                 st.session_state.history_window = st.slider("History window", 1, 10, st.session_state.history_window)
                 st.session_state.max_tool_rounds = st.slider("Max tool rounds", 1, 8, st.session_state.max_tool_rounds)
         else:
+            system_prompt, tool_declarations = get_agent_assets(version)
             comparable = latest_base_runs(eval_runs)
             st.markdown(
                 f'<div class="status-card"><strong>{len(comparable)} version base eval</strong><br>'
@@ -570,16 +834,16 @@ def render_sidebar(
         st.markdown('<div class="side-section">Toolbox</div>', unsafe_allow_html=True)
         names = [item.get("name", "unknown") for item in tool_declarations]
         st.markdown("".join(f'<span class="tool-chip">{name}</span>' for name in names), unsafe_allow_html=True)
-        st.caption("Prompt và tool declaration được nạp trực tiếp từ `artifacts/`.")
+        st.caption(f"Prompt và tool declaration được nạp từ `artifacts/versions/{version}`.")
 
-    return mode, provider_name, model, version
+    return mode, provider_name, model, version, system_prompt, tool_declarations
 
 
 def render_welcome(provider_name: str, model: str, declarations: list[dict[str, Any]]) -> str | None:
     st.markdown(
         """
         <section class="hero">
-            <div class="eyebrow"><span class="eyebrow-dot"></span> Evidence-driven research</div>
+            <div class="badge-pill"><span class="pulse-dot"></span> Evidence-driven Research Intelligence</div>
             <h1>Hỏi một lần.<br><em>Kiểm chứng từng bước.</em></h1>
             <p>Agent tự chọn công cụ, truy xuất nguồn và để lại toàn bộ dấu vết thực thi — từ routing, arguments đến kết quả.</p>
         </section>
@@ -590,11 +854,11 @@ def render_welcome(provider_name: str, model: str, declarations: list[dict[str, 
     st.markdown(
         f"""
         <div class="meta-row">
-            <span class="meta-pill">◉ {PROVIDER_LABELS[provider_name]}</span>
-            <span class="meta-pill">◇ {model_label}</span>
-            <span class="meta-pill">⌁ {len(declarations)} công cụ</span>
+            <span class="meta-pill">Provider: <strong>{PROVIDER_LABELS[provider_name]}</strong></span>
+            <span class="meta-pill">Model: <strong>{model_label}</strong></span>
+            <span class="meta-pill">Tools: <strong>{len(declarations)} công cụ</strong></span>
         </div>
-        <div class="suggestion-label">BẮT ĐẦU NHANH VỚI MỘT TÁC VỤ</div>
+        <div class="suggestion-label">GỢI Ý TÁC VỤ NGHIÊN CỨU</div>
         """,
         unsafe_allow_html=True,
     )
@@ -691,7 +955,7 @@ def render_version_comparison(eval_runs: list[dict[str, Any]]) -> None:
 
     st.markdown(
         """
-        <div class="eyebrow"><span class="eyebrow-dot"></span> Evaluation evidence</div>
+        <div class="badge-pill"><span class="pulse-dot"></span> Evaluation Evidence</div>
         <div class="compare-hero">
             <h2>So sánh phản hồi qua 3 phiên bản</h2>
             <p>Đọc cùng một eval case trên ba run thật để đối chiếu routing, arguments, phản hồi text và kết quả tool.</p>
@@ -892,14 +1156,12 @@ def main() -> None:
     st.session_state.setdefault("transcript_path", None)
     st.session_state.setdefault("active_signature", None)
 
+    eval_runs = get_eval_runs()
     try:
-        system_prompt, declarations = get_agent_assets()
+        mode, provider_name, model, version, system_prompt, declarations = render_sidebar(eval_runs)
     except Exception as exc:
         st.error(f"Không thể nạp artifacts: {type(exc).__name__}: {exc}")
         st.stop()
-
-    eval_runs = get_eval_runs()
-    mode, provider_name, model, version = render_sidebar(declarations, eval_runs)
 
     if mode == "compare":
         render_version_comparison(eval_runs)
@@ -910,7 +1172,7 @@ def main() -> None:
         suggested_prompt = render_welcome(provider_name, model, declarations)
     else:
         st.markdown(
-            '<div class="eyebrow"><span class="eyebrow-dot"></span> Research session</div>',
+            '<div class="badge-pill"><span class="pulse-dot"></span> Active Research Session</div>',
             unsafe_allow_html=True,
         )
         st.markdown("## Luồng nghiên cứu")
