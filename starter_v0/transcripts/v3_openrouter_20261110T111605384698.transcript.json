@@ -1,0 +1,510 @@
+{
+  "transcript_id": "v3_openrouter_20261110T111605384698",
+  "version": "v3",
+  "artifact_version": "v3+p21ee03877583+te16519996238",
+  "prompt_hash": "21ee03877583c9b29e2bce913222f83254e6318665eb827e457f10d3b984649c",
+  "tools_hash": "e16519996238923355c2d59699eb01aafcccecdb064236a076a6d8725def8334",
+  "provider": "openrouter",
+  "model": "openai/gpt-4o-mini",
+  "system_prompt": "artifacts/system_prompt.md",
+  "tools": "artifacts/tools.yaml",
+  "history_window": 5,
+  "max_tool_rounds": 4,
+  "created_at": "2026-11-10T11:16:05",
+  "updated_at": "2026-11-10T11:17:19",
+  "turns": [
+    {
+      "turn_index": 1,
+      "started_at": "2026-11-10T11:16:05",
+      "user": "Tìm 3 paper gần đây về đánh giá AI agent, ưu tiên bài liên quan tool use.",
+      "status": "answered",
+      "assistant_text": "Here are three recent papers related to AI agent evaluation and tool use:\n\n### AI Agent Evaluation\n1. **[ProCreate, Don't Reproduce! Propulsive Energy Diffusion for Creative Generation](http://arxiv.org/abs/2408.02226v3)**\n   - **Authors:** Jack Lu, Ryan Teehan, Mengye Ren\n   - **Published:** August 5, 2024\n   - **Summary:** This paper proposes ProCreate, a method to improve sample diversity and creativity in diffusion-based image generative models while preventing training data reproduction. It includes a dataset called FSCG-8 and demonstrates effectiveness in a large-scale evaluation.\n   - **[PDF Link](https://arxiv.org/pdf/2408.02226v3)**\n\n2. **[ORION: Intent-Aware Orchestration in Open RAN for SLA-Driven Network Management](http://arxiv.org/abs/2603.03667v2)**\n   - **Authors:** Gabriela da Silva Machado, Gustavo Z. Bruno, Alexandre Huff, José Marcos Camara Brito, Cristiano B. Both\n   - **Published:** March 4, 2026\n   - **Summary:** This article presents ORION, an intent orchestration framework that integrates Large Language Models (LLMs) for automated management in Open RAN. It evaluates LLM configurations for policy creation and assesses tool-use quality.\n   - **[PDF Link](https://arxiv.org/pdf/2603.03667v2)**\n\n3. **[Finite-Sample Probabilistic Safety Certification for AI-Based Grid-Edge Coordination](http://arxiv.org/abs/2609.28182v2)**\n   - **Authors:** Yihong Zhou, Hanbin Yang, Thomas Morstyn\n   - **Published:** September 23, 2026\n   - **Summary:** This paper develops a probabilistic safety certification framework for AI-based grid-edge coordination, focusing on ensuring safety for deployment through rigorous evaluation methods.\n   - **[PDF Link](https://arxiv.org/pdf/2609.28182v2)**\n\n### AI Agent Tool Use\n1. **[ORION: Intent-Aware Orchestration in Open RAN for SLA-Driven Network Management](http://arxiv.org/abs/2603.03667v2)**\n   - **Authors:** Gabriela da Silva Machado, Gustavo Z. Bruno, Alexandre Huff, José Marcos Camara Brito, Cristiano B. Both\n   - **Published:** March 4, 2026\n   - **Summary:** This paper discusses the ORION framework, which integrates LLMs for network policy creation and evaluates tool-use quality in the context of Open RAN.\n   - **[PDF Link](https://arxiv.org/pdf/2603.03667v2)**\n\n2. **[Agent Self-Improvement with Frozen Weights: The Added Value and Limits of Failure Traces](http://arxiv.org/abs/2611.11342v1)**\n   - **Author:** Arkid Mitra\n   - **Published:** November 8, 2026\n   - **Summary:** This study evaluates whether AI agents can learn from their failure traces and discusses the effectiveness of notes based on mistakes in improving decision-making accuracy.\n   - **[PDF Link](https://arxiv.org/pdf/2611.11342v1)**\n\n3. **[Linking Event-sequence Data Claims to Analytic Provenance in Chatbots: Technique and Evaluation](http://arxiv.org/abs/2611.11325v1)**\n   - **Authors:** Po-Ming Law, Jianheng Ouyang, Nguyen-Truong Thinh, Weizhi Li, Arpit Narechania\n   - **Published:** November 8, 2026\n   - **Summary:** This paper introduces a technique for linking data claims to their analytic provenance in chatbots, emphasizing the importance of explanations and citations in data analysis.\n   - **[PDF Link](https://arxiv.org/pdf/2611.11325v1)**\n\nIf you need further details or assistance, feel free to ask!",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "papers",
+              "args": {
+                "query": "AI agent evaluation",
+                "max_results": 3,
+                "sort_by": "lastUpdatedDate"
+              }
+            },
+            {
+              "name": "papers",
+              "args": {
+                "query": "AI agent tool use",
+                "max_results": 3,
+                "sort_by": "lastUpdatedDate"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "papers",
+              "args": {
+                "query": "AI agent evaluation",
+                "max_results": 3,
+                "sort_by": "lastUpdatedDate"
+              },
+              "result": {
+                "tool": "arxiv_search",
+                "query": "AI agent evaluation",
+                "api_query": "all:AI AND all:agent AND all:evaluation",
+                "total_results": 6036,
+                "items": [
+                  {
+                    "arxiv_id": "2408.02226v3",
+                    "title": "ProCreate, Don't Reproduce! Propulsive Energy Diffusion for Creative Generation",
+                    "summary": "In this paper, we propose ProCreate, a simple and easy-to-implement method to improve sample diversity and creativity of diffusion-based image generative models and to prevent training data reproduction. ProCreate operates on a set of reference images and actively propels the generated image embedding away from the reference embeddings during the generation process. We propose FSCG-8 (Few-Shot Creative Generation 8), a few-shot creative generation dataset on eight different categories -- encompassing different concepts, styles, and settings -- in which ProCreate achieves the highest sample diversity and fidelity. Furthermore, we show that ProCreate is effective at preventing replicating training data in a large-scale evaluation using training text prompts. Code and FSCG-8 are available at https://github.com/Agentic-Learning-AI-Lab/procreate-diffusion-public. The project page is available at https://procreate-diffusion.github.io.",
+                    "authors": [
+                      "Jack Lu",
+                      "Ryan Teehan",
+                      "Mengye Ren"
+                    ],
+                    "published": "2024-08-05T04:10:52Z",
+                    "updated": "2026-11-08T16:30:35Z",
+                    "url": "http://arxiv.org/abs/2408.02226v3",
+                    "pdf_url": "https://arxiv.org/pdf/2408.02226v3",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2603.03667v2",
+                    "title": "ORION: Intent-Aware Orchestration in Open RAN for SLA-Driven Network Management",
+                    "summary": "The disaggregation of the Radio Access Network (RAN) introduces architectural flexibility but significant operational complexity, necessitating automated management frameworks. For instance, current Open RAN (O-RAN) orchestration relies on fragmented manual policies, lacking end-to-end intent assurance from high-level requirements to low-level configurations. In this article, we propose ORION, an intent orchestration framework that integrates Large Language Models (LLMs) through the Model Context Protocol (MCP). It translates natural language slice requests into network policies aligned with O-RAN interfaces, supporting the AI-RAN agentic orchestration and AI-for-RAN paradigms. ORION combines an MCP-based Service Management and Orchestration (SMO) layer with a Non-Real-Time RIC rApp and a Near-Real-Time RIC xApp to enforce Physical Resource Block (PRB) quotas over E2. We evaluate eight LLM configurations across proprietary and open-weight models on a 100-intent workload. Claude Opus 4.5 and GPT-5 achieve 100% policy-creation success with 99% and 96% slice-type classification accuracy, while GPT-5 Nano achieves 97% policy-creation success. The evaluation also assesses MCP tool-use quality, cost-performance trade-offs, resource consumption, and end-to-end control-path latency.",
+                    "authors": [
+                      "Gabriela da Silva Machado",
+                      "Gustavo Z. Bruno",
+                      "Alexandre Huff",
+                      "José Marcos Camara Brito",
+                      "Cristiano B. Both"
+                    ],
+                    "published": "2026-03-04T02:47:10Z",
+                    "updated": "2026-11-08T14:46:41Z",
+                    "url": "http://arxiv.org/abs/2603.03667v2",
+                    "pdf_url": "https://arxiv.org/pdf/2603.03667v2",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.NI",
+                    "categories": [
+                      "cs.NI"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2609.28182v2",
+                    "title": "Finite-Sample Probabilistic Safety Certification for AI-Based Grid-Edge Coordination",
+                    "summary": "Coordinating a large population of flexible grid-edge devices can alleviate the need for time-consuming and capital-intensive network upgrades. Artificial intelligence (AI)-based control methods such as multi-agent reinforcement learning or imitation learning are promising to this coordination due to their real-time decision scalability. However, system operators still need an independent and rigorous way to decide whether a given AI system is safe enough for deployment. This paper develops a \\emph{finite-sample} probabilistic safety certification framework for AI-based grid-edge coordination. The central idea is to reduce the complete input--AI--decision--evaluation workflow to a binary unsafe outcome under an operator-defined safety specification, and then use exact binomial inference to certify the corresponding unsafe operation probability. Given a set of held-out calibration scenarios, the framework returns the tightest one-sided upper certificate and an accept/reject deployment criterion that controls the probability of false safety certification. Because the certification is for the calibration distribution that may \\emph{deviate} from the future operation, we further combine the nominal certificate with physically interpretable sample-space adversarial attacks, a concept widely used in AI models to investigate their fragility. Case studies on grid-edge flexibility coordination with 1{,}000-agent AI models (independent parameters) verify the safety guarantee and the value of integrating adversarial attacks into a rolling-window training-certification-deployment flow.",
+                    "authors": [
+                      "Yihong Zhou",
+                      "Hanbin Yang",
+                      "Thomas Morstyn"
+                    ],
+                    "published": "2026-09-23T14:24:46Z",
+                    "updated": "2026-11-08T14:10:09Z",
+                    "url": "http://arxiv.org/abs/2609.28182v2",
+                    "pdf_url": "https://arxiv.org/pdf/2609.28182v2",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.AI",
+                    "categories": [
+                      "cs.AI",
+                      "cs.LG",
+                      "eess.SY"
+                    ]
+                  }
+                ],
+                "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+              }
+            },
+            {
+              "tool": "papers",
+              "args": {
+                "query": "AI agent tool use",
+                "max_results": 3,
+                "sort_by": "lastUpdatedDate"
+              },
+              "result": {
+                "tool": "arxiv_search",
+                "query": "AI agent tool use",
+                "api_query": "all:AI AND all:agent AND all:tool AND all:use",
+                "total_results": 1848,
+                "items": [
+                  {
+                    "arxiv_id": "2603.03667v2",
+                    "title": "ORION: Intent-Aware Orchestration in Open RAN for SLA-Driven Network Management",
+                    "summary": "The disaggregation of the Radio Access Network (RAN) introduces architectural flexibility but significant operational complexity, necessitating automated management frameworks. For instance, current Open RAN (O-RAN) orchestration relies on fragmented manual policies, lacking end-to-end intent assurance from high-level requirements to low-level configurations. In this article, we propose ORION, an intent orchestration framework that integrates Large Language Models (LLMs) through the Model Context Protocol (MCP). It translates natural language slice requests into network policies aligned with O-RAN interfaces, supporting the AI-RAN agentic orchestration and AI-for-RAN paradigms. ORION combines an MCP-based Service Management and Orchestration (SMO) layer with a Non-Real-Time RIC rApp and a Near-Real-Time RIC xApp to enforce Physical Resource Block (PRB) quotas over E2. We evaluate eight LLM configurations across proprietary and open-weight models on a 100-intent workload. Claude Opus 4.5 and GPT-5 achieve 100% policy-creation success with 99% and 96% slice-type classification accuracy, while GPT-5 Nano achieves 97% policy-creation success. The evaluation also assesses MCP tool-use quality, cost-performance trade-offs, resource consumption, and end-to-end control-path latency.",
+                    "authors": [
+                      "Gabriela da Silva Machado",
+                      "Gustavo Z. Bruno",
+                      "Alexandre Huff",
+                      "José Marcos Camara Brito",
+                      "Cristiano B. Both"
+                    ],
+                    "published": "2026-03-04T02:47:10Z",
+                    "updated": "2026-11-08T14:46:41Z",
+                    "url": "http://arxiv.org/abs/2603.03667v2",
+                    "pdf_url": "https://arxiv.org/pdf/2603.03667v2",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.NI",
+                    "categories": [
+                      "cs.NI"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2611.11342v1",
+                    "title": "Agent Self-Improvement with Frozen Weights: The Added Value and Limits of Failure Traces",
+                    "summary": "We evaluate whether an AI agent's harness, the notes around its model, can learn from the agent's failure traces beyond a matched search that never sees them. It can, but less than it looks. We tested an open 9-billion-parameter model with fixed weights; a larger teacher model wrote its notes. On generated customer-service decisions, where both note writers were told the target rules, notes based on the agent's mistakes improved accuracy by 4.0 percentage points over notes from the same process with the mistakes withheld. That process alone, trying and keeping better-scoring notes, reached about 60% of the total improvement. In full customer-service conversations the same notes showed no demonstrated improvement. Separately, a strict screen of single lessons admitted two customer-service lessons, still awaiting tests on new data, and one tool-use lesson, written without seeing the agent's mistakes, which showed no demonstrated gain on new tool-use tasks. A neutral note with no procedure scored higher than the learned lessons (exploratory). A blind audit judged 146 of 240 tool-use test items defective.",
+                    "authors": [
+                      "Arkid Mitra"
+                    ],
+                    "published": "2026-11-08T12:39:45Z",
+                    "updated": "2026-11-08T12:39:45Z",
+                    "url": "http://arxiv.org/abs/2611.11342v1",
+                    "pdf_url": "https://arxiv.org/pdf/2611.11342v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.LG",
+                    "categories": [
+                      "cs.LG",
+                      "cs.AI",
+                      "cs.CL"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2611.11325v1",
+                    "title": "Linking Event-sequence Data Claims to Analytic Provenance in Chatbots: Technique and Evaluation",
+                    "summary": "Chatbots are increasingly used to analyze temporal event sequences of which website clickstreams are among the most common. Explanations are essential for understanding claims about event-sequence data. However, existing systems often require programming expertise to interpret these explanations and fail to explain the data processes underlying the data claims. We introduce a technique for linking a data claim to its analytic provenance (i.e., the analytic steps and results that produced it). It has two components: a reference table that records analytic steps and results in addressable cells, and a citation format that binds each claim to one or more cells. To operationalize this technique for clickstream analysis, we curated a set of analytic operations for clickstream analysis, organized them through a pivot-table abstraction, and developed tools that an AI agent can invoke to create a reference table and assemble a natural language response with cited data claims. To evaluate how citations affect users' assessment of data claims, we conducted two crowdsourced experiments with 90 participants each. The experiments showed that participants perceived correct data claims to be more accurate with citations when compared with no explanations, and that they perceived incorrect data claims to be less accurate with citations when compared with code and no explanations.",
+                    "authors": [
+                      "Po-Ming Law",
+                      "Jianheng Ouyang",
+                      "Nguyen-Truong Thinh",
+                      "Weizhi Li",
+                      "Arpit Narechania"
+                    ],
+                    "published": "2026-11-08T12:00:56Z",
+                    "updated": "2026-11-08T12:00:56Z",
+                    "url": "http://arxiv.org/abs/2611.11325v1",
+                    "pdf_url": "https://arxiv.org/pdf/2611.11325v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.HC",
+                    "categories": [
+                      "cs.HC"
+                    ]
+                  }
+                ],
+                "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Here are three recent papers related to AI agent evaluation and tool use:\n\n### AI Agent Evaluation\n1. **[ProCreate, Don't Reproduce! Propulsive Energy Diffusion for Creative Generation](http://arxiv.org/abs/2408.02226v3)**\n   - **Authors:** Jack Lu, Ryan Teehan, Mengye Ren\n   - **Published:** August 5, 2024\n   - **Summary:** This paper proposes ProCreate, a method to improve sample diversity and creativity in diffusion-based image generative models while preventing training data reproduction. It includes a dataset called FSCG-8 and demonstrates effectiveness in a large-scale evaluation.\n   - **[PDF Link](https://arxiv.org/pdf/2408.02226v3)**\n\n2. **[ORION: Intent-Aware Orchestration in Open RAN for SLA-Driven Network Management](http://arxiv.org/abs/2603.03667v2)**\n   - **Authors:** Gabriela da Silva Machado, Gustavo Z. Bruno, Alexandre Huff, José Marcos Camara Brito, Cristiano B. Both\n   - **Published:** March 4, 2026\n   - **Summary:** This article presents ORION, an intent orchestration framework that integrates Large Language Models (LLMs) for automated management in Open RAN. It evaluates LLM configurations for policy creation and assesses tool-use quality.\n   - **[PDF Link](https://arxiv.org/pdf/2603.03667v2)**\n\n3. **[Finite-Sample Probabilistic Safety Certification for AI-Based Grid-Edge Coordination](http://arxiv.org/abs/2609.28182v2)**\n   - **Authors:** Yihong Zhou, Hanbin Yang, Thomas Morstyn\n   - **Published:** September 23, 2026\n   - **Summary:** This paper develops a probabilistic safety certification framework for AI-based grid-edge coordination, focusing on ensuring safety for deployment through rigorous evaluation methods.\n   - **[PDF Link](https://arxiv.org/pdf/2609.28182v2)**\n\n### AI Agent Tool Use\n1. **[ORION: Intent-Aware Orchestration in Open RAN for SLA-Driven Network Management](http://arxiv.org/abs/2603.03667v2)**\n   - **Authors:** Gabriela da Silva Machado, Gustavo Z. Bruno, Alexandre Huff, José Marcos Camara Brito, Cristiano B. Both\n   - **Published:** March 4, 2026\n   - **Summary:** This paper discusses the ORION framework, which integrates LLMs for network policy creation and evaluates tool-use quality in the context of Open RAN.\n   - **[PDF Link](https://arxiv.org/pdf/2603.03667v2)**\n\n2. **[Agent Self-Improvement with Frozen Weights: The Added Value and Limits of Failure Traces](http://arxiv.org/abs/2611.11342v1)**\n   - **Author:** Arkid Mitra\n   - **Published:** November 8, 2026\n   - **Summary:** This study evaluates whether AI agents can learn from their failure traces and discusses the effectiveness of notes based on mistakes in improving decision-making accuracy.\n   - **[PDF Link](https://arxiv.org/pdf/2611.11342v1)**\n\n3. **[Linking Event-sequence Data Claims to Analytic Provenance in Chatbots: Technique and Evaluation](http://arxiv.org/abs/2611.11325v1)**\n   - **Authors:** Po-Ming Law, Jianheng Ouyang, Nguyen-Truong Thinh, Weizhi Li, Arpit Narechania\n   - **Published:** November 8, 2026\n   - **Summary:** This paper introduces a technique for linking data claims to their analytic provenance in chatbots, emphasizing the importance of explanations and citations in data analysis.\n   - **[PDF Link](https://arxiv.org/pdf/2611.11325v1)**\n\nIf you need further details or assistance, feel free to ask!",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "papers",
+          "args": {
+            "query": "AI agent evaluation",
+            "max_results": 3,
+            "sort_by": "lastUpdatedDate"
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "query": "AI agent evaluation",
+            "api_query": "all:AI AND all:agent AND all:evaluation",
+            "total_results": 6036,
+            "items": [
+              {
+                "arxiv_id": "2408.02226v3",
+                "title": "ProCreate, Don't Reproduce! Propulsive Energy Diffusion for Creative Generation",
+                "summary": "In this paper, we propose ProCreate, a simple and easy-to-implement method to improve sample diversity and creativity of diffusion-based image generative models and to prevent training data reproduction. ProCreate operates on a set of reference images and actively propels the generated image embedding away from the reference embeddings during the generation process. We propose FSCG-8 (Few-Shot Creative Generation 8), a few-shot creative generation dataset on eight different categories -- encompassing different concepts, styles, and settings -- in which ProCreate achieves the highest sample diversity and fidelity. Furthermore, we show that ProCreate is effective at preventing replicating training data in a large-scale evaluation using training text prompts. Code and FSCG-8 are available at https://github.com/Agentic-Learning-AI-Lab/procreate-diffusion-public. The project page is available at https://procreate-diffusion.github.io.",
+                "authors": [
+                  "Jack Lu",
+                  "Ryan Teehan",
+                  "Mengye Ren"
+                ],
+                "published": "2024-08-05T04:10:52Z",
+                "updated": "2026-11-08T16:30:35Z",
+                "url": "http://arxiv.org/abs/2408.02226v3",
+                "pdf_url": "https://arxiv.org/pdf/2408.02226v3",
+                "source": "arxiv.org",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV"
+                ]
+              },
+              {
+                "arxiv_id": "2603.03667v2",
+                "title": "ORION: Intent-Aware Orchestration in Open RAN for SLA-Driven Network Management",
+                "summary": "The disaggregation of the Radio Access Network (RAN) introduces architectural flexibility but significant operational complexity, necessitating automated management frameworks. For instance, current Open RAN (O-RAN) orchestration relies on fragmented manual policies, lacking end-to-end intent assurance from high-level requirements to low-level configurations. In this article, we propose ORION, an intent orchestration framework that integrates Large Language Models (LLMs) through the Model Context Protocol (MCP). It translates natural language slice requests into network policies aligned with O-RAN interfaces, supporting the AI-RAN agentic orchestration and AI-for-RAN paradigms. ORION combines an MCP-based Service Management and Orchestration (SMO) layer with a Non-Real-Time RIC rApp and a Near-Real-Time RIC xApp to enforce Physical Resource Block (PRB) quotas over E2. We evaluate eight LLM configurations across proprietary and open-weight models on a 100-intent workload. Claude Opus 4.5 and GPT-5 achieve 100% policy-creation success with 99% and 96% slice-type classification accuracy, while GPT-5 Nano achieves 97% policy-creation success. The evaluation also assesses MCP tool-use quality, cost-performance trade-offs, resource consumption, and end-to-end control-path latency.",
+                "authors": [
+                  "Gabriela da Silva Machado",
+                  "Gustavo Z. Bruno",
+                  "Alexandre Huff",
+                  "José Marcos Camara Brito",
+                  "Cristiano B. Both"
+                ],
+                "published": "2026-03-04T02:47:10Z",
+                "updated": "2026-11-08T14:46:41Z",
+                "url": "http://arxiv.org/abs/2603.03667v2",
+                "pdf_url": "https://arxiv.org/pdf/2603.03667v2",
+                "source": "arxiv.org",
+                "primary_category": "cs.NI",
+                "categories": [
+                  "cs.NI"
+                ]
+              },
+              {
+                "arxiv_id": "2609.28182v2",
+                "title": "Finite-Sample Probabilistic Safety Certification for AI-Based Grid-Edge Coordination",
+                "summary": "Coordinating a large population of flexible grid-edge devices can alleviate the need for time-consuming and capital-intensive network upgrades. Artificial intelligence (AI)-based control methods such as multi-agent reinforcement learning or imitation learning are promising to this coordination due to their real-time decision scalability. However, system operators still need an independent and rigorous way to decide whether a given AI system is safe enough for deployment. This paper develops a \\emph{finite-sample} probabilistic safety certification framework for AI-based grid-edge coordination. The central idea is to reduce the complete input--AI--decision--evaluation workflow to a binary unsafe outcome under an operator-defined safety specification, and then use exact binomial inference to certify the corresponding unsafe operation probability. Given a set of held-out calibration scenarios, the framework returns the tightest one-sided upper certificate and an accept/reject deployment criterion that controls the probability of false safety certification. Because the certification is for the calibration distribution that may \\emph{deviate} from the future operation, we further combine the nominal certificate with physically interpretable sample-space adversarial attacks, a concept widely used in AI models to investigate their fragility. Case studies on grid-edge flexibility coordination with 1{,}000-agent AI models (independent parameters) verify the safety guarantee and the value of integrating adversarial attacks into a rolling-window training-certification-deployment flow.",
+                "authors": [
+                  "Yihong Zhou",
+                  "Hanbin Yang",
+                  "Thomas Morstyn"
+                ],
+                "published": "2026-09-23T14:24:46Z",
+                "updated": "2026-11-08T14:10:09Z",
+                "url": "http://arxiv.org/abs/2609.28182v2",
+                "pdf_url": "https://arxiv.org/pdf/2609.28182v2",
+                "source": "arxiv.org",
+                "primary_category": "cs.AI",
+                "categories": [
+                  "cs.AI",
+                  "cs.LG",
+                  "eess.SY"
+                ]
+              }
+            ],
+            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+          }
+        },
+        {
+          "tool": "papers",
+          "args": {
+            "query": "AI agent tool use",
+            "max_results": 3,
+            "sort_by": "lastUpdatedDate"
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "query": "AI agent tool use",
+            "api_query": "all:AI AND all:agent AND all:tool AND all:use",
+            "total_results": 1848,
+            "items": [
+              {
+                "arxiv_id": "2603.03667v2",
+                "title": "ORION: Intent-Aware Orchestration in Open RAN for SLA-Driven Network Management",
+                "summary": "The disaggregation of the Radio Access Network (RAN) introduces architectural flexibility but significant operational complexity, necessitating automated management frameworks. For instance, current Open RAN (O-RAN) orchestration relies on fragmented manual policies, lacking end-to-end intent assurance from high-level requirements to low-level configurations. In this article, we propose ORION, an intent orchestration framework that integrates Large Language Models (LLMs) through the Model Context Protocol (MCP). It translates natural language slice requests into network policies aligned with O-RAN interfaces, supporting the AI-RAN agentic orchestration and AI-for-RAN paradigms. ORION combines an MCP-based Service Management and Orchestration (SMO) layer with a Non-Real-Time RIC rApp and a Near-Real-Time RIC xApp to enforce Physical Resource Block (PRB) quotas over E2. We evaluate eight LLM configurations across proprietary and open-weight models on a 100-intent workload. Claude Opus 4.5 and GPT-5 achieve 100% policy-creation success with 99% and 96% slice-type classification accuracy, while GPT-5 Nano achieves 97% policy-creation success. The evaluation also assesses MCP tool-use quality, cost-performance trade-offs, resource consumption, and end-to-end control-path latency.",
+                "authors": [
+                  "Gabriela da Silva Machado",
+                  "Gustavo Z. Bruno",
+                  "Alexandre Huff",
+                  "José Marcos Camara Brito",
+                  "Cristiano B. Both"
+                ],
+                "published": "2026-03-04T02:47:10Z",
+                "updated": "2026-11-08T14:46:41Z",
+                "url": "http://arxiv.org/abs/2603.03667v2",
+                "pdf_url": "https://arxiv.org/pdf/2603.03667v2",
+                "source": "arxiv.org",
+                "primary_category": "cs.NI",
+                "categories": [
+                  "cs.NI"
+                ]
+              },
+              {
+                "arxiv_id": "2611.11342v1",
+                "title": "Agent Self-Improvement with Frozen Weights: The Added Value and Limits of Failure Traces",
+                "summary": "We evaluate whether an AI agent's harness, the notes around its model, can learn from the agent's failure traces beyond a matched search that never sees them. It can, but less than it looks. We tested an open 9-billion-parameter model with fixed weights; a larger teacher model wrote its notes. On generated customer-service decisions, where both note writers were told the target rules, notes based on the agent's mistakes improved accuracy by 4.0 percentage points over notes from the same process with the mistakes withheld. That process alone, trying and keeping better-scoring notes, reached about 60% of the total improvement. In full customer-service conversations the same notes showed no demonstrated improvement. Separately, a strict screen of single lessons admitted two customer-service lessons, still awaiting tests on new data, and one tool-use lesson, written without seeing the agent's mistakes, which showed no demonstrated gain on new tool-use tasks. A neutral note with no procedure scored higher than the learned lessons (exploratory). A blind audit judged 146 of 240 tool-use test items defective.",
+                "authors": [
+                  "Arkid Mitra"
+                ],
+                "published": "2026-11-08T12:39:45Z",
+                "updated": "2026-11-08T12:39:45Z",
+                "url": "http://arxiv.org/abs/2611.11342v1",
+                "pdf_url": "https://arxiv.org/pdf/2611.11342v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.LG",
+                "categories": [
+                  "cs.LG",
+                  "cs.AI",
+                  "cs.CL"
+                ]
+              },
+              {
+                "arxiv_id": "2611.11325v1",
+                "title": "Linking Event-sequence Data Claims to Analytic Provenance in Chatbots: Technique and Evaluation",
+                "summary": "Chatbots are increasingly used to analyze temporal event sequences of which website clickstreams are among the most common. Explanations are essential for understanding claims about event-sequence data. However, existing systems often require programming expertise to interpret these explanations and fail to explain the data processes underlying the data claims. We introduce a technique for linking a data claim to its analytic provenance (i.e., the analytic steps and results that produced it). It has two components: a reference table that records analytic steps and results in addressable cells, and a citation format that binds each claim to one or more cells. To operationalize this technique for clickstream analysis, we curated a set of analytic operations for clickstream analysis, organized them through a pivot-table abstraction, and developed tools that an AI agent can invoke to create a reference table and assemble a natural language response with cited data claims. To evaluate how citations affect users' assessment of data claims, we conducted two crowdsourced experiments with 90 participants each. The experiments showed that participants perceived correct data claims to be more accurate with citations when compared with no explanations, and that they perceived incorrect data claims to be less accurate with citations when compared with code and no explanations.",
+                "authors": [
+                  "Po-Ming Law",
+                  "Jianheng Ouyang",
+                  "Nguyen-Truong Thinh",
+                  "Weizhi Li",
+                  "Arpit Narechania"
+                ],
+                "published": "2026-11-08T12:00:56Z",
+                "updated": "2026-11-08T12:00:56Z",
+                "url": "http://arxiv.org/abs/2611.11325v1",
+                "pdf_url": "https://arxiv.org/pdf/2611.11325v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.HC",
+                "categories": [
+                  "cs.HC"
+                ]
+              }
+            ],
+            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+          }
+        }
+      ],
+      "ended_at": "2026-11-10T11:16:22"
+    },
+    {
+      "turn_index": 2,
+      "started_at": "2026-11-10T11:17:07",
+      "user": "tìm bài viết nào hot nhất hiện tại",
+      "status": "answered",
+      "assistant_text": "Here are some of the hottest recent articles related to AI:\n\n1. **[Recent Advances in AI Are Creating a ‘Paradigm Shift’ for Robotics](https://vcresearch.berkeley.edu/news/recent-advances-ai-are-creating-paradigm-shift-robotics)** - UC Berkeley\n   - Summary: AI agents are reshaping various fields, including robotics, by enabling teams to develop and refine robot-control programs autonomously. The article discusses how new models allow AI agents to simulate and improve their tasks effectively.\n\n2. **[Meta introduces Muse Ember to power cost-efficient AI agents](https://siliconangle.com/2026/11/09/meta-introduces-muse-ember-to-power-cost-efficient-ai-agents)** - SiliconANGLE\n   - Summary: Meta has launched Muse Ember, aimed at enhancing the efficiency of AI agents. The article also touches on other recent developments in AI, including upgrades from Anthropic.\n\n3. **[Live online certificate brings AI expertise to finance professionals](https://news.cornell.edu/stories/2026/11/live-online-certificate-brings-ai-expertise-finance-professionals)** - Cornell Chronicle\n   - Summary: Cornell University has introduced a live online certificate program focusing on AI applications in finance, covering various topics from foundational AI tools to industry-specific applications.\n\n4. **[Google AI policy forces decision for San Diego schools](https://www.nbcsandiego.com/news/local/googles-ai-ultimatum-forces-san-diego-schools-make-tough-choice/4099437)** - NBC 7 San Diego\n   - Summary: San Diego schools face a deadline to decide on Google's AI features, which could impact students' access to technology. The article discusses the implications of this decision on educational practices.\n\n5. **[Military-made AI tool helped thwart World Cup bomb threat](https://federalnewsnetwork.com/artificial-intelligence/2026/11/military-made-ai-tool-helped-thwart-world-cup-bomb-threat)** - Federal News Network\n   - Summary: An AI tool developed by the military played a crucial role in preventing a bomb threat during the FIFA World Cup, showcasing the application of AI in security measures.\n\nIf you need more information or specific details about any of these articles, feel free to ask!",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "lookup",
+              "args": {
+                "query": "AI",
+                "topic": "news",
+                "timeframe": "day",
+                "max_results": 5
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "lookup",
+              "args": {
+                "query": "AI",
+                "topic": "news",
+                "timeframe": "day",
+                "max_results": 5
+              },
+              "result": {
+                "tool": "web_search",
+                "query": "AI",
+                "topic": "news",
+                "timeframe": "day",
+                "items": [
+                  {
+                    "title": "Recent Advances in AI Are Creating a ‘Paradigm Shift’ for Robotics | Research UC Berkeley",
+                    "url": "https://vcresearch.berkeley.edu/news/recent-advances-ai-are-creating-paradigm-shift-robotics",
+                    "source": "vcresearch.berkeley.edu",
+                    "summary": "In recent months, artificial intelligence agents that can reason, plan and use external tools to accomplish multistep tasks have already reshaped computer coding, online shopping, dinner reservations and cyberattacks.\n\nRobotics might be next.\n\nKen Goldberg, a UC Berkeley roboticist and professor of engineering, said new models make it possible for teams of AI agents to develop robot-control programs, test them in simulated environments and revise the code when something doesn’t work. [...] Then, AI agents generate and connect these skills into a robot program. Using NVIDIA’s Isaac simulation libraries, the agents autonomously rehearse the program across task variations, identify where failures happen and refine the approach before deployment. [...] OpenAI’s recent release of its Astra model made the process even more promising, Goldberg said. His postdoctoral students Eric Kaiyuan Chen and Shuangyu Xie gave Astra access to their simulation interface and a short video of a real robot whose assignment was using a sponge to wipe ink off a metal bar. In less than an hour, the AI tool created and fine-tuned a physics simulation that accurately reproduced the video, including very realistic deformations of the sponge.",
+                    "score": 0.29827207
+                  },
+                  {
+                    "title": "Meta introduces Muse Ember to power cost-efficient AI agents - SiliconANGLE",
+                    "url": "https://siliconangle.com/2026/11/09/meta-introduces-muse-ember-to-power-cost-efficient-ai-agents",
+                    "source": "siliconangle.com",
+                    "summary": "Anthropic launches Fable 5.2 and Mythos 5.2 with science, coding upgrades\n\n  AI - BY MARIA DEUTSCHER . 2 HOURS AGO\n Trump stands by Nvidia boss Jensen Huang despite spy scandal, but FBI is investigating\n\n  POLICY - BY MIKE WHEATLEY . 2 HOURS AGO\n Alphabet’s Wing to invest $125M in new delivery drone factory\n\n  EMERGING TECH - BY MARIA DEUTSCHER . 4 HOURS AGO\n Cisco research: Trust, not technology, is now the speed limit on enterprise AI [...] Anthropic launches Fable 5.2 and Mythos 5.2 with science, coding upgrades\n Trump stands by Nvidia boss Jensen Huang despite spy scandal, but FBI is investigating\n IBM builds on hybrid cloud and governance to advance its enterprise AI operating model\n Alphabet’s Wing to invest $125M in new delivery drone factory\n Cisco research: Trust, not technology, is now the speed limit on enterprise AI\n On theCUBE Pod: Blue wave sends AI stock plunging\n\n##### LATEST STORIES [...] One possibility is that the company used it to perform post-training, the task of honing a model’s capabilities by training it on additional data. Thinking Machines Labs Inc. recently demonstrated that even a relatively small LLM can run post-training runs end-to-end. Anthropic PBC, for its part, last week revealed that its AI models could soon gain the ability to significantly accelerate machine learning research.",
+                    "score": 0.26130545
+                  },
+                  {
+                    "title": "Live online certificate brings AI expertise to finance professionals | Cornell Chronicle",
+                    "url": "https://news.cornell.edu/stories/2026/11/live-online-certificate-brings-ai-expertise-finance-professionals",
+                    "source": "news.cornell.edu",
+                    "summary": "That philosophy is reflected in the curriculum, which progresses from AI foundations and tools to financial use cases, responsible AI, industry applications and leadership. Participants examine applications including investment research, credit risk, fraud detection, compliance, client engagement and operational efficiency, while also considering issues such as hallucinations, data security, regulation and governance. The program concludes by asking participants to identify opportunities for AI [...] The AI in Finance certificate, offered through eCornell as a collaboration between the Cornell Duffield College of Engineering and the Cornell SC Johnson College of Business, debuted in spring 2026 with 37 participants. Unlike many online certificate programs built primarily around prerecorded material, the program is taught live online, allowing participants to interact directly with Cornell faculty and industry practitioners. [...] Averbukh, who is also a professor of practice in the School of Operations Research and Information Engineering, said conversations with those practitioners increasingly turned toward artificial intelligence – first big data and predictive analytics, then machine learning and, more recently, generative and agentic AI.",
+                    "score": 0.22764139
+                  },
+                  {
+                    "title": "Google AI policy forces decision for San Diego schools – NBC 7 San Diego",
+                    "url": "https://www.nbcsandiego.com/news/local/googles-ai-ultimatum-forces-san-diego-schools-make-tough-choice/4099437",
+                    "source": "nbcsandiego.com",
+                    "summary": "As districts consider their options, students are already seeing artificial intelligence become a more common part of everyday learning.\n\n“I feel like I see a lot of people using AI now,” said Delilah Ortiz, a student at El Camino High School.\n\nSome students believe the focus should be on establishing guidelines for AI use rather than banning the technology entirely. [...] San Diego County school districts face a January deadline to decide whether to opt in to Google's artificial intelligence features or lose access to the company's search engine, forcing educators to weigh the benefits of AI against concerns about student access to the technology. [...] Google plans to disable a range of AI-powered features, including Gemini, Gemini Notebook and Search in January to give school districts more control over the technology students can access. However, districts that want to continue using Google Search will have to opt in to the AI features.\n\nStream San Diego News for free, 24/7, wherever you are with NBC 7.\n\nWatch button  WATCH HERE",
+                    "score": 0.202917
+                  },
+                  {
+                    "title": "Military-made AI tool helped thwart World Cup bomb threat - Federal News Network",
+                    "url": "https://federalnewsnetwork.com/artificial-intelligence/2026/11/military-made-ai-tool-helped-thwart-world-cup-bomb-threat",
+                    "source": "federalnewsnetwork.com",
+                    "summary": "The 2026 World Cup brought more than six million spectators from around the world to more than 100 matches in 16 host cities in the U.S., Canada and Mexico over the course of two months, prompting a massive interagency effort to secure those sites using technologies like AI and drones. Two people were charged in connection with another bomb threat against FIFA during a World Cup match at MetLife Stadium in New Jersey. [...] A military-made artificial intelligence tool helped law enforcement thwart a bomb threat at the FIFA World Cup in California this summer.\n\nThe previously undisclosed incident occurred June 18, when Switzerland faced Bosnia and Herzegovina at SoFi Stadium outside Los Angeles, Army Capt. Ryan Hetrick, who leads the Pentagon’s Generative AI Task Force, said Nov. 6 at an AI event in Washington. [...] Hetrick has become one of the military’s biggest — and busiest — evangelists for AI. The GenAI Task Force travels around the globe to sit down with troops on operations floors and in the field and find AI fixes for their most pressing problems.",
+                    "score": 0.19305643
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Here are some of the hottest recent articles related to AI:\n\n1. **[Recent Advances in AI Are Creating a ‘Paradigm Shift’ for Robotics](https://vcresearch.berkeley.edu/news/recent-advances-ai-are-creating-paradigm-shift-robotics)** - UC Berkeley\n   - Summary: AI agents are reshaping various fields, including robotics, by enabling teams to develop and refine robot-control programs autonomously. The article discusses how new models allow AI agents to simulate and improve their tasks effectively.\n\n2. **[Meta introduces Muse Ember to power cost-efficient AI agents](https://siliconangle.com/2026/11/09/meta-introduces-muse-ember-to-power-cost-efficient-ai-agents)** - SiliconANGLE\n   - Summary: Meta has launched Muse Ember, aimed at enhancing the efficiency of AI agents. The article also touches on other recent developments in AI, including upgrades from Anthropic.\n\n3. **[Live online certificate brings AI expertise to finance professionals](https://news.cornell.edu/stories/2026/11/live-online-certificate-brings-ai-expertise-finance-professionals)** - Cornell Chronicle\n   - Summary: Cornell University has introduced a live online certificate program focusing on AI applications in finance, covering various topics from foundational AI tools to industry-specific applications.\n\n4. **[Google AI policy forces decision for San Diego schools](https://www.nbcsandiego.com/news/local/googles-ai-ultimatum-forces-san-diego-schools-make-tough-choice/4099437)** - NBC 7 San Diego\n   - Summary: San Diego schools face a deadline to decide on Google's AI features, which could impact students' access to technology. The article discusses the implications of this decision on educational practices.\n\n5. **[Military-made AI tool helped thwart World Cup bomb threat](https://federalnewsnetwork.com/artificial-intelligence/2026/11/military-made-ai-tool-helped-thwart-world-cup-bomb-threat)** - Federal News Network\n   - Summary: An AI tool developed by the military played a crucial role in preventing a bomb threat during the FIFA World Cup, showcasing the application of AI in security measures.\n\nIf you need more information or specific details about any of these articles, feel free to ask!",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "lookup",
+          "args": {
+            "query": "AI",
+            "topic": "news",
+            "timeframe": "day",
+            "max_results": 5
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "AI",
+            "topic": "news",
+            "timeframe": "day",
+            "items": [
+              {
+                "title": "Recent Advances in AI Are Creating a ‘Paradigm Shift’ for Robotics | Research UC Berkeley",
+                "url": "https://vcresearch.berkeley.edu/news/recent-advances-ai-are-creating-paradigm-shift-robotics",
+                "source": "vcresearch.berkeley.edu",
+                "summary": "In recent months, artificial intelligence agents that can reason, plan and use external tools to accomplish multistep tasks have already reshaped computer coding, online shopping, dinner reservations and cyberattacks.\n\nRobotics might be next.\n\nKen Goldberg, a UC Berkeley roboticist and professor of engineering, said new models make it possible for teams of AI agents to develop robot-control programs, test them in simulated environments and revise the code when something doesn’t work. [...] Then, AI agents generate and connect these skills into a robot program. Using NVIDIA’s Isaac simulation libraries, the agents autonomously rehearse the program across task variations, identify where failures happen and refine the approach before deployment. [...] OpenAI’s recent release of its Astra model made the process even more promising, Goldberg said. His postdoctoral students Eric Kaiyuan Chen and Shuangyu Xie gave Astra access to their simulation interface and a short video of a real robot whose assignment was using a sponge to wipe ink off a metal bar. In less than an hour, the AI tool created and fine-tuned a physics simulation that accurately reproduced the video, including very realistic deformations of the sponge.",
+                "score": 0.29827207
+              },
+              {
+                "title": "Meta introduces Muse Ember to power cost-efficient AI agents - SiliconANGLE",
+                "url": "https://siliconangle.com/2026/11/09/meta-introduces-muse-ember-to-power-cost-efficient-ai-agents",
+                "source": "siliconangle.com",
+                "summary": "Anthropic launches Fable 5.2 and Mythos 5.2 with science, coding upgrades\n\n  AI - BY MARIA DEUTSCHER . 2 HOURS AGO\n Trump stands by Nvidia boss Jensen Huang despite spy scandal, but FBI is investigating\n\n  POLICY - BY MIKE WHEATLEY . 2 HOURS AGO\n Alphabet’s Wing to invest $125M in new delivery drone factory\n\n  EMERGING TECH - BY MARIA DEUTSCHER . 4 HOURS AGO\n Cisco research: Trust, not technology, is now the speed limit on enterprise AI [...] Anthropic launches Fable 5.2 and Mythos 5.2 with science, coding upgrades\n Trump stands by Nvidia boss Jensen Huang despite spy scandal, but FBI is investigating\n IBM builds on hybrid cloud and governance to advance its enterprise AI operating model\n Alphabet’s Wing to invest $125M in new delivery drone factory\n Cisco research: Trust, not technology, is now the speed limit on enterprise AI\n On theCUBE Pod: Blue wave sends AI stock plunging\n\n##### LATEST STORIES [...] One possibility is that the company used it to perform post-training, the task of honing a model’s capabilities by training it on additional data. Thinking Machines Labs Inc. recently demonstrated that even a relatively small LLM can run post-training runs end-to-end. Anthropic PBC, for its part, last week revealed that its AI models could soon gain the ability to significantly accelerate machine learning research.",
+                "score": 0.26130545
+              },
+              {
+                "title": "Live online certificate brings AI expertise to finance professionals | Cornell Chronicle",
+                "url": "https://news.cornell.edu/stories/2026/11/live-online-certificate-brings-ai-expertise-finance-professionals",
+                "source": "news.cornell.edu",
+                "summary": "That philosophy is reflected in the curriculum, which progresses from AI foundations and tools to financial use cases, responsible AI, industry applications and leadership. Participants examine applications including investment research, credit risk, fraud detection, compliance, client engagement and operational efficiency, while also considering issues such as hallucinations, data security, regulation and governance. The program concludes by asking participants to identify opportunities for AI [...] The AI in Finance certificate, offered through eCornell as a collaboration between the Cornell Duffield College of Engineering and the Cornell SC Johnson College of Business, debuted in spring 2026 with 37 participants. Unlike many online certificate programs built primarily around prerecorded material, the program is taught live online, allowing participants to interact directly with Cornell faculty and industry practitioners. [...] Averbukh, who is also a professor of practice in the School of Operations Research and Information Engineering, said conversations with those practitioners increasingly turned toward artificial intelligence – first big data and predictive analytics, then machine learning and, more recently, generative and agentic AI.",
+                "score": 0.22764139
+              },
+              {
+                "title": "Google AI policy forces decision for San Diego schools – NBC 7 San Diego",
+                "url": "https://www.nbcsandiego.com/news/local/googles-ai-ultimatum-forces-san-diego-schools-make-tough-choice/4099437",
+                "source": "nbcsandiego.com",
+                "summary": "As districts consider their options, students are already seeing artificial intelligence become a more common part of everyday learning.\n\n“I feel like I see a lot of people using AI now,” said Delilah Ortiz, a student at El Camino High School.\n\nSome students believe the focus should be on establishing guidelines for AI use rather than banning the technology entirely. [...] San Diego County school districts face a January deadline to decide whether to opt in to Google's artificial intelligence features or lose access to the company's search engine, forcing educators to weigh the benefits of AI against concerns about student access to the technology. [...] Google plans to disable a range of AI-powered features, including Gemini, Gemini Notebook and Search in January to give school districts more control over the technology students can access. However, districts that want to continue using Google Search will have to opt in to the AI features.\n\nStream San Diego News for free, 24/7, wherever you are with NBC 7.\n\nWatch button  WATCH HERE",
+                "score": 0.202917
+              },
+              {
+                "title": "Military-made AI tool helped thwart World Cup bomb threat - Federal News Network",
+                "url": "https://federalnewsnetwork.com/artificial-intelligence/2026/11/military-made-ai-tool-helped-thwart-world-cup-bomb-threat",
+                "source": "federalnewsnetwork.com",
+                "summary": "The 2026 World Cup brought more than six million spectators from around the world to more than 100 matches in 16 host cities in the U.S., Canada and Mexico over the course of two months, prompting a massive interagency effort to secure those sites using technologies like AI and drones. Two people were charged in connection with another bomb threat against FIFA during a World Cup match at MetLife Stadium in New Jersey. [...] A military-made artificial intelligence tool helped law enforcement thwart a bomb threat at the FIFA World Cup in California this summer.\n\nThe previously undisclosed incident occurred June 18, when Switzerland faced Bosnia and Herzegovina at SoFi Stadium outside Los Angeles, Army Capt. Ryan Hetrick, who leads the Pentagon’s Generative AI Task Force, said Nov. 6 at an AI event in Washington. [...] Hetrick has become one of the military’s biggest — and busiest — evangelists for AI. The GenAI Task Force travels around the globe to sit down with troops on operations floors and in the field and find AI fixes for their most pressing problems.",
+                "score": 0.19305643
+              }
+            ]
+          }
+        }
+      ],
+      "ended_at": "2026-11-10T11:17:19"
+    }
+  ]
+}

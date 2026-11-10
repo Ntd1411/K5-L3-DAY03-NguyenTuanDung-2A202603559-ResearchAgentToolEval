@@ -1,0 +1,511 @@
+{
+  "transcript_id": "v3_openrouter_20261110T112355697603",
+  "version": "v3",
+  "artifact_version": "v3+pddac0fd8ba79+te16519996238",
+  "prompt_hash": "ddac0fd8ba7978891a1b6ff0e33f4ef295f347ac05f0af4fecf94cc1b63a3647",
+  "tools_hash": "e16519996238923355c2d59699eb01aafcccecdb064236a076a6d8725def8334",
+  "provider": "openrouter",
+  "model": "openai/gpt-4o-mini",
+  "system_prompt": "artifacts/system_prompt.md",
+  "tools": "artifacts/tools.yaml",
+  "history_window": 5,
+  "max_tool_rounds": 4,
+  "created_at": "2026-11-10T11:23:55",
+  "updated_at": "2026-11-10T11:29:43",
+  "turns": [
+    {
+      "turn_index": 1,
+      "started_at": "2026-11-10T11:23:55",
+      "user": "Tìm 3 paper gần đây về đánh giá AI agent, ưu tiên bài liên quan tool use.",
+      "status": "answered",
+      "assistant_text": "Dưới đây là 3 bài báo gần đây về đánh giá AI agent và việc sử dụng công cụ liên quan:\n\n### Về đánh giá AI agent:\n1. **[ProCreate, Don't Reproduce! Propulsive Energy Diffusion for Creative Generation](http://arxiv.org/abs/2408.02226v3)**  \n   - **Tác giả:** Jack Lu, Ryan Teehan, Mengye Ren  \n   - **Tóm tắt:** Bài báo này đề xuất ProCreate, một phương pháp đơn giản để cải thiện sự đa dạng và sáng tạo của các mô hình sinh ảnh dựa trên khuếch tán. ProCreate hoạt động trên một tập hợp các hình ảnh tham chiếu và đẩy mạnh sự khác biệt của hình ảnh được tạo ra.  \n   - **Ngày xuất bản:** 05/08/2024  \n   - **[PDF](https://arxiv.org/pdf/2408.02226v3)**\n\n2. **[ORION: Intent-Aware Orchestration in Open RAN for SLA-Driven Network Management](http://arxiv.org/abs/2603.03667v2)**  \n   - **Tác giả:** Gabriela da Silva Machado, Gustavo Z. Bruno, Alexandre Huff, José Marcos Camara Brito, Cristiano B. Both  \n   - **Tóm tắt:** Bài báo đề xuất ORION, một khung điều phối ý định tích hợp các mô hình ngôn ngữ lớn (LLMs) để chuyển đổi yêu cầu tự nhiên thành chính sách mạng.  \n   - **Ngày xuất bản:** 04/03/2026  \n   - **[PDF](https://arxiv.org/pdf/2603.03667v2)**\n\n3. **[Finite-Sample Probabilistic Safety Certification for AI-Based Grid-Edge Coordination](http://arxiv.org/abs/2609.28182v2)**  \n   - **Tác giả:** Yihong Zhou, Hanbin Yang, Thomas Morstyn  \n   - **Tóm tắt:** Bài báo phát triển một khung chứng nhận an toàn xác suất cho việc điều phối các thiết bị lưới AI. Nó sử dụng suy diễn nhị phân để chứng nhận xác suất hoạt động không an toàn.  \n   - **Ngày xuất bản:** 23/09/2026  \n   - **[PDF](https://arxiv.org/pdf/2609.28182v2)**\n\n### Về việc sử dụng công cụ trong AI agent:\n1. **[ORION: Intent-Aware Orchestration in Open RAN for SLA-Driven Network Management](http://arxiv.org/abs/2603.03667v2)**  \n   - **Tác giả:** Gabriela da Silva Machado, Gustavo Z. Bruno, Alexandre Huff, José Marcos Camara Brito, Cristiano B. Both  \n   - **Tóm tắt:** Bài báo này cũng đã được đề cập ở trên, tập trung vào việc sử dụng các mô hình ngôn ngữ lớn trong điều phối mạng.  \n   - **Ngày xuất bản:** 04/03/2026  \n   - **[PDF](https://arxiv.org/pdf/2603.03667v2)**\n\n2. **[Agent Self-Improvement with Frozen Weights: The Added Value and Limits of Failure Traces](http://arxiv.org/abs/2611.11342v1)**  \n   - **Tác giả:** Arkid Mitra  \n   - **Tóm tắt:** Bài báo đánh giá khả năng của một AI agent trong việc học từ các dấu vết thất bại của nó và ảnh hưởng của chúng đến độ chính xác trong các quyết định dịch vụ khách hàng.  \n   - **Ngày xuất bản:** 08/11/2026  \n   - **[PDF](https://arxiv.org/pdf/2611.11342v1)**\n\n3. **[Linking Event-sequence Data Claims to Analytic Provenance in Chatbots: Technique and Evaluation](http://arxiv.org/abs/2611.11325v1)**  \n   - **Tác giả:** Po-Ming Law, Jianheng Ouyang, Nguyen-Truong Thinh, Weizhi Li, Arpit Narechania  \n   - **Tóm tắt:** Bài báo giới thiệu một kỹ thuật liên kết các tuyên bố dữ liệu sự kiện với nguồn gốc phân tích trong các chatbot, giúp cải thiện khả năng giải thích và độ chính xác của các tuyên bố dữ liệu.  \n   - **Ngày xuất bản:** 08/11/2026  \n   - **[PDF](https://arxiv.org/pdf/2611.11325v1)**\n\nNếu bạn cần thêm thông tin hoặc bài báo khác, hãy cho tôi biết!",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "papers",
+              "args": {
+                "query": "AI agent evaluation",
+                "max_results": 3,
+                "sort_by": "lastUpdatedDate"
+              }
+            },
+            {
+              "name": "papers",
+              "args": {
+                "query": "AI agent tool use",
+                "max_results": 3,
+                "sort_by": "lastUpdatedDate"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "papers",
+              "args": {
+                "query": "AI agent evaluation",
+                "max_results": 3,
+                "sort_by": "lastUpdatedDate"
+              },
+              "result": {
+                "tool": "arxiv_search",
+                "query": "AI agent evaluation",
+                "api_query": "all:AI AND all:agent AND all:evaluation",
+                "total_results": 6036,
+                "items": [
+                  {
+                    "arxiv_id": "2408.02226v3",
+                    "title": "ProCreate, Don't Reproduce! Propulsive Energy Diffusion for Creative Generation",
+                    "summary": "In this paper, we propose ProCreate, a simple and easy-to-implement method to improve sample diversity and creativity of diffusion-based image generative models and to prevent training data reproduction. ProCreate operates on a set of reference images and actively propels the generated image embedding away from the reference embeddings during the generation process. We propose FSCG-8 (Few-Shot Creative Generation 8), a few-shot creative generation dataset on eight different categories -- encompassing different concepts, styles, and settings -- in which ProCreate achieves the highest sample diversity and fidelity. Furthermore, we show that ProCreate is effective at preventing replicating training data in a large-scale evaluation using training text prompts. Code and FSCG-8 are available at https://github.com/Agentic-Learning-AI-Lab/procreate-diffusion-public. The project page is available at https://procreate-diffusion.github.io.",
+                    "authors": [
+                      "Jack Lu",
+                      "Ryan Teehan",
+                      "Mengye Ren"
+                    ],
+                    "published": "2024-08-05T04:10:52Z",
+                    "updated": "2026-11-08T16:30:35Z",
+                    "url": "http://arxiv.org/abs/2408.02226v3",
+                    "pdf_url": "https://arxiv.org/pdf/2408.02226v3",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2603.03667v2",
+                    "title": "ORION: Intent-Aware Orchestration in Open RAN for SLA-Driven Network Management",
+                    "summary": "The disaggregation of the Radio Access Network (RAN) introduces architectural flexibility but significant operational complexity, necessitating automated management frameworks. For instance, current Open RAN (O-RAN) orchestration relies on fragmented manual policies, lacking end-to-end intent assurance from high-level requirements to low-level configurations. In this article, we propose ORION, an intent orchestration framework that integrates Large Language Models (LLMs) through the Model Context Protocol (MCP). It translates natural language slice requests into network policies aligned with O-RAN interfaces, supporting the AI-RAN agentic orchestration and AI-for-RAN paradigms. ORION combines an MCP-based Service Management and Orchestration (SMO) layer with a Non-Real-Time RIC rApp and a Near-Real-Time RIC xApp to enforce Physical Resource Block (PRB) quotas over E2. We evaluate eight LLM configurations across proprietary and open-weight models on a 100-intent workload. Claude Opus 4.5 and GPT-5 achieve 100% policy-creation success with 99% and 96% slice-type classification accuracy, while GPT-5 Nano achieves 97% policy-creation success. The evaluation also assesses MCP tool-use quality, cost-performance trade-offs, resource consumption, and end-to-end control-path latency.",
+                    "authors": [
+                      "Gabriela da Silva Machado",
+                      "Gustavo Z. Bruno",
+                      "Alexandre Huff",
+                      "José Marcos Camara Brito",
+                      "Cristiano B. Both"
+                    ],
+                    "published": "2026-03-04T02:47:10Z",
+                    "updated": "2026-11-08T14:46:41Z",
+                    "url": "http://arxiv.org/abs/2603.03667v2",
+                    "pdf_url": "https://arxiv.org/pdf/2603.03667v2",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.NI",
+                    "categories": [
+                      "cs.NI"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2609.28182v2",
+                    "title": "Finite-Sample Probabilistic Safety Certification for AI-Based Grid-Edge Coordination",
+                    "summary": "Coordinating a large population of flexible grid-edge devices can alleviate the need for time-consuming and capital-intensive network upgrades. Artificial intelligence (AI)-based control methods such as multi-agent reinforcement learning or imitation learning are promising to this coordination due to their real-time decision scalability. However, system operators still need an independent and rigorous way to decide whether a given AI system is safe enough for deployment. This paper develops a \\emph{finite-sample} probabilistic safety certification framework for AI-based grid-edge coordination. The central idea is to reduce the complete input--AI--decision--evaluation workflow to a binary unsafe outcome under an operator-defined safety specification, and then use exact binomial inference to certify the corresponding unsafe operation probability. Given a set of held-out calibration scenarios, the framework returns the tightest one-sided upper certificate and an accept/reject deployment criterion that controls the probability of false safety certification. Because the certification is for the calibration distribution that may \\emph{deviate} from the future operation, we further combine the nominal certificate with physically interpretable sample-space adversarial attacks, a concept widely used in AI models to investigate their fragility. Case studies on grid-edge flexibility coordination with 1{,}000-agent AI models (independent parameters) verify the safety guarantee and the value of integrating adversarial attacks into a rolling-window training-certification-deployment flow.",
+                    "authors": [
+                      "Yihong Zhou",
+                      "Hanbin Yang",
+                      "Thomas Morstyn"
+                    ],
+                    "published": "2026-09-23T14:24:46Z",
+                    "updated": "2026-11-08T14:10:09Z",
+                    "url": "http://arxiv.org/abs/2609.28182v2",
+                    "pdf_url": "https://arxiv.org/pdf/2609.28182v2",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.AI",
+                    "categories": [
+                      "cs.AI",
+                      "cs.LG",
+                      "eess.SY"
+                    ]
+                  }
+                ],
+                "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+              }
+            },
+            {
+              "tool": "papers",
+              "args": {
+                "query": "AI agent tool use",
+                "max_results": 3,
+                "sort_by": "lastUpdatedDate"
+              },
+              "result": {
+                "tool": "arxiv_search",
+                "query": "AI agent tool use",
+                "api_query": "all:AI AND all:agent AND all:tool AND all:use",
+                "total_results": 1848,
+                "items": [
+                  {
+                    "arxiv_id": "2603.03667v2",
+                    "title": "ORION: Intent-Aware Orchestration in Open RAN for SLA-Driven Network Management",
+                    "summary": "The disaggregation of the Radio Access Network (RAN) introduces architectural flexibility but significant operational complexity, necessitating automated management frameworks. For instance, current Open RAN (O-RAN) orchestration relies on fragmented manual policies, lacking end-to-end intent assurance from high-level requirements to low-level configurations. In this article, we propose ORION, an intent orchestration framework that integrates Large Language Models (LLMs) through the Model Context Protocol (MCP). It translates natural language slice requests into network policies aligned with O-RAN interfaces, supporting the AI-RAN agentic orchestration and AI-for-RAN paradigms. ORION combines an MCP-based Service Management and Orchestration (SMO) layer with a Non-Real-Time RIC rApp and a Near-Real-Time RIC xApp to enforce Physical Resource Block (PRB) quotas over E2. We evaluate eight LLM configurations across proprietary and open-weight models on a 100-intent workload. Claude Opus 4.5 and GPT-5 achieve 100% policy-creation success with 99% and 96% slice-type classification accuracy, while GPT-5 Nano achieves 97% policy-creation success. The evaluation also assesses MCP tool-use quality, cost-performance trade-offs, resource consumption, and end-to-end control-path latency.",
+                    "authors": [
+                      "Gabriela da Silva Machado",
+                      "Gustavo Z. Bruno",
+                      "Alexandre Huff",
+                      "José Marcos Camara Brito",
+                      "Cristiano B. Both"
+                    ],
+                    "published": "2026-03-04T02:47:10Z",
+                    "updated": "2026-11-08T14:46:41Z",
+                    "url": "http://arxiv.org/abs/2603.03667v2",
+                    "pdf_url": "https://arxiv.org/pdf/2603.03667v2",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.NI",
+                    "categories": [
+                      "cs.NI"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2611.11342v1",
+                    "title": "Agent Self-Improvement with Frozen Weights: The Added Value and Limits of Failure Traces",
+                    "summary": "We evaluate whether an AI agent's harness, the notes around its model, can learn from the agent's failure traces beyond a matched search that never sees them. It can, but less than it looks. We tested an open 9-billion-parameter model with fixed weights; a larger teacher model wrote its notes. On generated customer-service decisions, where both note writers were told the target rules, notes based on the agent's mistakes improved accuracy by 4.0 percentage points over notes from the same process with the mistakes withheld. That process alone, trying and keeping better-scoring notes, reached about 60% of the total improvement. In full customer-service conversations the same notes showed no demonstrated improvement. Separately, a strict screen of single lessons admitted two customer-service lessons, still awaiting tests on new data, and one tool-use lesson, written without seeing the agent's mistakes, which showed no demonstrated gain on new tool-use tasks. A neutral note with no procedure scored higher than the learned lessons (exploratory). A blind audit judged 146 of 240 tool-use test items defective.",
+                    "authors": [
+                      "Arkid Mitra"
+                    ],
+                    "published": "2026-11-08T12:39:45Z",
+                    "updated": "2026-11-08T12:39:45Z",
+                    "url": "http://arxiv.org/abs/2611.11342v1",
+                    "pdf_url": "https://arxiv.org/pdf/2611.11342v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.LG",
+                    "categories": [
+                      "cs.LG",
+                      "cs.AI",
+                      "cs.CL"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2611.11325v1",
+                    "title": "Linking Event-sequence Data Claims to Analytic Provenance in Chatbots: Technique and Evaluation",
+                    "summary": "Chatbots are increasingly used to analyze temporal event sequences of which website clickstreams are among the most common. Explanations are essential for understanding claims about event-sequence data. However, existing systems often require programming expertise to interpret these explanations and fail to explain the data processes underlying the data claims. We introduce a technique for linking a data claim to its analytic provenance (i.e., the analytic steps and results that produced it). It has two components: a reference table that records analytic steps and results in addressable cells, and a citation format that binds each claim to one or more cells. To operationalize this technique for clickstream analysis, we curated a set of analytic operations for clickstream analysis, organized them through a pivot-table abstraction, and developed tools that an AI agent can invoke to create a reference table and assemble a natural language response with cited data claims. To evaluate how citations affect users' assessment of data claims, we conducted two crowdsourced experiments with 90 participants each. The experiments showed that participants perceived correct data claims to be more accurate with citations when compared with no explanations, and that they perceived incorrect data claims to be less accurate with citations when compared with code and no explanations.",
+                    "authors": [
+                      "Po-Ming Law",
+                      "Jianheng Ouyang",
+                      "Nguyen-Truong Thinh",
+                      "Weizhi Li",
+                      "Arpit Narechania"
+                    ],
+                    "published": "2026-11-08T12:00:56Z",
+                    "updated": "2026-11-08T12:00:56Z",
+                    "url": "http://arxiv.org/abs/2611.11325v1",
+                    "pdf_url": "https://arxiv.org/pdf/2611.11325v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.HC",
+                    "categories": [
+                      "cs.HC"
+                    ]
+                  }
+                ],
+                "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Dưới đây là 3 bài báo gần đây về đánh giá AI agent và việc sử dụng công cụ liên quan:\n\n### Về đánh giá AI agent:\n1. **[ProCreate, Don't Reproduce! Propulsive Energy Diffusion for Creative Generation](http://arxiv.org/abs/2408.02226v3)**  \n   - **Tác giả:** Jack Lu, Ryan Teehan, Mengye Ren  \n   - **Tóm tắt:** Bài báo này đề xuất ProCreate, một phương pháp đơn giản để cải thiện sự đa dạng và sáng tạo của các mô hình sinh ảnh dựa trên khuếch tán. ProCreate hoạt động trên một tập hợp các hình ảnh tham chiếu và đẩy mạnh sự khác biệt của hình ảnh được tạo ra.  \n   - **Ngày xuất bản:** 05/08/2024  \n   - **[PDF](https://arxiv.org/pdf/2408.02226v3)**\n\n2. **[ORION: Intent-Aware Orchestration in Open RAN for SLA-Driven Network Management](http://arxiv.org/abs/2603.03667v2)**  \n   - **Tác giả:** Gabriela da Silva Machado, Gustavo Z. Bruno, Alexandre Huff, José Marcos Camara Brito, Cristiano B. Both  \n   - **Tóm tắt:** Bài báo đề xuất ORION, một khung điều phối ý định tích hợp các mô hình ngôn ngữ lớn (LLMs) để chuyển đổi yêu cầu tự nhiên thành chính sách mạng.  \n   - **Ngày xuất bản:** 04/03/2026  \n   - **[PDF](https://arxiv.org/pdf/2603.03667v2)**\n\n3. **[Finite-Sample Probabilistic Safety Certification for AI-Based Grid-Edge Coordination](http://arxiv.org/abs/2609.28182v2)**  \n   - **Tác giả:** Yihong Zhou, Hanbin Yang, Thomas Morstyn  \n   - **Tóm tắt:** Bài báo phát triển một khung chứng nhận an toàn xác suất cho việc điều phối các thiết bị lưới AI. Nó sử dụng suy diễn nhị phân để chứng nhận xác suất hoạt động không an toàn.  \n   - **Ngày xuất bản:** 23/09/2026  \n   - **[PDF](https://arxiv.org/pdf/2609.28182v2)**\n\n### Về việc sử dụng công cụ trong AI agent:\n1. **[ORION: Intent-Aware Orchestration in Open RAN for SLA-Driven Network Management](http://arxiv.org/abs/2603.03667v2)**  \n   - **Tác giả:** Gabriela da Silva Machado, Gustavo Z. Bruno, Alexandre Huff, José Marcos Camara Brito, Cristiano B. Both  \n   - **Tóm tắt:** Bài báo này cũng đã được đề cập ở trên, tập trung vào việc sử dụng các mô hình ngôn ngữ lớn trong điều phối mạng.  \n   - **Ngày xuất bản:** 04/03/2026  \n   - **[PDF](https://arxiv.org/pdf/2603.03667v2)**\n\n2. **[Agent Self-Improvement with Frozen Weights: The Added Value and Limits of Failure Traces](http://arxiv.org/abs/2611.11342v1)**  \n   - **Tác giả:** Arkid Mitra  \n   - **Tóm tắt:** Bài báo đánh giá khả năng của một AI agent trong việc học từ các dấu vết thất bại của nó và ảnh hưởng của chúng đến độ chính xác trong các quyết định dịch vụ khách hàng.  \n   - **Ngày xuất bản:** 08/11/2026  \n   - **[PDF](https://arxiv.org/pdf/2611.11342v1)**\n\n3. **[Linking Event-sequence Data Claims to Analytic Provenance in Chatbots: Technique and Evaluation](http://arxiv.org/abs/2611.11325v1)**  \n   - **Tác giả:** Po-Ming Law, Jianheng Ouyang, Nguyen-Truong Thinh, Weizhi Li, Arpit Narechania  \n   - **Tóm tắt:** Bài báo giới thiệu một kỹ thuật liên kết các tuyên bố dữ liệu sự kiện với nguồn gốc phân tích trong các chatbot, giúp cải thiện khả năng giải thích và độ chính xác của các tuyên bố dữ liệu.  \n   - **Ngày xuất bản:** 08/11/2026  \n   - **[PDF](https://arxiv.org/pdf/2611.11325v1)**\n\nNếu bạn cần thêm thông tin hoặc bài báo khác, hãy cho tôi biết!",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "papers",
+          "args": {
+            "query": "AI agent evaluation",
+            "max_results": 3,
+            "sort_by": "lastUpdatedDate"
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "query": "AI agent evaluation",
+            "api_query": "all:AI AND all:agent AND all:evaluation",
+            "total_results": 6036,
+            "items": [
+              {
+                "arxiv_id": "2408.02226v3",
+                "title": "ProCreate, Don't Reproduce! Propulsive Energy Diffusion for Creative Generation",
+                "summary": "In this paper, we propose ProCreate, a simple and easy-to-implement method to improve sample diversity and creativity of diffusion-based image generative models and to prevent training data reproduction. ProCreate operates on a set of reference images and actively propels the generated image embedding away from the reference embeddings during the generation process. We propose FSCG-8 (Few-Shot Creative Generation 8), a few-shot creative generation dataset on eight different categories -- encompassing different concepts, styles, and settings -- in which ProCreate achieves the highest sample diversity and fidelity. Furthermore, we show that ProCreate is effective at preventing replicating training data in a large-scale evaluation using training text prompts. Code and FSCG-8 are available at https://github.com/Agentic-Learning-AI-Lab/procreate-diffusion-public. The project page is available at https://procreate-diffusion.github.io.",
+                "authors": [
+                  "Jack Lu",
+                  "Ryan Teehan",
+                  "Mengye Ren"
+                ],
+                "published": "2024-08-05T04:10:52Z",
+                "updated": "2026-11-08T16:30:35Z",
+                "url": "http://arxiv.org/abs/2408.02226v3",
+                "pdf_url": "https://arxiv.org/pdf/2408.02226v3",
+                "source": "arxiv.org",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV"
+                ]
+              },
+              {
+                "arxiv_id": "2603.03667v2",
+                "title": "ORION: Intent-Aware Orchestration in Open RAN for SLA-Driven Network Management",
+                "summary": "The disaggregation of the Radio Access Network (RAN) introduces architectural flexibility but significant operational complexity, necessitating automated management frameworks. For instance, current Open RAN (O-RAN) orchestration relies on fragmented manual policies, lacking end-to-end intent assurance from high-level requirements to low-level configurations. In this article, we propose ORION, an intent orchestration framework that integrates Large Language Models (LLMs) through the Model Context Protocol (MCP). It translates natural language slice requests into network policies aligned with O-RAN interfaces, supporting the AI-RAN agentic orchestration and AI-for-RAN paradigms. ORION combines an MCP-based Service Management and Orchestration (SMO) layer with a Non-Real-Time RIC rApp and a Near-Real-Time RIC xApp to enforce Physical Resource Block (PRB) quotas over E2. We evaluate eight LLM configurations across proprietary and open-weight models on a 100-intent workload. Claude Opus 4.5 and GPT-5 achieve 100% policy-creation success with 99% and 96% slice-type classification accuracy, while GPT-5 Nano achieves 97% policy-creation success. The evaluation also assesses MCP tool-use quality, cost-performance trade-offs, resource consumption, and end-to-end control-path latency.",
+                "authors": [
+                  "Gabriela da Silva Machado",
+                  "Gustavo Z. Bruno",
+                  "Alexandre Huff",
+                  "José Marcos Camara Brito",
+                  "Cristiano B. Both"
+                ],
+                "published": "2026-03-04T02:47:10Z",
+                "updated": "2026-11-08T14:46:41Z",
+                "url": "http://arxiv.org/abs/2603.03667v2",
+                "pdf_url": "https://arxiv.org/pdf/2603.03667v2",
+                "source": "arxiv.org",
+                "primary_category": "cs.NI",
+                "categories": [
+                  "cs.NI"
+                ]
+              },
+              {
+                "arxiv_id": "2609.28182v2",
+                "title": "Finite-Sample Probabilistic Safety Certification for AI-Based Grid-Edge Coordination",
+                "summary": "Coordinating a large population of flexible grid-edge devices can alleviate the need for time-consuming and capital-intensive network upgrades. Artificial intelligence (AI)-based control methods such as multi-agent reinforcement learning or imitation learning are promising to this coordination due to their real-time decision scalability. However, system operators still need an independent and rigorous way to decide whether a given AI system is safe enough for deployment. This paper develops a \\emph{finite-sample} probabilistic safety certification framework for AI-based grid-edge coordination. The central idea is to reduce the complete input--AI--decision--evaluation workflow to a binary unsafe outcome under an operator-defined safety specification, and then use exact binomial inference to certify the corresponding unsafe operation probability. Given a set of held-out calibration scenarios, the framework returns the tightest one-sided upper certificate and an accept/reject deployment criterion that controls the probability of false safety certification. Because the certification is for the calibration distribution that may \\emph{deviate} from the future operation, we further combine the nominal certificate with physically interpretable sample-space adversarial attacks, a concept widely used in AI models to investigate their fragility. Case studies on grid-edge flexibility coordination with 1{,}000-agent AI models (independent parameters) verify the safety guarantee and the value of integrating adversarial attacks into a rolling-window training-certification-deployment flow.",
+                "authors": [
+                  "Yihong Zhou",
+                  "Hanbin Yang",
+                  "Thomas Morstyn"
+                ],
+                "published": "2026-09-23T14:24:46Z",
+                "updated": "2026-11-08T14:10:09Z",
+                "url": "http://arxiv.org/abs/2609.28182v2",
+                "pdf_url": "https://arxiv.org/pdf/2609.28182v2",
+                "source": "arxiv.org",
+                "primary_category": "cs.AI",
+                "categories": [
+                  "cs.AI",
+                  "cs.LG",
+                  "eess.SY"
+                ]
+              }
+            ],
+            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+          }
+        },
+        {
+          "tool": "papers",
+          "args": {
+            "query": "AI agent tool use",
+            "max_results": 3,
+            "sort_by": "lastUpdatedDate"
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "query": "AI agent tool use",
+            "api_query": "all:AI AND all:agent AND all:tool AND all:use",
+            "total_results": 1848,
+            "items": [
+              {
+                "arxiv_id": "2603.03667v2",
+                "title": "ORION: Intent-Aware Orchestration in Open RAN for SLA-Driven Network Management",
+                "summary": "The disaggregation of the Radio Access Network (RAN) introduces architectural flexibility but significant operational complexity, necessitating automated management frameworks. For instance, current Open RAN (O-RAN) orchestration relies on fragmented manual policies, lacking end-to-end intent assurance from high-level requirements to low-level configurations. In this article, we propose ORION, an intent orchestration framework that integrates Large Language Models (LLMs) through the Model Context Protocol (MCP). It translates natural language slice requests into network policies aligned with O-RAN interfaces, supporting the AI-RAN agentic orchestration and AI-for-RAN paradigms. ORION combines an MCP-based Service Management and Orchestration (SMO) layer with a Non-Real-Time RIC rApp and a Near-Real-Time RIC xApp to enforce Physical Resource Block (PRB) quotas over E2. We evaluate eight LLM configurations across proprietary and open-weight models on a 100-intent workload. Claude Opus 4.5 and GPT-5 achieve 100% policy-creation success with 99% and 96% slice-type classification accuracy, while GPT-5 Nano achieves 97% policy-creation success. The evaluation also assesses MCP tool-use quality, cost-performance trade-offs, resource consumption, and end-to-end control-path latency.",
+                "authors": [
+                  "Gabriela da Silva Machado",
+                  "Gustavo Z. Bruno",
+                  "Alexandre Huff",
+                  "José Marcos Camara Brito",
+                  "Cristiano B. Both"
+                ],
+                "published": "2026-03-04T02:47:10Z",
+                "updated": "2026-11-08T14:46:41Z",
+                "url": "http://arxiv.org/abs/2603.03667v2",
+                "pdf_url": "https://arxiv.org/pdf/2603.03667v2",
+                "source": "arxiv.org",
+                "primary_category": "cs.NI",
+                "categories": [
+                  "cs.NI"
+                ]
+              },
+              {
+                "arxiv_id": "2611.11342v1",
+                "title": "Agent Self-Improvement with Frozen Weights: The Added Value and Limits of Failure Traces",
+                "summary": "We evaluate whether an AI agent's harness, the notes around its model, can learn from the agent's failure traces beyond a matched search that never sees them. It can, but less than it looks. We tested an open 9-billion-parameter model with fixed weights; a larger teacher model wrote its notes. On generated customer-service decisions, where both note writers were told the target rules, notes based on the agent's mistakes improved accuracy by 4.0 percentage points over notes from the same process with the mistakes withheld. That process alone, trying and keeping better-scoring notes, reached about 60% of the total improvement. In full customer-service conversations the same notes showed no demonstrated improvement. Separately, a strict screen of single lessons admitted two customer-service lessons, still awaiting tests on new data, and one tool-use lesson, written without seeing the agent's mistakes, which showed no demonstrated gain on new tool-use tasks. A neutral note with no procedure scored higher than the learned lessons (exploratory). A blind audit judged 146 of 240 tool-use test items defective.",
+                "authors": [
+                  "Arkid Mitra"
+                ],
+                "published": "2026-11-08T12:39:45Z",
+                "updated": "2026-11-08T12:39:45Z",
+                "url": "http://arxiv.org/abs/2611.11342v1",
+                "pdf_url": "https://arxiv.org/pdf/2611.11342v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.LG",
+                "categories": [
+                  "cs.LG",
+                  "cs.AI",
+                  "cs.CL"
+                ]
+              },
+              {
+                "arxiv_id": "2611.11325v1",
+                "title": "Linking Event-sequence Data Claims to Analytic Provenance in Chatbots: Technique and Evaluation",
+                "summary": "Chatbots are increasingly used to analyze temporal event sequences of which website clickstreams are among the most common. Explanations are essential for understanding claims about event-sequence data. However, existing systems often require programming expertise to interpret these explanations and fail to explain the data processes underlying the data claims. We introduce a technique for linking a data claim to its analytic provenance (i.e., the analytic steps and results that produced it). It has two components: a reference table that records analytic steps and results in addressable cells, and a citation format that binds each claim to one or more cells. To operationalize this technique for clickstream analysis, we curated a set of analytic operations for clickstream analysis, organized them through a pivot-table abstraction, and developed tools that an AI agent can invoke to create a reference table and assemble a natural language response with cited data claims. To evaluate how citations affect users' assessment of data claims, we conducted two crowdsourced experiments with 90 participants each. The experiments showed that participants perceived correct data claims to be more accurate with citations when compared with no explanations, and that they perceived incorrect data claims to be less accurate with citations when compared with code and no explanations.",
+                "authors": [
+                  "Po-Ming Law",
+                  "Jianheng Ouyang",
+                  "Nguyen-Truong Thinh",
+                  "Weizhi Li",
+                  "Arpit Narechania"
+                ],
+                "published": "2026-11-08T12:00:56Z",
+                "updated": "2026-11-08T12:00:56Z",
+                "url": "http://arxiv.org/abs/2611.11325v1",
+                "pdf_url": "https://arxiv.org/pdf/2611.11325v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.HC",
+                "categories": [
+                  "cs.HC"
+                ]
+              }
+            ],
+            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+          }
+        }
+      ],
+      "ended_at": "2026-11-10T11:24:14"
+    },
+    {
+      "turn_index": 2,
+      "started_at": "2026-11-10T11:29:35",
+      "user": "tìm repo impaccable xem nó làm gì",
+      "status": "answered",
+      "assistant_text": "Dưới đây là một số repository liên quan đến \"impaccable\" trên GitHub:\n\n1. **[nicmr/impaccable](https://github.com/nicmr/impaccable)**  \n   - **Tóm tắt:** A gentle, declarative pacman wrapper for Arch Linux.  \n   - **Ngôn ngữ:** Rust  \n   - **Sao:** 2\n\n2. **[thedemoknight/impaccable](https://github.com/thedemoknight/impaccable)**  \n   - **Tóm tắt:** A website for our own brand impaccable shirts.  \n   - **Ngôn ngữ:** HTML  \n   - **Sao:** 1\n\n3. **[BuildTheWeb1/impaccable-agent](https://github.com/BuildTheWeb1/impaccable-agent)**  \n   - **Tóm tắt:** Autonomous/design-review agent for Claude Code & Codex that audits your app's real UI and hands back exact file:line fixes — no generic AI-slop design, no vague feedback.  \n   - **Ngôn ngữ:** JavaScript  \n   - **Sao:** 0\n\n4. **[Drifter0071/impaccable-mavis](https://github.com/Drifter0071/impaccable-mavis)**  \n   - **Tóm tắt:** Impeccable design methodology packaged as a Mavis coding-agent skill. Includes the full Node.js engine (v4.0.4), a working demo project, and the silent-spawn launcher for Windows.  \n   - **Ngôn ngữ:** JavaScript  \n   - **Sao:** 0\n\n5. **[intxdv/Selv-with-impaccable-skills](https://github.com/intxdv/Selv-with-impaccable-skills)**  \n   - **Tóm tắt:** A landing page brand named \"Selv.\" that builds using Antigravity IDE with impaccable-skills.  \n   - **Ngôn ngữ:** TypeScript  \n   - **Sao:** 0\n\nNếu bạn cần thêm thông tin về bất kỳ repository nào, hãy cho tôi biết!",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "github_search",
+              "args": {
+                "query": "impaccable"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "github_search",
+              "args": {
+                "query": "impaccable"
+              },
+              "result": {
+                "tool": "search_github_repos",
+                "query": "impaccable",
+                "language": "",
+                "sort": "stars",
+                "items": [
+                  {
+                    "title": "nicmr/impaccable",
+                    "url": "https://github.com/nicmr/impaccable",
+                    "source": "github.com",
+                    "summary": "A gentle, declarative pacman wrapper for Arch Linux",
+                    "stars": 2,
+                    "language": "Rust"
+                  },
+                  {
+                    "title": "thedemoknight/impaccable",
+                    "url": "https://github.com/thedemoknight/impaccable",
+                    "source": "github.com",
+                    "summary": "a website for our own brand impaccable shirts",
+                    "stars": 1,
+                    "language": "HTML"
+                  },
+                  {
+                    "title": "BuildTheWeb1/impaccable-agent",
+                    "url": "https://github.com/BuildTheWeb1/impaccable-agent",
+                    "source": "github.com",
+                    "summary": "Autonomous /design-review agent for Claude Code & Codex that audits your app's real UI and hands back exact file:line fixes — no generic AI-slop design, no vague feedback.",
+                    "stars": 0,
+                    "language": "JavaScript"
+                  },
+                  {
+                    "title": "Drifter0071/impaccable-mavis",
+                    "url": "https://github.com/Drifter0071/impaccable-mavis",
+                    "source": "github.com",
+                    "summary": "Impeccable design methodology packaged as a Mavis coding-agent skill. Includes the full Node.js engine (v4.0.4), a working demo project, and the silent-spawn launcher for Windows.",
+                    "stars": 0,
+                    "language": "JavaScript"
+                  },
+                  {
+                    "title": "intxdv/Selv-with-impaccable-skills",
+                    "url": "https://github.com/intxdv/Selv-with-impaccable-skills",
+                    "source": "github.com",
+                    "summary": "a landing paga brand named \"Selv.\" that build using Antigravity IDE with impaccable-skills",
+                    "stars": 0,
+                    "language": "TypeScript"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Dưới đây là một số repository liên quan đến \"impaccable\" trên GitHub:\n\n1. **[nicmr/impaccable](https://github.com/nicmr/impaccable)**  \n   - **Tóm tắt:** A gentle, declarative pacman wrapper for Arch Linux.  \n   - **Ngôn ngữ:** Rust  \n   - **Sao:** 2\n\n2. **[thedemoknight/impaccable](https://github.com/thedemoknight/impaccable)**  \n   - **Tóm tắt:** A website for our own brand impaccable shirts.  \n   - **Ngôn ngữ:** HTML  \n   - **Sao:** 1\n\n3. **[BuildTheWeb1/impaccable-agent](https://github.com/BuildTheWeb1/impaccable-agent)**  \n   - **Tóm tắt:** Autonomous/design-review agent for Claude Code & Codex that audits your app's real UI and hands back exact file:line fixes — no generic AI-slop design, no vague feedback.  \n   - **Ngôn ngữ:** JavaScript  \n   - **Sao:** 0\n\n4. **[Drifter0071/impaccable-mavis](https://github.com/Drifter0071/impaccable-mavis)**  \n   - **Tóm tắt:** Impeccable design methodology packaged as a Mavis coding-agent skill. Includes the full Node.js engine (v4.0.4), a working demo project, and the silent-spawn launcher for Windows.  \n   - **Ngôn ngữ:** JavaScript  \n   - **Sao:** 0\n\n5. **[intxdv/Selv-with-impaccable-skills](https://github.com/intxdv/Selv-with-impaccable-skills)**  \n   - **Tóm tắt:** A landing page brand named \"Selv.\" that builds using Antigravity IDE with impaccable-skills.  \n   - **Ngôn ngữ:** TypeScript  \n   - **Sao:** 0\n\nNếu bạn cần thêm thông tin về bất kỳ repository nào, hãy cho tôi biết!",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "github_search",
+          "args": {
+            "query": "impaccable"
+          },
+          "result": {
+            "tool": "search_github_repos",
+            "query": "impaccable",
+            "language": "",
+            "sort": "stars",
+            "items": [
+              {
+                "title": "nicmr/impaccable",
+                "url": "https://github.com/nicmr/impaccable",
+                "source": "github.com",
+                "summary": "A gentle, declarative pacman wrapper for Arch Linux",
+                "stars": 2,
+                "language": "Rust"
+              },
+              {
+                "title": "thedemoknight/impaccable",
+                "url": "https://github.com/thedemoknight/impaccable",
+                "source": "github.com",
+                "summary": "a website for our own brand impaccable shirts",
+                "stars": 1,
+                "language": "HTML"
+              },
+              {
+                "title": "BuildTheWeb1/impaccable-agent",
+                "url": "https://github.com/BuildTheWeb1/impaccable-agent",
+                "source": "github.com",
+                "summary": "Autonomous /design-review agent for Claude Code & Codex that audits your app's real UI and hands back exact file:line fixes — no generic AI-slop design, no vague feedback.",
+                "stars": 0,
+                "language": "JavaScript"
+              },
+              {
+                "title": "Drifter0071/impaccable-mavis",
+                "url": "https://github.com/Drifter0071/impaccable-mavis",
+                "source": "github.com",
+                "summary": "Impeccable design methodology packaged as a Mavis coding-agent skill. Includes the full Node.js engine (v4.0.4), a working demo project, and the silent-spawn launcher for Windows.",
+                "stars": 0,
+                "language": "JavaScript"
+              },
+              {
+                "title": "intxdv/Selv-with-impaccable-skills",
+                "url": "https://github.com/intxdv/Selv-with-impaccable-skills",
+                "source": "github.com",
+                "summary": "a landing paga brand named \"Selv.\" that build using Antigravity IDE with impaccable-skills",
+                "stars": 0,
+                "language": "TypeScript"
+              }
+            ]
+          }
+        }
+      ],
+      "ended_at": "2026-11-10T11:29:43"
+    }
+  ]
+}

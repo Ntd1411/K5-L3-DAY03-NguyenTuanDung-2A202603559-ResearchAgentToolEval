@@ -312,6 +312,17 @@ Try at least 3 live turns, for example:
 
 ## Deploy nhanh để team khác dùng thử (khuyến nghị: Cloudflare Tunnel)
 
+UI Streamlit nằm tại `starter_v0/app.py`. Chạy local từ thư mục `starter_v0/`:
+
+```bash
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+UI dùng trực tiếp `artifacts/system_prompt.md`, `artifacts/tools.yaml` và backend provider/tool hiện có. Mỗi phiên chat tự lưu transcript JSON vào `starter_v0/transcripts/`; cũng có thể tải transcript từ sidebar.
+
+Chọn **So sánh 3 version** trong sidebar để đối chiếu run base mới nhất của ba phiên bản: metric tổng quan, tool call, arguments, phản hồi text và tool results theo từng eval case.
+
 Để team cùng zone tự thử agent trong Team showdown, expose UI đang chạy local ra một link public. Cách nhanh nhất, không cần đăng ký domain hay deploy lên cloud, là **Cloudflare Tunnel** (`cloudflared`).
 
 1. Chạy UI local trước (ví dụ Streamlit mặc định cổng `8501`):
