@@ -1,0 +1,194 @@
+# Streamlined tool declarations optimized for Small Language Models (SLMs, 3B-7B)
+tools:
+  - name: clarify
+    description: >-
+      Ask user to clarify missing required parameters (handle, URL) or confirm action before sending to Telegram.
+      Use response_type="text" for missing info. Use response_type="yes_no" for Telegram send confirmation.
+    parameters:
+      type: object
+      properties:
+        question:
+          type: string
+          description: "Question to ask the user."
+        response_type:
+          type: string
+          enum: [text, yes_no, choice]
+          default: "text"
+          description: "'text' for missing info; 'yes_no' for Telegram confirmation."
+        options:
+          type: array
+          default: []
+          items: {type: string}
+      required: [question]
+
+  - name: timeline
+    description: >-
+      Fetch recent tweets from a specific X/Twitter account.
+      WHEN TO USE: User explicitly names an account or person (e.g. Sam Altman -> sama, Elon Musk -> elonmusk, Andrej Karpathy -> karpathy). Never include '@'.
+      DO NOT GUESS: If user does not name an account, call clarify instead.
+    parameters:
+      type: object
+      properties:
+        screenname:
+          type: string
+          description: "Twitter handle without '@' (e.g. sama, elonmusk, karpathy)."
+        limit:
+          type: integer
+          default: 5
+          description: "Number of tweets (default 5)."
+      required: [screenname]
+
+  - name: social_search
+    description: >-
+      Search public tweets on X/Twitter by keyword or topic.
+      WHEN TO USE: User asks for tweets/discussions on Twitter about a topic.
+      Use search_type='Top' for popular/top tweets, 'Latest' for recent.
+    parameters:
+      type: object
+      properties:
+        query:
+          type: string
+          description: "Keyword or topic to search on Twitter."
+        search_type:
+          type: string
+          enum: [Latest, Top]
+          default: "Latest"
+        limit:
+          type: integer
+          default: 5
+      required: [query]
+
+  - name: lookup
+    description: >-
+      Search the web for news or general information via Tavily.
+      WHEN TO USE: General questions, facts, or news articles on the web.
+      For news, set topic="news". For timeframe: "day" (today), "week" (this week), "month" (this month), "year" (this year).
+      Keep query clean without adding 'news' or timeframe inside the query text.
+    parameters:
+      type: object
+      properties:
+        query:
+          type: string
+          description: "Core search terms."
+        topic:
+          type: string
+          enum: [general, news]
+          default: "general"
+        timeframe:
+          type: string
+          enum: [day, week, month, year]
+        max_results:
+          type: integer
+          default: 5
+      required: [query]
+
+  - name: fetch
+    description: >-
+      Fetch and extract text content from a specific web URL via Firecrawl.
+      Use ONLY when user supplies a valid web URL.
+    parameters:
+      type: object
+      properties:
+        url:
+          type: string
+          description: "Web page URL."
+      required: [url]
+
+  - name: format
+    description: >-
+      Format already-collected research data into Markdown template (brief, sections, bullets, thread).
+    parameters:
+      type: object
+      properties:
+        template:
+          type: string
+          enum: [brief, sections, bullets, thread]
+          default: "brief"
+        title:
+          type: string
+        items:
+          type: array
+          items: {type: object}
+      required: [template, items]
+
+  - name: send
+    description: >-
+      Send message or report to Telegram channel.
+      SAFETY: Requires confirmed=true. If user has not confirmed, you MUST call clarify(response_type="yes_no") instead.
+    parameters:
+      type: object
+      properties:
+        text:
+          type: string
+          description: "Text or markdown content to send."
+        confirmed:
+          type: boolean
+          default: false
+          description: "Must be true. If user has not confirmed yet, do NOT call send."
+      required: [text, confirmed]
+
+  - name: policy
+    description: >-
+      Look up internal company policies (data_privacy, publishing, citation, ethics).
+    parameters:
+      type: object
+      properties:
+        policy_area:
+          type: string
+          enum: [data_privacy, publishing, citation, ethics]
+          default: "data_privacy"
+      required: [policy_area]
+
+  - name: papers
+    description: >-
+      Search academic papers on arXiv by topic or title.
+    parameters:
+      type: object
+      properties:
+        query:
+          type: string
+          description: "Research topic or keywords."
+        max_results:
+          type: integer
+          default: 5
+        sort_by:
+          type: string
+          enum: [relevance, lastUpdatedDate, submittedDate]
+          default: "relevance"
+      required: [query]
+
+  - name: paper_text
+    description: >-
+      Read and extract text from an arXiv research paper PDF.
+    parameters:
+      type: object
+      properties:
+        arxiv_url:
+          type: string
+          description: "arXiv paper ID or URL (e.g. '2303.08774')."
+        max_pages:
+          type: integer
+          default: 2
+      required: [arxiv_url]
+
+  - name: github_search
+    description: >-
+      Search open-source code repositories on GitHub.
+    parameters:
+      type: object
+      properties:
+        query:
+          type: string
+          description: "Repository keywords."
+        language:
+          type: string
+          description: "Programming language (e.g. 'python', 'typescript')."
+        sort:
+          type: string
+          enum: [stars, forks, updated]
+          default: "stars"
+        limit:
+          type: integer
+          default: 5
+      required: [query]
+

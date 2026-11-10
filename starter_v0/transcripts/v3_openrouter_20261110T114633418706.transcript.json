@@ -1,0 +1,28 @@
+{
+  "transcript_id": "v3_openrouter_20261110T114633418706",
+  "version": "v3",
+  "artifact_version": "v3+pd9eddfe20cd6+t7227b97d6ced",
+  "prompt_hash": "d9eddfe20cd6adbc242012b3d7d333befe9af13af0e2d6998e28e93d4250f744",
+  "tools_hash": "7227b97d6ced0403fc500188f3fb4ee5deacc2a0c24c2748fda39c672c07daa9",
+  "provider": "openrouter",
+  "model": "openai/gpt-4o-mini",
+  "system_prompt": "artifacts\\system_prompt.md",
+  "tools": "artifacts\\tools.yaml",
+  "history_window": 5,
+  "max_tool_rounds": 4,
+  "created_at": "2026-11-10T11:46:33",
+  "updated_at": "2026-11-10T11:46:37",
+  "turns": [
+    {
+      "turn_index": 1,
+      "started_at": "2026-11-10T11:46:33",
+      "user": "Tin AI nổi bật hôm nay là gì? Tóm tắt 5 tin và dẫn nguồn.",
+      "status": "provider_error",
+      "assistant_text": null,
+      "rounds": [],
+      "tool_events": [],
+      "error": "APIStatusError: Error code: 402 - Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits",
+      "ended_at": "2026-11-10T11:46:37"
+    }
+  ]
+}

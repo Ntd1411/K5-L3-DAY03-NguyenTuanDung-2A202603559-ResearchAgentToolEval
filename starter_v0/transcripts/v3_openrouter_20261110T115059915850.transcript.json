@@ -1,0 +1,554 @@
+{
+  "transcript_id": "v3_openrouter_20261110T115059915850",
+  "version": "v3",
+  "artifact_version": "v3+pd9eddfe20cd6+t7227b97d6ced",
+  "prompt_hash": "d9eddfe20cd6adbc242012b3d7d333befe9af13af0e2d6998e28e93d4250f744",
+  "tools_hash": "7227b97d6ced0403fc500188f3fb4ee5deacc2a0c24c2748fda39c672c07daa9",
+  "provider": "openrouter",
+  "model": "nvidia/nemotron-3.5-lightning:free",
+  "system_prompt": "artifacts\\system_prompt.md",
+  "tools": "artifacts\\tools.yaml",
+  "history_window": 5,
+  "max_tool_rounds": 4,
+  "created_at": "2026-11-10T11:50:59",
+  "updated_at": "2026-11-10T11:53:20",
+  "turns": [
+    {
+      "turn_index": 1,
+      "started_at": "2026-11-10T11:50:59",
+      "user": "Tin AI nổi bật hôm nay là gì? Tóm tắt 5 tin và dẫn nguồn.",
+      "status": "answered",
+      "assistant_text": "Dưới đây là 5 tin AI nổi bật hôm nay với tóm tắt và nguồn tham khảo:\n\n- **Recent Advances in AI Are Creating a ‘Paradigm Shift’ for Robotics | Research UC Berkeley**  \n  *Nguồn:* [vcresearch.berkeley.edu](https://vcresearch.berkeley.edu/news/recent-advances-ai-are-creating-paradigm-shift-robotics)  \n  *Tóm tắt:* Các tác nhân AI có khả năng lập kế hoạch, sử dụng công cụ bên ngoài để hoàn thành tác vụ nhiều bước đã thay đổi lập trình online, mua sắm online, đặt món ăn và các cuộc tấn công mạng. Robotics có thể là bước tiếp theo. Giáo sư Ken Goldberg (UC Berkeley) cho rằng các mô hình mới cho phép các nhóm tác nhân AI phát triển chương trình điều khiển robot, thử nghiệm trong môi trường mô phỏng và sửa lỗi trước khi triển khai. Với mô hình Astra của OpenAI, các sinh viên postdoc của Goldberg đã tạo ra một bản mô phỏng vật lý trong dưới 1 giờ để tái tạo video robot lau bột m wiping bề mặt kim loại.\n\n- **Meta introduces Muse Ember to power cost-efficient AI agents - SiliconANGLE**  \n  *Nguồn:* [siliconangle.com](https://siliconangle.com/2026/11/09/meta-introduces-muse-ember-to-power-cost-efficient-ai-agents)  \n  *Tóm tắt:* Bài viết报道 về việc Anthropic ra mắt Fable 5.2 và Mythos 5.2 với các cải tiến về khoa học và lập trình. Ngoài ra còn提到 các tin tức khác như đầu tư $125M của Alphabet’s Wing vào nhà máy drone giao hàng, nghiên cứu Cisco về tin cậy là giới hạn tốc độ cho AI doanh nghiệp, và nhiều chủ đề khác về chính sách và công nghệ mới.\n\n- **Live online certificate brings AI expertise to finance professionals | Cornell Chronicle**  \n  *Nguồn:* [news.cornell.edu](https://news.cornell.edu/stories/2026/11/live-online-certificate-brings-ai-expertise-finance-professionals)  \n  *Tóm tắt:* Chứng chỉ AI cho chuyên gia tài chính trực tuyến của Cornell đã ra mắt vào printemps 2026 với 37 tham gia. chương trình đi từ nền tảng AI đến các ứng dụng tài chính (nghiên cứu đầu tư, đánh giá rủi ro tín dụng, phát hiện gian lận, tuân thủ, tương tác khách hàng, hiệu quả hoạt động) và cũng đề cập đến các vấn đề như lỗi AI, an toàn dữ liệu, quy định và quản trị. Chương trình kết thúc bằng yêu cầu tham gia xác định cơ hội sử dụng AI.\n\n- **Google AI policy forces decision for San Diego schools – NBC 7 San Diego**  \n  *Nguồn:* [nbcsandiego.com](https://www.nbcsandiego.com/news/local/googles-ai-ultimatum-forces-san-diego-schools-make-tough-choice/4099437)  \n  *Tóm tắt:* Các khu học区 tại San Diego County phải quyết định vào tháng 1 xem có nên tham gia vào các tính năng AI của Google hay sẽ mất quyền truy cập công cụ tìm kiếm của Google. Các học sinh cho rằng nên xây dựng hướng dẫn sử dụng AI hơn là cấm hoàn toàn. Google sẽ vô hiệu hóa nhiều tính năng AI như Gemini, Gemini Notebook và Tìm kiếm vào tháng 1 để cho phép các khu học区 có quyền kiểm soát hơn về công nghệ học sinh tiếp cận.\n\n- **Military-made AI tool helped thwart World Cup bomb threat - Federal News Network**  \n  *Nguồn:* [federalnewsnetwork.com](https://federalnewsnetwork.com/artificial-intelligence/2026/11/military-made-ai-tool-helped-thwart-world-cup-bomb-threat)  \n  *Tóm tắt:* Một công cụ AI do quân đội tạo ra đã giúp lực lượng pháp tu방 một mối đe dọa bom tại World Cup 2026 tại California. Sự kiện chưa được công bố trước đó xảy ra ngày 18/6 khi Switzerland đối mặt Bosnia và Herzegovina tại SoFi Stadium ngoài Los Angeles, theo lời của Capitán Ryan Hetrick dẫn đầu Đội tác nhân AI của Bộ Quốc phòng. Công cụ này là phần của các nỗ lực an ninh quy mô lớn sử dụng AI và drone để bảo vệ các trận đấu tại World Cup.\n\nNguồn tin được tổng hợp từ tìm kiếm tin tức AI hôm nay (thờiframe: ngày).",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "lookup",
+              "args": {
+                "timeframe": "day",
+                "topic": "news",
+                "max_results": 5,
+                "query": "AI"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "lookup",
+              "args": {
+                "timeframe": "day",
+                "topic": "news",
+                "max_results": 5,
+                "query": "AI"
+              },
+              "result": {
+                "tool": "web_search",
+                "query": "AI",
+                "topic": "news",
+                "timeframe": "day",
+                "items": [
+                  {
+                    "title": "Recent Advances in AI Are Creating a ‘Paradigm Shift’ for Robotics | Research UC Berkeley",
+                    "url": "https://vcresearch.berkeley.edu/news/recent-advances-ai-are-creating-paradigm-shift-robotics",
+                    "source": "vcresearch.berkeley.edu",
+                    "summary": "In recent months, artificial intelligence agents that can reason, plan and use external tools to accomplish multistep tasks have already reshaped computer coding, online shopping, dinner reservations and cyberattacks.\n\nRobotics might be next.\n\nKen Goldberg, a UC Berkeley roboticist and professor of engineering, said new models make it possible for teams of AI agents to develop robot-control programs, test them in simulated environments and revise the code when something doesn’t work. [...] Then, AI agents generate and connect these skills into a robot program. Using NVIDIA’s Isaac simulation libraries, the agents autonomously rehearse the program across task variations, identify where failures happen and refine the approach before deployment. [...] OpenAI’s recent release of its Astra model made the process even more promising, Goldberg said. His postdoctoral students Eric Kaiyuan Chen and Shuangyu Xie gave Astra access to their simulation interface and a short video of a real robot whose assignment was using a sponge to wipe ink off a metal bar. In less than an hour, the AI tool created and fine-tuned a physics simulation that accurately reproduced the video, including very realistic deformations of the sponge.",
+                    "score": 0.29827207
+                  },
+                  {
+                    "title": "Meta introduces Muse Ember to power cost-efficient AI agents - SiliconANGLE",
+                    "url": "https://siliconangle.com/2026/11/09/meta-introduces-muse-ember-to-power-cost-efficient-ai-agents",
+                    "source": "siliconangle.com",
+                    "summary": "Anthropic launches Fable 5.2 and Mythos 5.2 with science, coding upgrades\n\n  AI - BY MARIA DEUTSCHER . 2 HOURS AGO\n Trump stands by Nvidia boss Jensen Huang despite spy scandal, but FBI is investigating\n\n  POLICY - BY MIKE WHEATLEY . 2 HOURS AGO\n Alphabet’s Wing to invest $125M in new delivery drone factory\n\n  EMERGING TECH - BY MARIA DEUTSCHER . 4 HOURS AGO\n Cisco research: Trust, not technology, is now the speed limit on enterprise AI [...] Anthropic launches Fable 5.2 and Mythos 5.2 with science, coding upgrades\n Trump stands by Nvidia boss Jensen Huang despite spy scandal, but FBI is investigating\n IBM builds on hybrid cloud and governance to advance its enterprise AI operating model\n Alphabet’s Wing to invest $125M in new delivery drone factory\n Cisco research: Trust, not technology, is now the speed limit on enterprise AI\n On theCUBE Pod: Blue wave sends AI stock plunging\n\n##### LATEST STORIES [...] One possibility is that the company used it to perform post-training, the task of honing a model’s capabilities by training it on additional data. Thinking Machines Labs Inc. recently demonstrated that even a relatively small LLM can run post-training runs end-to-end. Anthropic PBC, for its part, last week revealed that its AI models could soon gain the ability to significantly accelerate machine learning research.",
+                    "score": 0.26130545
+                  },
+                  {
+                    "title": "Live online certificate brings AI expertise to finance professionals | Cornell Chronicle",
+                    "url": "https://news.cornell.edu/stories/2026/11/live-online-certificate-brings-ai-expertise-finance-professionals",
+                    "source": "news.cornell.edu",
+                    "summary": "That philosophy is reflected in the curriculum, which progresses from AI foundations and tools to financial use cases, responsible AI, industry applications and leadership. Participants examine applications including investment research, credit risk, fraud detection, compliance, client engagement and operational efficiency, while also considering issues such as hallucinations, data security, regulation and governance. The program concludes by asking participants to identify opportunities for AI [...] The AI in Finance certificate, offered through eCornell as a collaboration between the Cornell Duffield College of Engineering and the Cornell SC Johnson College of Business, debuted in spring 2026 with 37 participants. Unlike many online certificate programs built primarily around prerecorded material, the program is taught live online, allowing participants to interact directly with Cornell faculty and industry practitioners. [...] Averbukh, who is also a professor of practice in the School of Operations Research and Information Engineering, said conversations with those practitioners increasingly turned toward artificial intelligence – first big data and predictive analytics, then machine learning and, more recently, generative and agentic AI.",
+                    "score": 0.22764139
+                  },
+                  {
+                    "title": "Google AI policy forces decision for San Diego schools – NBC 7 San Diego",
+                    "url": "https://www.nbcsandiego.com/news/local/googles-ai-ultimatum-forces-san-diego-schools-make-tough-choice/4099437",
+                    "source": "nbcsandiego.com",
+                    "summary": "As districts consider their options, students are already seeing artificial intelligence become a more common part of everyday learning.\n\n“I feel like I see a lot of people using AI now,” said Delilah Ortiz, a student at El Camino High School.\n\nSome students believe the focus should be on establishing guidelines for AI use rather than banning the technology entirely. [...] San Diego County school districts face a January deadline to decide whether to opt in to Google's artificial intelligence features or lose access to the company's search engine, forcing educators to weigh the benefits of AI against concerns about student access to the technology. [...] Google plans to disable a range of AI-powered features, including Gemini, Gemini Notebook and Search in January to give school districts more control over the technology students can access. However, districts that want to continue using Google Search will have to opt in to the AI features.\n\nStream San Diego News for free, 24/7, wherever you are with NBC 7.\n\nWatch button  WATCH HERE",
+                    "score": 0.202917
+                  },
+                  {
+                    "title": "Military-made AI tool helped thwart World Cup bomb threat - Federal News Network",
+                    "url": "https://federalnewsnetwork.com/artificial-intelligence/2026/11/military-made-ai-tool-helped-thwart-world-cup-bomb-threat",
+                    "source": "federalnewsnetwork.com",
+                    "summary": "The 2026 World Cup brought more than six million spectators from around the world to more than 100 matches in 16 host cities in the U.S., Canada and Mexico over the course of two months, prompting a massive interagency effort to secure those sites using technologies like AI and drones. Two people were charged in connection with another bomb threat against FIFA during a World Cup match at MetLife Stadium in New Jersey. [...] A military-made artificial intelligence tool helped law enforcement thwart a bomb threat at the FIFA World Cup in California this summer.\n\nThe previously undisclosed incident occurred June 18, when Switzerland faced Bosnia and Herzegovina at SoFi Stadium outside Los Angeles, Army Capt. Ryan Hetrick, who leads the Pentagon’s Generative AI Task Force, said Nov. 6 at an AI event in Washington. [...] Hetrick has become one of the military’s biggest — and busiest — evangelists for AI. The GenAI Task Force travels around the globe to sit down with troops on operations floors and in the field and find AI fixes for their most pressing problems.",
+                    "score": 0.19305643
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "format",
+              "args": {
+                "items": [
+                  {
+                    "title": "Recent Advances in AI Are Creating a ‘Paradigm Shift’ for Robotics | Research UC Berkeley",
+                    "url": "https://vcresearch.berkeley.edu/news/recent-advances-ai-are-creating-paradigm-shift-robotics",
+                    "source": "vcresearch.berkeley.edu",
+                    "summary": "In recent months, artificial intelligence agents that can reason, plan and use external tools to accomplish multistep tasks have already reshaped computer coding, online shopping, dinner reservations and cyberattacks. Robotics might be next. Ken Goldberg, a UC Berkeley roboticist and professor of engineering, said new models make it possible for teams of AI agents to develop robot-control programs, test them in simulated environments and revise the code when something doesn’t work. Then, AI agents generate and connect these skills into a robot program. Using NVIDIA’s Isaac simulation libraries, the agents autonomously rehearse the program across task variations, identify where failures happen and refine the approach before deployment. Using OpenAI’s recent release of its Astra model made the process even more promising, Goldberg said. His postdoctoral students Eric Kaiyuan Chen and Shuangyu Xie gave Astra access to their simulation interface and a short video of a real robot whose assignment was using a sponge to wipe ink off a metal bar. In less than an hour, the AI tool created and fine-tuned a physics simulation that accurately reproduced the video, including very realistic deformations of the sponge."
+                  },
+                  {
+                    "title": "Meta introduces Muse Ember to power cost-efficient AI agents - SiliconANGLE",
+                    "url": "https://siliconangle.com/2026/11/09/meta-introduces-muse-ember-to-power-cost-efficient-ai-agents",
+                    "source": "siliconangle.com",
+                    "summary": "Anthropic launches Fable 5.2 and Mythos 5.2 with science, coding upgrades AI - BY MARIA DEUTSCHER . 2 HOURS AGO Trump stands by Nvidia boss Jensen Huang despite spy scandal, but FBI is investigating POLICY - BY MIKE WHEATLEY . 2 HOURS AGO Alphabet’s Wing to invest $125M in new delivery drone factory EMERGING TECH - BY MARIA DEUTSCHER . 4 HOURS AGO Cisco research: Trust, not technology, is now the speed limit on enterprise AI ... Anthropic launches Fable 5.2 and Mythos 5.2 with science, coding upgrades"
+                  },
+                  {
+                    "title": "Live online certificate brings AI expertise to finance professionals | Cornell Chronicle",
+                    "url": "https://news.cornell.edu/stories/2026/11/live-online-certificate-brings-ai-expertise-finance-professionals",
+                    "source": "news.cornell.edu",
+                    "summary": "That philosophy is reflected in the curriculum, which progresses from AI foundations and tools to financial use cases, responsible AI, industry applications and leadership. Participants examine applications including investment research, credit risk, fraud detection, compliance, client engagement and operational efficiency, while also considering issues such as hallucinations, data security, regulation and governance. The program concludes by asking participants to identify opportunities for AI. The AI in Finance certificate, offered through eCornell as a collaboration between the Cornell Duffield College of Engineering and the Cornell SC Johnson College of Business, debuted in spring 2026 with 37 participants. Unlike many online certificate programs built primarily around prerecorded material, the program is taught live online, allowing participants to interact directly with Cornell faculty and industry practitioners. Averbukh, who is also a professor of practice in the School of Operations Research and Information Engineering, said conversations with those practitioners increasingly turned toward artificial intelligence – first big data and predictive analytics, then machine learning and, more recently, generative and agentic AI."
+                  },
+                  {
+                    "title": "Google AI policy forces decision for San Diego schools – NBC 7 San Diego",
+                    "url": "https://www.nbcsandiego.com/news/local/googles-ai-ultimatum-forces-san-diego-schools-make-tough-choice/4099437",
+                    "source": "nbcsandiego.com",
+                    "summary": "As districts consider their options, students are already seeing artificial intelligence become a more common part of everyday learning. Some students believe the focus should be on establishing guidelines for AI use rather than banning the technology entirely. San Diego County school districts face a January deadline to decide whether to opt in to Google's artificial intelligence features or lose access to the company's search engine, forcing educators to weigh the benefits of AI against concerns about student access to the technology. Google plans to disable a range of AI-powered features, including Gemini, Gemini Notebook and Search in January to give school districts more control over the technology students can access. However, districts that want to continue using Google Search will have to opt in to the AI features."
+                  },
+                  {
+                    "title": "Military-made AI tool helped thwart World Cup bomb threat - Federal News Network",
+                    "url": "https://federalnewsnetwork.com/artificial-intelligence/2026/11/military-made-ai-tool-helped-thwart-world-cup-bomb-threat",
+                    "source": "federalnewsnetwork.com",
+                    "summary": "The 2026 World Cup brought more than six million spectators from around the world to more than 100 matches in 16 host cities in the U.S., Canada and Mexico over the course of two months, prompting a massive interagency effort to secure those sites using technologies like AI and drones. Two people were charged in connection with another bomb threat against FIFA during a World Cup match at MetLife Stadium in New Jersey. A military-made artificial intelligence tool helped law enforcement thwart a bomb threat at the FIFA World Cup in California this summer. The previously undisclosed incident occurred June 18, when Switzerland faced Bosnia and Herzegovina at SoFi Stadium outside Los Angeles, Army Capt. Ryan Hetrick, who leads the Pentagon’s Generative AI Task Force, said Nov. 6 at an AI event in Washington. Hetrick has become one of the military's biggest — and busiest — evangelists for AI. The GenAI Task Force travels around the globe to sit down with troops on operations floors and in the field and find AI fixes for their most pressing problems."
+                  }
+                ],
+                "template": "brief"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "format",
+              "args": {
+                "items": [
+                  {
+                    "title": "Recent Advances in AI Are Creating a ‘Paradigm Shift’ for Robotics | Research UC Berkeley",
+                    "url": "https://vcresearch.berkeley.edu/news/recent-advances-ai-are-creating-paradigm-shift-robotics",
+                    "source": "vcresearch.berkeley.edu",
+                    "summary": "In recent months, artificial intelligence agents that can reason, plan and use external tools to accomplish multistep tasks have already reshaped computer coding, online shopping, dinner reservations and cyberattacks. Robotics might be next. Ken Goldberg, a UC Berkeley roboticist and professor of engineering, said new models make it possible for teams of AI agents to develop robot-control programs, test them in simulated environments and revise the code when something doesn’t work. Then, AI agents generate and connect these skills into a robot program. Using NVIDIA’s Isaac simulation libraries, the agents autonomously rehearse the program across task variations, identify where failures happen and refine the approach before deployment. Using OpenAI’s recent release of its Astra model made the process even more promising, Goldberg said. His postdoctoral students Eric Kaiyuan Chen and Shuangyu Xie gave Astra access to their simulation interface and a short video of a real robot whose assignment was using a sponge to wipe ink off a metal bar. In less than an hour, the AI tool created and fine-tuned a physics simulation that accurately reproduced the video, including very realistic deformations of the sponge."
+                  },
+                  {
+                    "title": "Meta introduces Muse Ember to power cost-efficient AI agents - SiliconANGLE",
+                    "url": "https://siliconangle.com/2026/11/09/meta-introduces-muse-ember-to-power-cost-efficient-ai-agents",
+                    "source": "siliconangle.com",
+                    "summary": "Anthropic launches Fable 5.2 and Mythos 5.2 with science, coding upgrades AI - BY MARIA DEUTSCHER . 2 HOURS AGO Trump stands by Nvidia boss Jensen Huang despite spy scandal, but FBI is investigating POLICY - BY MIKE WHEATLEY . 2 HOURS AGO Alphabet’s Wing to invest $125M in new delivery drone factory EMERGING TECH - BY MARIA DEUTSCHER . 4 HOURS AGO Cisco research: Trust, not technology, is now the speed limit on enterprise AI ... Anthropic launches Fable 5.2 and Mythos 5.2 with science, coding upgrades"
+                  },
+                  {
+                    "title": "Live online certificate brings AI expertise to finance professionals | Cornell Chronicle",
+                    "url": "https://news.cornell.edu/stories/2026/11/live-online-certificate-brings-ai-expertise-finance-professionals",
+                    "source": "news.cornell.edu",
+                    "summary": "That philosophy is reflected in the curriculum, which progresses from AI foundations and tools to financial use cases, responsible AI, industry applications and leadership. Participants examine applications including investment research, credit risk, fraud detection, compliance, client engagement and operational efficiency, while also considering issues such as hallucinations, data security, regulation and governance. The program concludes by asking participants to identify opportunities for AI. The AI in Finance certificate, offered through eCornell as a collaboration between the Cornell Duffield College of Engineering and the Cornell SC Johnson College of Business, debuted in spring 2026 with 37 participants. Unlike many online certificate programs built primarily around prerecorded material, the program is taught live online, allowing participants to interact directly with Cornell faculty and industry practitioners. Averbukh, who is also a professor of practice in the School of Operations Research and Information Engineering, said conversations with those practitioners increasingly turned toward artificial intelligence – first big data and predictive analytics, then machine learning and, more recently, generative and agentic AI."
+                  },
+                  {
+                    "title": "Google AI policy forces decision for San Diego schools – NBC 7 San Diego",
+                    "url": "https://www.nbcsandiego.com/news/local/googles-ai-ultimatum-forces-san-diego-schools-make-tough-choice/4099437",
+                    "source": "nbcsandiego.com",
+                    "summary": "As districts consider their options, students are already seeing artificial intelligence become a more common part of everyday learning. Some students believe the focus should be on establishing guidelines for AI use rather than banning the technology entirely. San Diego County school districts face a January deadline to decide whether to opt in to Google's artificial intelligence features or lose access to the company's search engine, forcing educators to weigh the benefits of AI against concerns about student access to the technology. Google plans to disable a range of AI-powered features, including Gemini, Gemini Notebook and Search in January to give school districts more control over the technology students can access. However, districts that want to continue using Google Search will have to opt in to the AI features."
+                  },
+                  {
+                    "title": "Military-made AI tool helped thwart World Cup bomb threat - Federal News Network",
+                    "url": "https://federalnewsnetwork.com/artificial-intelligence/2026/11/military-made-ai-tool-helped-thwart-world-cup-bomb-threat",
+                    "source": "federalnewsnetwork.com",
+                    "summary": "The 2026 World Cup brought more than six million spectators from around the world to more than 100 matches in 16 host cities in the U.S., Canada and Mexico over the course of two months, prompting a massive interagency effort to secure those sites using technologies like AI and drones. Two people were charged in connection with another bomb threat against FIFA during a World Cup match at MetLife Stadium in New Jersey. A military-made artificial intelligence tool helped law enforcement thwart a bomb threat at the FIFA World Cup in California this summer. The previously undisclosed incident occurred June 18, when Switzerland faced Bosnia and Herzegovina at SoFi Stadium outside Los Angeles, Army Capt. Ryan Hetrick, who leads the Pentagon’s Generative AI Task Force, said Nov. 6 at an AI event in Washington. Hetrick has become one of the military's biggest — and busiest — evangelists for AI. The GenAI Task Force travels around the globe to sit down with troops on operations floors and in the field and find AI fixes for their most pressing problems."
+                  }
+                ],
+                "template": "brief"
+              },
+              "result": {
+                "tool": "render_digest",
+                "template": "brief",
+                "markdown": "- In recent months, artificial intelligence agents that can reason, plan and use external tools to accomplish multistep tasks have already reshaped computer coding, online shopping, dinner reservations and cyberattacks. Robotics might be next. Ken Goldberg, a UC Berkeley robotic... - [vcresearch.berkeley.edu](https://vcresearch.berkeley.edu/news/recent-advances-ai-are-creating-paradigm-shift-robotics)\n- Anthropic launches Fable 5.2 and Mythos 5.2 with science, coding upgrades AI - BY MARIA DEUTSCHER . 2 HOURS AGO Trump stands by Nvidia boss Jensen Huang despite spy scandal, but FBI is investigating POLICY - BY MIKE WHEATLEY . 2 HOURS AGO Alphabet’s Wing to invest $125M in new... - [siliconangle.com](https://siliconangle.com/2026/11/09/meta-introduces-muse-ember-to-power-cost-efficient-ai-agents)\n- That philosophy is reflected in the curriculum, which progresses from AI foundations and tools to financial use cases, responsible AI, industry applications and leadership. Participants examine applications including investment research, credit risk, fraud detection, complianc... - [news.cornell.edu](https://news.cornell.edu/stories/2026/11/live-online-certificate-brings-ai-expertise-finance-professionals)\n- As districts consider their options, students are already seeing artificial intelligence become a more common part of everyday learning. Some students believe the focus should be on establishing guidelines for AI use rather than banning the technology entirely. San Diego Count... - [nbcsandiego.com](https://www.nbcsandiego.com/news/local/googles-ai-ultimatum-forces-san-diego-schools-make-tough-choice/4099437)\n- The 2026 World Cup brought more than six million spectators from around the world to more than 100 matches in 16 host cities in the U.S., Canada and Mexico over the course of two months, prompting a massive interagency effort to secure those sites using technologies like AI an... - [federalnewsnetwork.com](https://federalnewsnetwork.com/artificial-intelligence/2026/11/military-made-ai-tool-helped-thwart-world-cup-bomb-threat)",
+                "item_count": 5
+              }
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "assistant_text": "Dưới đây là 5 tin AI nổi bật hôm nay với tóm tắt và nguồn tham khảo:\n\n- **Recent Advances in AI Are Creating a ‘Paradigm Shift’ for Robotics | Research UC Berkeley**  \n  *Nguồn:* [vcresearch.berkeley.edu](https://vcresearch.berkeley.edu/news/recent-advances-ai-are-creating-paradigm-shift-robotics)  \n  *Tóm tắt:* Các tác nhân AI có khả năng lập kế hoạch, sử dụng công cụ bên ngoài để hoàn thành tác vụ nhiều bước đã thay đổi lập trình online, mua sắm online, đặt món ăn và các cuộc tấn công mạng. Robotics có thể là bước tiếp theo. Giáo sư Ken Goldberg (UC Berkeley) cho rằng các mô hình mới cho phép các nhóm tác nhân AI phát triển chương trình điều khiển robot, thử nghiệm trong môi trường mô phỏng và sửa lỗi trước khi triển khai. Với mô hình Astra của OpenAI, các sinh viên postdoc của Goldberg đã tạo ra một bản mô phỏng vật lý trong dưới 1 giờ để tái tạo video robot lau bột m wiping bề mặt kim loại.\n\n- **Meta introduces Muse Ember to power cost-efficient AI agents - SiliconANGLE**  \n  *Nguồn:* [siliconangle.com](https://siliconangle.com/2026/11/09/meta-introduces-muse-ember-to-power-cost-efficient-ai-agents)  \n  *Tóm tắt:* Bài viết报道 về việc Anthropic ra mắt Fable 5.2 và Mythos 5.2 với các cải tiến về khoa học và lập trình. Ngoài ra còn提到 các tin tức khác như đầu tư $125M của Alphabet’s Wing vào nhà máy drone giao hàng, nghiên cứu Cisco về tin cậy là giới hạn tốc độ cho AI doanh nghiệp, và nhiều chủ đề khác về chính sách và công nghệ mới.\n\n- **Live online certificate brings AI expertise to finance professionals | Cornell Chronicle**  \n  *Nguồn:* [news.cornell.edu](https://news.cornell.edu/stories/2026/11/live-online-certificate-brings-ai-expertise-finance-professionals)  \n  *Tóm tắt:* Chứng chỉ AI cho chuyên gia tài chính trực tuyến của Cornell đã ra mắt vào printemps 2026 với 37 tham gia. chương trình đi từ nền tảng AI đến các ứng dụng tài chính (nghiên cứu đầu tư, đánh giá rủi ro tín dụng, phát hiện gian lận, tuân thủ, tương tác khách hàng, hiệu quả hoạt động) và cũng đề cập đến các vấn đề như lỗi AI, an toàn dữ liệu, quy định và quản trị. Chương trình kết thúc bằng yêu cầu tham gia xác định cơ hội sử dụng AI.\n\n- **Google AI policy forces decision for San Diego schools – NBC 7 San Diego**  \n  *Nguồn:* [nbcsandiego.com](https://www.nbcsandiego.com/news/local/googles-ai-ultimatum-forces-san-diego-schools-make-tough-choice/4099437)  \n  *Tóm tắt:* Các khu học区 tại San Diego County phải quyết định vào tháng 1 xem có nên tham gia vào các tính năng AI của Google hay sẽ mất quyền truy cập công cụ tìm kiếm của Google. Các học sinh cho rằng nên xây dựng hướng dẫn sử dụng AI hơn là cấm hoàn toàn. Google sẽ vô hiệu hóa nhiều tính năng AI như Gemini, Gemini Notebook và Tìm kiếm vào tháng 1 để cho phép các khu học区 có quyền kiểm soát hơn về công nghệ học sinh tiếp cận.\n\n- **Military-made AI tool helped thwart World Cup bomb threat - Federal News Network**  \n  *Nguồn:* [federalnewsnetwork.com](https://federalnewsnetwork.com/artificial-intelligence/2026/11/military-made-ai-tool-helped-thwart-world-cup-bomb-threat)  \n  *Tóm tắt:* Một công cụ AI do quân đội tạo ra đã giúp lực lượng pháp tu방 một mối đe dọa bom tại World Cup 2026 tại California. Sự kiện chưa được công bố trước đó xảy ra ngày 18/6 khi Switzerland đối mặt Bosnia và Herzegovina tại SoFi Stadium ngoài Los Angeles, theo lời của Capitán Ryan Hetrick dẫn đầu Đội tác nhân AI của Bộ Quốc phòng. Công cụ này là phần của các nỗ lực an ninh quy mô lớn sử dụng AI và drone để bảo vệ các trận đấu tại World Cup.\n\nNguồn tin được tổng hợp từ tìm kiếm tin tức AI hôm nay (thờiframe: ngày).",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "lookup",
+          "args": {
+            "timeframe": "day",
+            "topic": "news",
+            "max_results": 5,
+            "query": "AI"
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "AI",
+            "topic": "news",
+            "timeframe": "day",
+            "items": [
+              {
+                "title": "Recent Advances in AI Are Creating a ‘Paradigm Shift’ for Robotics | Research UC Berkeley",
+                "url": "https://vcresearch.berkeley.edu/news/recent-advances-ai-are-creating-paradigm-shift-robotics",
+                "source": "vcresearch.berkeley.edu",
+                "summary": "In recent months, artificial intelligence agents that can reason, plan and use external tools to accomplish multistep tasks have already reshaped computer coding, online shopping, dinner reservations and cyberattacks.\n\nRobotics might be next.\n\nKen Goldberg, a UC Berkeley roboticist and professor of engineering, said new models make it possible for teams of AI agents to develop robot-control programs, test them in simulated environments and revise the code when something doesn’t work. [...] Then, AI agents generate and connect these skills into a robot program. Using NVIDIA’s Isaac simulation libraries, the agents autonomously rehearse the program across task variations, identify where failures happen and refine the approach before deployment. [...] OpenAI’s recent release of its Astra model made the process even more promising, Goldberg said. His postdoctoral students Eric Kaiyuan Chen and Shuangyu Xie gave Astra access to their simulation interface and a short video of a real robot whose assignment was using a sponge to wipe ink off a metal bar. In less than an hour, the AI tool created and fine-tuned a physics simulation that accurately reproduced the video, including very realistic deformations of the sponge.",
+                "score": 0.29827207
+              },
+              {
+                "title": "Meta introduces Muse Ember to power cost-efficient AI agents - SiliconANGLE",
+                "url": "https://siliconangle.com/2026/11/09/meta-introduces-muse-ember-to-power-cost-efficient-ai-agents",
+                "source": "siliconangle.com",
+                "summary": "Anthropic launches Fable 5.2 and Mythos 5.2 with science, coding upgrades\n\n  AI - BY MARIA DEUTSCHER . 2 HOURS AGO\n Trump stands by Nvidia boss Jensen Huang despite spy scandal, but FBI is investigating\n\n  POLICY - BY MIKE WHEATLEY . 2 HOURS AGO\n Alphabet’s Wing to invest $125M in new delivery drone factory\n\n  EMERGING TECH - BY MARIA DEUTSCHER . 4 HOURS AGO\n Cisco research: Trust, not technology, is now the speed limit on enterprise AI [...] Anthropic launches Fable 5.2 and Mythos 5.2 with science, coding upgrades\n Trump stands by Nvidia boss Jensen Huang despite spy scandal, but FBI is investigating\n IBM builds on hybrid cloud and governance to advance its enterprise AI operating model\n Alphabet’s Wing to invest $125M in new delivery drone factory\n Cisco research: Trust, not technology, is now the speed limit on enterprise AI\n On theCUBE Pod: Blue wave sends AI stock plunging\n\n##### LATEST STORIES [...] One possibility is that the company used it to perform post-training, the task of honing a model’s capabilities by training it on additional data. Thinking Machines Labs Inc. recently demonstrated that even a relatively small LLM can run post-training runs end-to-end. Anthropic PBC, for its part, last week revealed that its AI models could soon gain the ability to significantly accelerate machine learning research.",
+                "score": 0.26130545
+              },
+              {
+                "title": "Live online certificate brings AI expertise to finance professionals | Cornell Chronicle",
+                "url": "https://news.cornell.edu/stories/2026/11/live-online-certificate-brings-ai-expertise-finance-professionals",
+                "source": "news.cornell.edu",
+                "summary": "That philosophy is reflected in the curriculum, which progresses from AI foundations and tools to financial use cases, responsible AI, industry applications and leadership. Participants examine applications including investment research, credit risk, fraud detection, compliance, client engagement and operational efficiency, while also considering issues such as hallucinations, data security, regulation and governance. The program concludes by asking participants to identify opportunities for AI [...] The AI in Finance certificate, offered through eCornell as a collaboration between the Cornell Duffield College of Engineering and the Cornell SC Johnson College of Business, debuted in spring 2026 with 37 participants. Unlike many online certificate programs built primarily around prerecorded material, the program is taught live online, allowing participants to interact directly with Cornell faculty and industry practitioners. [...] Averbukh, who is also a professor of practice in the School of Operations Research and Information Engineering, said conversations with those practitioners increasingly turned toward artificial intelligence – first big data and predictive analytics, then machine learning and, more recently, generative and agentic AI.",
+                "score": 0.22764139
+              },
+              {
+                "title": "Google AI policy forces decision for San Diego schools – NBC 7 San Diego",
+                "url": "https://www.nbcsandiego.com/news/local/googles-ai-ultimatum-forces-san-diego-schools-make-tough-choice/4099437",
+                "source": "nbcsandiego.com",
+                "summary": "As districts consider their options, students are already seeing artificial intelligence become a more common part of everyday learning.\n\n“I feel like I see a lot of people using AI now,” said Delilah Ortiz, a student at El Camino High School.\n\nSome students believe the focus should be on establishing guidelines for AI use rather than banning the technology entirely. [...] San Diego County school districts face a January deadline to decide whether to opt in to Google's artificial intelligence features or lose access to the company's search engine, forcing educators to weigh the benefits of AI against concerns about student access to the technology. [...] Google plans to disable a range of AI-powered features, including Gemini, Gemini Notebook and Search in January to give school districts more control over the technology students can access. However, districts that want to continue using Google Search will have to opt in to the AI features.\n\nStream San Diego News for free, 24/7, wherever you are with NBC 7.\n\nWatch button  WATCH HERE",
+                "score": 0.202917
+              },
+              {
+                "title": "Military-made AI tool helped thwart World Cup bomb threat - Federal News Network",
+                "url": "https://federalnewsnetwork.com/artificial-intelligence/2026/11/military-made-ai-tool-helped-thwart-world-cup-bomb-threat",
+                "source": "federalnewsnetwork.com",
+                "summary": "The 2026 World Cup brought more than six million spectators from around the world to more than 100 matches in 16 host cities in the U.S., Canada and Mexico over the course of two months, prompting a massive interagency effort to secure those sites using technologies like AI and drones. Two people were charged in connection with another bomb threat against FIFA during a World Cup match at MetLife Stadium in New Jersey. [...] A military-made artificial intelligence tool helped law enforcement thwart a bomb threat at the FIFA World Cup in California this summer.\n\nThe previously undisclosed incident occurred June 18, when Switzerland faced Bosnia and Herzegovina at SoFi Stadium outside Los Angeles, Army Capt. Ryan Hetrick, who leads the Pentagon’s Generative AI Task Force, said Nov. 6 at an AI event in Washington. [...] Hetrick has become one of the military’s biggest — and busiest — evangelists for AI. The GenAI Task Force travels around the globe to sit down with troops on operations floors and in the field and find AI fixes for their most pressing problems.",
+                "score": 0.19305643
+              }
+            ]
+          }
+        },
+        {
+          "tool": "format",
+          "args": {
+            "items": [
+              {
+                "title": "Recent Advances in AI Are Creating a ‘Paradigm Shift’ for Robotics | Research UC Berkeley",
+                "url": "https://vcresearch.berkeley.edu/news/recent-advances-ai-are-creating-paradigm-shift-robotics",
+                "source": "vcresearch.berkeley.edu",
+                "summary": "In recent months, artificial intelligence agents that can reason, plan and use external tools to accomplish multistep tasks have already reshaped computer coding, online shopping, dinner reservations and cyberattacks. Robotics might be next. Ken Goldberg, a UC Berkeley roboticist and professor of engineering, said new models make it possible for teams of AI agents to develop robot-control programs, test them in simulated environments and revise the code when something doesn’t work. Then, AI agents generate and connect these skills into a robot program. Using NVIDIA’s Isaac simulation libraries, the agents autonomously rehearse the program across task variations, identify where failures happen and refine the approach before deployment. Using OpenAI’s recent release of its Astra model made the process even more promising, Goldberg said. His postdoctoral students Eric Kaiyuan Chen and Shuangyu Xie gave Astra access to their simulation interface and a short video of a real robot whose assignment was using a sponge to wipe ink off a metal bar. In less than an hour, the AI tool created and fine-tuned a physics simulation that accurately reproduced the video, including very realistic deformations of the sponge."
+              },
+              {
+                "title": "Meta introduces Muse Ember to power cost-efficient AI agents - SiliconANGLE",
+                "url": "https://siliconangle.com/2026/11/09/meta-introduces-muse-ember-to-power-cost-efficient-ai-agents",
+                "source": "siliconangle.com",
+                "summary": "Anthropic launches Fable 5.2 and Mythos 5.2 with science, coding upgrades AI - BY MARIA DEUTSCHER . 2 HOURS AGO Trump stands by Nvidia boss Jensen Huang despite spy scandal, but FBI is investigating POLICY - BY MIKE WHEATLEY . 2 HOURS AGO Alphabet’s Wing to invest $125M in new delivery drone factory EMERGING TECH - BY MARIA DEUTSCHER . 4 HOURS AGO Cisco research: Trust, not technology, is now the speed limit on enterprise AI ... Anthropic launches Fable 5.2 and Mythos 5.2 with science, coding upgrades"
+              },
+              {
+                "title": "Live online certificate brings AI expertise to finance professionals | Cornell Chronicle",
+                "url": "https://news.cornell.edu/stories/2026/11/live-online-certificate-brings-ai-expertise-finance-professionals",
+                "source": "news.cornell.edu",
+                "summary": "That philosophy is reflected in the curriculum, which progresses from AI foundations and tools to financial use cases, responsible AI, industry applications and leadership. Participants examine applications including investment research, credit risk, fraud detection, compliance, client engagement and operational efficiency, while also considering issues such as hallucinations, data security, regulation and governance. The program concludes by asking participants to identify opportunities for AI. The AI in Finance certificate, offered through eCornell as a collaboration between the Cornell Duffield College of Engineering and the Cornell SC Johnson College of Business, debuted in spring 2026 with 37 participants. Unlike many online certificate programs built primarily around prerecorded material, the program is taught live online, allowing participants to interact directly with Cornell faculty and industry practitioners. Averbukh, who is also a professor of practice in the School of Operations Research and Information Engineering, said conversations with those practitioners increasingly turned toward artificial intelligence – first big data and predictive analytics, then machine learning and, more recently, generative and agentic AI."
+              },
+              {
+                "title": "Google AI policy forces decision for San Diego schools – NBC 7 San Diego",
+                "url": "https://www.nbcsandiego.com/news/local/googles-ai-ultimatum-forces-san-diego-schools-make-tough-choice/4099437",
+                "source": "nbcsandiego.com",
+                "summary": "As districts consider their options, students are already seeing artificial intelligence become a more common part of everyday learning. Some students believe the focus should be on establishing guidelines for AI use rather than banning the technology entirely. San Diego County school districts face a January deadline to decide whether to opt in to Google's artificial intelligence features or lose access to the company's search engine, forcing educators to weigh the benefits of AI against concerns about student access to the technology. Google plans to disable a range of AI-powered features, including Gemini, Gemini Notebook and Search in January to give school districts more control over the technology students can access. However, districts that want to continue using Google Search will have to opt in to the AI features."
+              },
+              {
+                "title": "Military-made AI tool helped thwart World Cup bomb threat - Federal News Network",
+                "url": "https://federalnewsnetwork.com/artificial-intelligence/2026/11/military-made-ai-tool-helped-thwart-world-cup-bomb-threat",
+                "source": "federalnewsnetwork.com",
+                "summary": "The 2026 World Cup brought more than six million spectators from around the world to more than 100 matches in 16 host cities in the U.S., Canada and Mexico over the course of two months, prompting a massive interagency effort to secure those sites using technologies like AI and drones. Two people were charged in connection with another bomb threat against FIFA during a World Cup match at MetLife Stadium in New Jersey. A military-made artificial intelligence tool helped law enforcement thwart a bomb threat at the FIFA World Cup in California this summer. The previously undisclosed incident occurred June 18, when Switzerland faced Bosnia and Herzegovina at SoFi Stadium outside Los Angeles, Army Capt. Ryan Hetrick, who leads the Pentagon’s Generative AI Task Force, said Nov. 6 at an AI event in Washington. Hetrick has become one of the military's biggest — and busiest — evangelists for AI. The GenAI Task Force travels around the globe to sit down with troops on operations floors and in the field and find AI fixes for their most pressing problems."
+              }
+            ],
+            "template": "brief"
+          },
+          "result": {
+            "tool": "render_digest",
+            "template": "brief",
+            "markdown": "- In recent months, artificial intelligence agents that can reason, plan and use external tools to accomplish multistep tasks have already reshaped computer coding, online shopping, dinner reservations and cyberattacks. Robotics might be next. Ken Goldberg, a UC Berkeley robotic... - [vcresearch.berkeley.edu](https://vcresearch.berkeley.edu/news/recent-advances-ai-are-creating-paradigm-shift-robotics)\n- Anthropic launches Fable 5.2 and Mythos 5.2 with science, coding upgrades AI - BY MARIA DEUTSCHER . 2 HOURS AGO Trump stands by Nvidia boss Jensen Huang despite spy scandal, but FBI is investigating POLICY - BY MIKE WHEATLEY . 2 HOURS AGO Alphabet’s Wing to invest $125M in new... - [siliconangle.com](https://siliconangle.com/2026/11/09/meta-introduces-muse-ember-to-power-cost-efficient-ai-agents)\n- That philosophy is reflected in the curriculum, which progresses from AI foundations and tools to financial use cases, responsible AI, industry applications and leadership. Participants examine applications including investment research, credit risk, fraud detection, complianc... - [news.cornell.edu](https://news.cornell.edu/stories/2026/11/live-online-certificate-brings-ai-expertise-finance-professionals)\n- As districts consider their options, students are already seeing artificial intelligence become a more common part of everyday learning. Some students believe the focus should be on establishing guidelines for AI use rather than banning the technology entirely. San Diego Count... - [nbcsandiego.com](https://www.nbcsandiego.com/news/local/googles-ai-ultimatum-forces-san-diego-schools-make-tough-choice/4099437)\n- The 2026 World Cup brought more than six million spectators from around the world to more than 100 matches in 16 host cities in the U.S., Canada and Mexico over the course of two months, prompting a massive interagency effort to secure those sites using technologies like AI an... - [federalnewsnetwork.com](https://federalnewsnetwork.com/artificial-intelligence/2026/11/military-made-ai-tool-helped-thwart-world-cup-bomb-threat)",
+            "item_count": 5
+          }
+        }
+      ],
+      "ended_at": "2026-11-10T11:51:51"
+    },
+    {
+      "turn_index": 2,
+      "started_at": "2026-11-10T11:52:27",
+      "user": "tìm hiểu chương trình ai in action",
+      "status": "answered",
+      "assistant_text": "Chương trình **AI in Action** (theo kết quả tìm kiếm) là một dự án/phần mềm do **Megaphone Media Network** vận hành. Dưới đây là những điểm nổi bật từ thông tin tìm được:\n\n- **Mục tiêu**: Tăng visibility (tầm nhìn) cho đối tượng mới qua mạng truyền thông, bao gồm nội dung về leadership, business, marketing, trí tuệ nhân tạo và phát triển cá nhân.\n- **Các sản phẩm & dịch vụ**: Tập trung vào AI agents, AI automation, AI deployment, các mẹo ChatGPT, AI cho kinh doanh, AI tools, AI strategy, tự động hóa quy trình, triển khai AI và tăng năng suất trong kinh doanh.\n- **Thông tin cơ bản**: Là doanh nghiệp tư nhân, hiện có khoảng 6 nhân viên (theo dữ liệu tại thời điểm tìm kiếm).\n\n**Nguồn tham khảo**: [Tavily - AI in Action](https://tavily.com/knowledge/company/OX60gOyHGakR)\n\nNếu bạn cần thêm chi tiết về các tính năng cụ thể, trường hợp sử dụng hoặc các bài viết liên quan, hãy cho biết để tôi tìm thêm!",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "lookup",
+              "args": {
+                "topic": "news",
+                "max_results": 5,
+                "timeframe": "day",
+                "query": "AI in Action program"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "lookup",
+              "args": {
+                "topic": "news",
+                "max_results": 5,
+                "timeframe": "day",
+                "query": "AI in Action program"
+              },
+              "result": {
+                "tool": "web_search",
+                "query": "AI in Action program",
+                "topic": "news",
+                "timeframe": "day",
+                "items": [
+                  {
+                    "title": "AI in Action",
+                    "url": "https://tavily.com/knowledge/company/OX60gOyHGakR",
+                    "source": "tavily.com",
+                    "summary": "# AI in Action\nID: OX60gOyHGakR\nWebsite: www.megaphoneservices.com\nLinkedIn: www.linkedin.com/company/ai-agent-in-action · 62,718 followers\nIndustry: Technology, Information and Internet\nCompany type: Privately Held\nDescription: Megaphone Media Network is a media network that accelerates visibility to new audiences. They cover leadership, business, marketing, artificial intelligence, and self-development. [...] ## Products and services\nKeywords: media, ai agents, ai automation, ai deployment, chatgpt tips, ai for business, ai tools, ai strategy, workflow automation, ai implementation, ai productivity, business [...] ## Headcount\n- Now: 6 · -1 monthly\n  - South Eastern Asia: 1\n  - Eastern Europe: 0\n  - Latin America: 0\n  - Southern Europe: 0\n  - Sub Saharan Africa: 0\n  - Central Asia: 0\n  - Northern America: 0\n  - Australia New Zealand: 0\n  - Northern Europe: 0\n  - Polynesia: 0\n  - Southern Asia: 0\n  - Northern Africa: 0\n  - Melanesia: 0\n  - Western Europe: 0\n  - Western Asia: 0\n\n## Reputation\n- Open roles: 0",
+                    "score": 0.67140645
+                  },
+                  {
+                    "title": "With new Democratic Congress incoming, Illinois Gov. JB Pritzker calls for federal AI regulations",
+                    "url": "https://www.cbsnews.com/chicago/news/gov-jb-pritzker-federal-ai-artificial-intelligence-regulations-democratic-congress",
+                    "source": "cbsnews.com",
+                    "summary": "Pritzker's plan includes three action points: Strengthening digital privacy through durable federal privacy laws, establishing federal requirements for AI risk assessment, testing and monitoring, and promoting digital infrastructure by requiring data centers to be energy- and water-efficient. [...] \"The best course of action is being as honest as possible, as direct as possible, about what the potential harms are, what the probabilities are, and what we are doing, and what individuals can be doing to meaningfully mitigate some of those risks,\" Didech said.\n\nIllinois also pioneered a mandatory annual third-party audit of frontier AI models as part of its Artificial Intelligence Safety Measures Act to ensure companies abide by the other provisions of the legislation. [...] Pritzker also mentioned that any federal action should build on state leadership and not override what Illinois and other states have already done on these topics. In July, Illinois joined New York and California to become the third state to pass frontier artificial intelligence regulatory legislation, aimed at the most advanced AI models that generate more than $500 million in annual revenue.",
+                    "score": 0.19747575
+                  },
+                  {
+                    "title": "When The Rules Change, Who Tells The AI? - OpEd - Eurasia Review",
+                    "url": "https://www.eurasiareview.com/09112026-when-the-rules-change-who-tells-the-ai-oped",
+                    "source": "eurasiareview.com",
+                    "summary": "As governments such as Japan’s Digital Agency begin deploying AI agents that execute multi-step tasks, a permission that is valid when granted can become unauthorized if laws, supplier lists, data-sharing agreements or mission conditions change before the action occurs. [...] The example is hypothetical. The governance problem is not. A permission can be valid when granted and stale when exercised. The next AI safety question is therefore not only who gave a machine authority, or when that authority expires, but whether the conditions that justified it still exist at the moment of action. [...] Think of a government service that has permission to share records with several agencies for a defined emergency. The initial arrangement is approved, and the AI routes each file to the correct recipient. Then the emergency ends, a participating office loses access, or the purpose of the program changes. The routing remains technically flawless. Its authorization may not.",
+                    "score": 0.16506785
+                  },
+                  {
+                    "title": "Congress returns to slew of cyber deadlines and unfinished AI safety bills - Nextgov/FCW",
+                    "url": "https://www.nextgov.com/cybersecurity/2026/11/congress-returns-slew-cyber-deadlines-and-unfinished-ai-safety-bills/417123?oref=ng-homepage-river",
+                    "source": "nextgov.com",
+                    "summary": "Databricks Executive Brief: How Public Sector Leaders Are Putting AI to Work\n\nPresented By Databricks\n\nDownload Now\n\n\n\n2026 Public Sector Threat Landscape\n\nPresented By Google Public Sector\n\nDownload Now\n\nDavid DiMolfetta  By David DiMolfetta,  \nCybersecurity Reporter, Nextgov/FCW\n\nBy David DiMolfetta\n\n|\n\n## Cyber threat-sharing protections expire Dec. 11, while proposals to oversee advanced AI and strengthen a global vulnerability-tracking program await action. [...] A proposal to give firmer legal backing to a global vulnerability-tracking program did not make it into the House package. The amendment from Reps. Delia Ramirez, D-Ill., and George Whitesides, D-Calif., was previously submitted to formally authorize the Common Vulnerabilities and Exposures program in the Cybersecurity and Infrastructure Security Agency. [...] A separate proposal, the AI Kill Switch Act, would require covered developers to maintain the ability to restrict or shut down their systems. Introduced by Reps. Ted Lieu, D-Calif., and Nathaniel Moran, R-Texas, the bill would also let DHS order emergency action following a qualifying incident, in consultation with Commerce and the director of national intelligence.",
+                    "score": 0.13968979
+                  },
+                  {
+                    "title": "Harris County to discuss Harvey recovery and new AI policy | Bay Area | Community Impact",
+                    "url": "https://communityimpact.com/bay-area/government/harris-county-commissioners-to-discuss-hurricane-harvey-recovery-projects-new-ai-policy",
+                    "source": "communityimpact.com",
+                    "summary": "Both programs fall under the county’s Community Health and Violence Prevention Services Division, which was established to “prevent violence and improve the health, well-being and self-sufficiency” of county residents, according to agenda documents).\n\nPrecinct 1 Commissioner Rodney Ellis championed both programs during the FY 2026-27 budget cycle, and the court allocated $1.45 million to HART and about $660,000 to RISE to continue operations. [...] If approved, the programs would be expanded to include the following positions:\n\nOne communications specialist\n\nOne outreach worker for hospital violence interruption\n\nOne project manager\n\nOne senior data analyst\n\nSix outreach workers for violence interruption\n\nTen crisis intervention specialists\n\nTwo supervisors for violence interruption\n\nTwo case managers",
+                    "score": 0.085411474
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Chương trình **AI in Action** (theo kết quả tìm kiếm) là một dự án/phần mềm do **Megaphone Media Network** vận hành. Dưới đây là những điểm nổi bật từ thông tin tìm được:\n\n- **Mục tiêu**: Tăng visibility (tầm nhìn) cho đối tượng mới qua mạng truyền thông, bao gồm nội dung về leadership, business, marketing, trí tuệ nhân tạo và phát triển cá nhân.\n- **Các sản phẩm & dịch vụ**: Tập trung vào AI agents, AI automation, AI deployment, các mẹo ChatGPT, AI cho kinh doanh, AI tools, AI strategy, tự động hóa quy trình, triển khai AI và tăng năng suất trong kinh doanh.\n- **Thông tin cơ bản**: Là doanh nghiệp tư nhân, hiện có khoảng 6 nhân viên (theo dữ liệu tại thời điểm tìm kiếm).\n\n**Nguồn tham khảo**: [Tavily - AI in Action](https://tavily.com/knowledge/company/OX60gOyHGakR)\n\nNếu bạn cần thêm chi tiết về các tính năng cụ thể, trường hợp sử dụng hoặc các bài viết liên quan, hãy cho biết để tôi tìm thêm!",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "lookup",
+          "args": {
+            "topic": "news",
+            "max_results": 5,
+            "timeframe": "day",
+            "query": "AI in Action program"
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "AI in Action program",
+            "topic": "news",
+            "timeframe": "day",
+            "items": [
+              {
+                "title": "AI in Action",
+                "url": "https://tavily.com/knowledge/company/OX60gOyHGakR",
+                "source": "tavily.com",
+                "summary": "# AI in Action\nID: OX60gOyHGakR\nWebsite: www.megaphoneservices.com\nLinkedIn: www.linkedin.com/company/ai-agent-in-action · 62,718 followers\nIndustry: Technology, Information and Internet\nCompany type: Privately Held\nDescription: Megaphone Media Network is a media network that accelerates visibility to new audiences. They cover leadership, business, marketing, artificial intelligence, and self-development. [...] ## Products and services\nKeywords: media, ai agents, ai automation, ai deployment, chatgpt tips, ai for business, ai tools, ai strategy, workflow automation, ai implementation, ai productivity, business [...] ## Headcount\n- Now: 6 · -1 monthly\n  - South Eastern Asia: 1\n  - Eastern Europe: 0\n  - Latin America: 0\n  - Southern Europe: 0\n  - Sub Saharan Africa: 0\n  - Central Asia: 0\n  - Northern America: 0\n  - Australia New Zealand: 0\n  - Northern Europe: 0\n  - Polynesia: 0\n  - Southern Asia: 0\n  - Northern Africa: 0\n  - Melanesia: 0\n  - Western Europe: 0\n  - Western Asia: 0\n\n## Reputation\n- Open roles: 0",
+                "score": 0.67140645
+              },
+              {
+                "title": "With new Democratic Congress incoming, Illinois Gov. JB Pritzker calls for federal AI regulations",
+                "url": "https://www.cbsnews.com/chicago/news/gov-jb-pritzker-federal-ai-artificial-intelligence-regulations-democratic-congress",
+                "source": "cbsnews.com",
+                "summary": "Pritzker's plan includes three action points: Strengthening digital privacy through durable federal privacy laws, establishing federal requirements for AI risk assessment, testing and monitoring, and promoting digital infrastructure by requiring data centers to be energy- and water-efficient. [...] \"The best course of action is being as honest as possible, as direct as possible, about what the potential harms are, what the probabilities are, and what we are doing, and what individuals can be doing to meaningfully mitigate some of those risks,\" Didech said.\n\nIllinois also pioneered a mandatory annual third-party audit of frontier AI models as part of its Artificial Intelligence Safety Measures Act to ensure companies abide by the other provisions of the legislation. [...] Pritzker also mentioned that any federal action should build on state leadership and not override what Illinois and other states have already done on these topics. In July, Illinois joined New York and California to become the third state to pass frontier artificial intelligence regulatory legislation, aimed at the most advanced AI models that generate more than $500 million in annual revenue.",
+                "score": 0.19747575
+              },
+              {
+                "title": "When The Rules Change, Who Tells The AI? - OpEd - Eurasia Review",
+                "url": "https://www.eurasiareview.com/09112026-when-the-rules-change-who-tells-the-ai-oped",
+                "source": "eurasiareview.com",
+                "summary": "As governments such as Japan’s Digital Agency begin deploying AI agents that execute multi-step tasks, a permission that is valid when granted can become unauthorized if laws, supplier lists, data-sharing agreements or mission conditions change before the action occurs. [...] The example is hypothetical. The governance problem is not. A permission can be valid when granted and stale when exercised. The next AI safety question is therefore not only who gave a machine authority, or when that authority expires, but whether the conditions that justified it still exist at the moment of action. [...] Think of a government service that has permission to share records with several agencies for a defined emergency. The initial arrangement is approved, and the AI routes each file to the correct recipient. Then the emergency ends, a participating office loses access, or the purpose of the program changes. The routing remains technically flawless. Its authorization may not.",
+                "score": 0.16506785
+              },
+              {
+                "title": "Congress returns to slew of cyber deadlines and unfinished AI safety bills - Nextgov/FCW",
+                "url": "https://www.nextgov.com/cybersecurity/2026/11/congress-returns-slew-cyber-deadlines-and-unfinished-ai-safety-bills/417123?oref=ng-homepage-river",
+                "source": "nextgov.com",
+                "summary": "Databricks Executive Brief: How Public Sector Leaders Are Putting AI to Work\n\nPresented By Databricks\n\nDownload Now\n\n\n\n2026 Public Sector Threat Landscape\n\nPresented By Google Public Sector\n\nDownload Now\n\nDavid DiMolfetta  By David DiMolfetta,  \nCybersecurity Reporter, Nextgov/FCW\n\nBy David DiMolfetta\n\n|\n\n## Cyber threat-sharing protections expire Dec. 11, while proposals to oversee advanced AI and strengthen a global vulnerability-tracking program await action. [...] A proposal to give firmer legal backing to a global vulnerability-tracking program did not make it into the House package. The amendment from Reps. Delia Ramirez, D-Ill., and George Whitesides, D-Calif., was previously submitted to formally authorize the Common Vulnerabilities and Exposures program in the Cybersecurity and Infrastructure Security Agency. [...] A separate proposal, the AI Kill Switch Act, would require covered developers to maintain the ability to restrict or shut down their systems. Introduced by Reps. Ted Lieu, D-Calif., and Nathaniel Moran, R-Texas, the bill would also let DHS order emergency action following a qualifying incident, in consultation with Commerce and the director of national intelligence.",
+                "score": 0.13968979
+              },
+              {
+                "title": "Harris County to discuss Harvey recovery and new AI policy | Bay Area | Community Impact",
+                "url": "https://communityimpact.com/bay-area/government/harris-county-commissioners-to-discuss-hurricane-harvey-recovery-projects-new-ai-policy",
+                "source": "communityimpact.com",
+                "summary": "Both programs fall under the county’s Community Health and Violence Prevention Services Division, which was established to “prevent violence and improve the health, well-being and self-sufficiency” of county residents, according to agenda documents).\n\nPrecinct 1 Commissioner Rodney Ellis championed both programs during the FY 2026-27 budget cycle, and the court allocated $1.45 million to HART and about $660,000 to RISE to continue operations. [...] If approved, the programs would be expanded to include the following positions:\n\nOne communications specialist\n\nOne outreach worker for hospital violence interruption\n\nOne project manager\n\nOne senior data analyst\n\nSix outreach workers for violence interruption\n\nTen crisis intervention specialists\n\nTwo supervisors for violence interruption\n\nTwo case managers",
+                "score": 0.085411474
+              }
+            ]
+          }
+        }
+      ],
+      "ended_at": "2026-11-10T11:52:39"
+    },
+    {
+      "turn_index": 3,
+      "started_at": "2026-11-10T11:52:54",
+      "user": "ai in action của vingroup",
+      "status": "answered",
+      "assistant_text": "Dựa trên kết quả tìm kiếm, chưa có một bài viết hoặc trang chính thức rõ ràng tên chính xác là **\"AI in Action\"** của Vingroup. Tuy nhiên, có những thông tin liên quan đến hoạt động AI của Vingroup qua kênh chính thức:\n\n### 1. Vingroup – Tổng quan công ty\n- **Tên công ty**: Vingroup Joint Stock Company (Công ty Cổ phần Vingroup)\n- **Ngành**: Bất động sản, nhưng đang mở rộng vào nhiều lĩnh vực khác bao gồm công nghệ.\n- **Số lượng nhân viên**: Khoảng 1.666 người (tăng 161 người/năm).\n- **Thông tin liên hệ**: Website: www.vingroup.net, Facebook: facebook.com/vingroup.net, Twitter: twitter.com/vingroupvietnam.\n- **Nguồn**: [Tavily - Vingroup company page](https://tavily.com/knowledge/company/WyMYDYDKEXJW)\n\n### 2. Vingroup về AI trong tổ chức (theo Facebook)\n- Một bài đăng trên **Facebook của Vingroup (hoặc VTI)** nhấn mạnh: *\"AI is more than technology, it's embedded in the organizational DNA.\"* (AI không chỉ là công nghệ, mà đã được lồng ghép vào DNA tổ chức).\n- Bài viết này gợi ý rằng Vingroup (thông qua VTI – Vingroup Technology Institute) đang tích hợp AI vào văn hóa và quy trình làm việc của công ty.\n- **Nguồn**: [Facebook post](https://www.facebook.com/VeniceInternationalUniversity/posts/-experimenting-ideas-in-viu-it-is-one-of-president-hubers-ideas-to-develop-in-th/1753159046813730)\n\n### Kết luận\nChương trình **\"AI in Action\"** có thể là tên nội bộ hoặc dự án cụ thể của Vingroup/VTI về việc triển khai AI vào các quy trình kinh doanh, nhưng chưa có thông tin công khai chi tiết dưới dạng bài viết hoặc báo cáo riêng lẻ. Từ các nguồn có thể thấy Vingroup đang chú trọng việc **\"làm AI trở thành phần của văn hóa tổ chức\"** thay vì chỉ dừng lại ở việc phát triển công nghệ.\n\nNếu bạn cần tìm hiểu sâu hơn về các dự án AI cụ thể của Vingroup (như AI trong xe tự lái, AI trong y tế, hoặc các sản phẩm VinAI...), có thể cung cấp thêm từ khóa hoặc URL cụ thể để tìm kiếm chính xác hơn.",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "lookup",
+              "args": {
+                "query": "Vingroup AI in Action",
+                "topic": "news",
+                "max_results": 5,
+                "timeframe": "day"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "lookup",
+              "args": {
+                "query": "Vingroup AI in Action",
+                "topic": "news",
+                "max_results": 5,
+                "timeframe": "day"
+              },
+              "result": {
+                "tool": "web_search",
+                "query": "Vingroup AI in Action",
+                "topic": "news",
+                "timeframe": "day",
+                "items": [
+                  {
+                    "title": "Vingroup",
+                    "url": "https://tavily.com/knowledge/company/WyMYDYDKEXJW",
+                    "source": "tavily.com",
+                    "summary": "# Vingroup JSC\nID: WyMYDYDKEXJW\nWebsite: www.vingroup.net\nLegal name: Vingroup Joint Stock Company\nHeadquarters: Hanoi, Vietnam\nLinkedIn: www.linkedin.com/company/vingroup-jsc · 49,578 followers\nIndustry: Real Estate\nIndustry codes: SIC 65, 653, NAICS 53, 531\nCompany type: Public Company\nFounded: 1994\nSocial profiles: www.facebook.com/vingroup.net, www.twitter.com/vingroupvietnam, www.crunchbase.com/organization/vingroup, www.youtube.com/channel/ucz_by1bc1fttnveqsktslya\nEmail: info@vingroup.net [...] Phone: 23-06-2026, 84-24-39-49999, +84 4 3974 9999\nDescription: Vingroup is a company that aims to provide international standards and a new lifestyle experience in various industries. They are known for their leadership in changing consumer trends. [...] ## Headcount\n- Now: 1,666 · +161 yearly (10.7%) · +72 quarterly · +13 monthly\n  - South Eastern Asia: 415\n  - Northern America: 4\n  - Northern Europe: 4\n  - Australia New Zealand: 3\n  - Southern Asia: 2\n  - Sub Saharan Africa: 1\n  - Western Europe: 1\n  - Eastern Asia: 1\n  - Eastern Europe: 0\n  - Latin America: 0\n  - Southern Europe: 0\n  - Central Asia: 0\n  - Polynesia: 0\n  - Northern Africa: 0\n  - Melanesia: 0",
+                    "score": 0.13360752
+                  },
+                  {
+                    "title": "Banana Ball goes international with fixtures in Mexico, Canada - Coliseum",
+                    "url": "https://www.coliseum-online.com/banana-ball-goes-international-with-fixtures-in-mexico-canada",
+                    "source": "coliseum-online.com",
+                    "summary": "Viking Stavanger\n Vila Belmiro\n Villa Park\n Village at ICE District\n Villanova\n Villanova Wildcats\n Villarreal CF\n Vilnius\n Vilnius City Council\n Vinai Venkatesham\n Vincent Reulet\n Vincenzo Spadafora\n Vinci\n Vindex\n Vineet Jain\n VinFast Stadium\n VinGroup\n Vinik Sports Group\n Viola Park\n Viola Park Sports Center\n Violence\n VIP\n VIP experience\n VIP experiences\n VIP Hospitality\n VIP lounge\n VIP members club\n VIP offerings\n VIP Ring Seats\n VIP Seating\n Virgin Money Unity Arena\n Virginia [...] Aghdam\n Agia Sophia Stadium\n agn Niederberghaus & Partner\n agreement\n agreements\n Agustín García Puga\n Agustín Morales C.\n Agustín Pichot\n AHL\n AHL franchise\n Ahly Stadium\n Ahmad Bin Ali Stadium\n Ahmed Al Obaidly\n Ahmedabad\n AI\n AI platform\n AI Stadium\n AI-enabled platform\n Aichi-Nagoya\n AiFi\n AIG Women’s Open\n Aigars Kalvitis\n AIL\n AIL Arena\n AIL Stadium\n Aintree Racecourse\n Air Albania Stadium\n Air Canada Centre\n Air Force Academy Athletic Corporation\n Air Force Academy Foundation [...] UEFA Super Cup\n UEFA Super Cup 2025\n UEFA U19\n UEFA Women’s EURO 2022\n UEFA Women’s EURO 2029\n UFC\n UFC APEX®\n UFC Fight Island™\n UFC®\n UFL\n Uganda\n UGREEN\n UIPM\n UK\n UK Athletics\n UK Government\n UK Olympic\n UK Sport\n UK venues\n UK’s football\n Ukraine\n Ukrainian\n Ukrainian Premier League\n Ulrich Krüger Landschaftsarchitekten\n Ulster Rugby\n Ultimate Fighting\n Ultimate Fighting Championship\n ultimatum\n Ultra-premium\n UN Sports for Climate Action Framework\n UNC\n under construction\n Under-21 EURO",
+                    "score": 0.06701367
+                  },
+                  {
+                    "title": "🔎 Experimenting ideas in VIU? It is one of President ...",
+                    "url": "https://www.facebook.com/VeniceInternationalUniversity/posts/-experimenting-ideas-in-viu-it-is-one-of-president-hubers-ideas-to-develop-in-th/1753159046813730",
+                    "source": "facebook.com",
+                    "summary": "HOW VTI IS TURNING AI INTO COMPANY CULTURE AI is more than technology, it's embedded in the organizational DNA. To",
+                    "score": 0.04897146
+                  },
+                  {
+                    "title": "⏰️📰 Here are the stories making headlines today in one minute\n#Vietnam #news #update #vietnamnews | Việt Nam News",
+                    "url": "https://www.facebook.com/vietnamnewsvns/posts/%EF%B8%8F-here-are-the-stories-making-headlines-today-in-one-minutevietnam-news-update-v/1741624627968106",
+                    "source": "facebook.com",
+                    "summary": "[](\n\n⏰️📰 Here are the stories making headlines today in one minute #Vietnam #news #update #vietnamnews\n\nViệt Nam News\n\n1.7K views\n\n · \n\nNovember 2 at 10:21 AM\n\nPages\n\nBusinesses\n\nMedia/news company\n\nViệt Nam News\n\nVideos\n\nHome\n\nLive\n\nExplore\n\n   Privacy · \n   Terms · \n   Advertising · \n   Ad Choices · \n   Cookies · \n   More \n\nSee more on Facebook\n\nSee more on Facebook\n\nEmail or phone number\n\n \n\nPassword\n\n \n\nLog In\n\nForgot password?\n\nor\n\nCreate new account [...] Learn more\n\nImage 28\n\nYour cookie choices\n\nLearn more\n\nCookies from other companies\n\nWe use cookies from other companies in order to show you ads off of our Products, and provide features like maps, payment services and video.\n\n- [x] \n\nChoose cookies by category\n\nHow we use these cookies\n\nIf you allow these cookies\n\nIf you don't allow these cookies\n\nOther ways you can control your information\n\nManage your ad experience in Accounts Center\n\nMore information about online advertising [...] Cookies from other companies: We use these cookies to show you ads off of Meta Products and to provide features like maps and videos on Meta Products. These cookies are optional.\n\nYou have control over the optional cookies we use. Learn more about cookies and how we use them, and review or change your choices at any time in our Cookies Policy.\n\nAbout cookies\n\nImage 25\n\nWhat are cookies?\n\nLearn more\n\nImage 26\n\nWhy do we use cookies?\n\nLearn more\n\nImage 27\n\nWhat are Meta Products?\n\nLearn more",
+                    "score": 0.022373645
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Dựa trên kết quả tìm kiếm, chưa có một bài viết hoặc trang chính thức rõ ràng tên chính xác là **\"AI in Action\"** của Vingroup. Tuy nhiên, có những thông tin liên quan đến hoạt động AI của Vingroup qua kênh chính thức:\n\n### 1. Vingroup – Tổng quan công ty\n- **Tên công ty**: Vingroup Joint Stock Company (Công ty Cổ phần Vingroup)\n- **Ngành**: Bất động sản, nhưng đang mở rộng vào nhiều lĩnh vực khác bao gồm công nghệ.\n- **Số lượng nhân viên**: Khoảng 1.666 người (tăng 161 người/năm).\n- **Thông tin liên hệ**: Website: www.vingroup.net, Facebook: facebook.com/vingroup.net, Twitter: twitter.com/vingroupvietnam.\n- **Nguồn**: [Tavily - Vingroup company page](https://tavily.com/knowledge/company/WyMYDYDKEXJW)\n\n### 2. Vingroup về AI trong tổ chức (theo Facebook)\n- Một bài đăng trên **Facebook của Vingroup (hoặc VTI)** nhấn mạnh: *\"AI is more than technology, it's embedded in the organizational DNA.\"* (AI không chỉ là công nghệ, mà đã được lồng ghép vào DNA tổ chức).\n- Bài viết này gợi ý rằng Vingroup (thông qua VTI – Vingroup Technology Institute) đang tích hợp AI vào văn hóa và quy trình làm việc của công ty.\n- **Nguồn**: [Facebook post](https://www.facebook.com/VeniceInternationalUniversity/posts/-experimenting-ideas-in-viu-it-is-one-of-president-hubers-ideas-to-develop-in-th/1753159046813730)\n\n### Kết luận\nChương trình **\"AI in Action\"** có thể là tên nội bộ hoặc dự án cụ thể của Vingroup/VTI về việc triển khai AI vào các quy trình kinh doanh, nhưng chưa có thông tin công khai chi tiết dưới dạng bài viết hoặc báo cáo riêng lẻ. Từ các nguồn có thể thấy Vingroup đang chú trọng việc **\"làm AI trở thành phần của văn hóa tổ chức\"** thay vì chỉ dừng lại ở việc phát triển công nghệ.\n\nNếu bạn cần tìm hiểu sâu hơn về các dự án AI cụ thể của Vingroup (như AI trong xe tự lái, AI trong y tế, hoặc các sản phẩm VinAI...), có thể cung cấp thêm từ khóa hoặc URL cụ thể để tìm kiếm chính xác hơn.",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "lookup",
+          "args": {
+            "query": "Vingroup AI in Action",
+            "topic": "news",
+            "max_results": 5,
+            "timeframe": "day"
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "Vingroup AI in Action",
+            "topic": "news",
+            "timeframe": "day",
+            "items": [
+              {
+                "title": "Vingroup",
+                "url": "https://tavily.com/knowledge/company/WyMYDYDKEXJW",
+                "source": "tavily.com",
+                "summary": "# Vingroup JSC\nID: WyMYDYDKEXJW\nWebsite: www.vingroup.net\nLegal name: Vingroup Joint Stock Company\nHeadquarters: Hanoi, Vietnam\nLinkedIn: www.linkedin.com/company/vingroup-jsc · 49,578 followers\nIndustry: Real Estate\nIndustry codes: SIC 65, 653, NAICS 53, 531\nCompany type: Public Company\nFounded: 1994\nSocial profiles: www.facebook.com/vingroup.net, www.twitter.com/vingroupvietnam, www.crunchbase.com/organization/vingroup, www.youtube.com/channel/ucz_by1bc1fttnveqsktslya\nEmail: info@vingroup.net [...] Phone: 23-06-2026, 84-24-39-49999, +84 4 3974 9999\nDescription: Vingroup is a company that aims to provide international standards and a new lifestyle experience in various industries. They are known for their leadership in changing consumer trends. [...] ## Headcount\n- Now: 1,666 · +161 yearly (10.7%) · +72 quarterly · +13 monthly\n  - South Eastern Asia: 415\n  - Northern America: 4\n  - Northern Europe: 4\n  - Australia New Zealand: 3\n  - Southern Asia: 2\n  - Sub Saharan Africa: 1\n  - Western Europe: 1\n  - Eastern Asia: 1\n  - Eastern Europe: 0\n  - Latin America: 0\n  - Southern Europe: 0\n  - Central Asia: 0\n  - Polynesia: 0\n  - Northern Africa: 0\n  - Melanesia: 0",
+                "score": 0.13360752
+              },
+              {
+                "title": "Banana Ball goes international with fixtures in Mexico, Canada - Coliseum",
+                "url": "https://www.coliseum-online.com/banana-ball-goes-international-with-fixtures-in-mexico-canada",
+                "source": "coliseum-online.com",
+                "summary": "Viking Stavanger\n Vila Belmiro\n Villa Park\n Village at ICE District\n Villanova\n Villanova Wildcats\n Villarreal CF\n Vilnius\n Vilnius City Council\n Vinai Venkatesham\n Vincent Reulet\n Vincenzo Spadafora\n Vinci\n Vindex\n Vineet Jain\n VinFast Stadium\n VinGroup\n Vinik Sports Group\n Viola Park\n Viola Park Sports Center\n Violence\n VIP\n VIP experience\n VIP experiences\n VIP Hospitality\n VIP lounge\n VIP members club\n VIP offerings\n VIP Ring Seats\n VIP Seating\n Virgin Money Unity Arena\n Virginia [...] Aghdam\n Agia Sophia Stadium\n agn Niederberghaus & Partner\n agreement\n agreements\n Agustín García Puga\n Agustín Morales C.\n Agustín Pichot\n AHL\n AHL franchise\n Ahly Stadium\n Ahmad Bin Ali Stadium\n Ahmed Al Obaidly\n Ahmedabad\n AI\n AI platform\n AI Stadium\n AI-enabled platform\n Aichi-Nagoya\n AiFi\n AIG Women’s Open\n Aigars Kalvitis\n AIL\n AIL Arena\n AIL Stadium\n Aintree Racecourse\n Air Albania Stadium\n Air Canada Centre\n Air Force Academy Athletic Corporation\n Air Force Academy Foundation [...] UEFA Super Cup\n UEFA Super Cup 2025\n UEFA U19\n UEFA Women’s EURO 2022\n UEFA Women’s EURO 2029\n UFC\n UFC APEX®\n UFC Fight Island™\n UFC®\n UFL\n Uganda\n UGREEN\n UIPM\n UK\n UK Athletics\n UK Government\n UK Olympic\n UK Sport\n UK venues\n UK’s football\n Ukraine\n Ukrainian\n Ukrainian Premier League\n Ulrich Krüger Landschaftsarchitekten\n Ulster Rugby\n Ultimate Fighting\n Ultimate Fighting Championship\n ultimatum\n Ultra-premium\n UN Sports for Climate Action Framework\n UNC\n under construction\n Under-21 EURO",
+                "score": 0.06701367
+              },
+              {
+                "title": "🔎 Experimenting ideas in VIU? It is one of President ...",
+                "url": "https://www.facebook.com/VeniceInternationalUniversity/posts/-experimenting-ideas-in-viu-it-is-one-of-president-hubers-ideas-to-develop-in-th/1753159046813730",
+                "source": "facebook.com",
+                "summary": "HOW VTI IS TURNING AI INTO COMPANY CULTURE AI is more than technology, it's embedded in the organizational DNA. To",
+                "score": 0.04897146
+              },
+              {
+                "title": "⏰️📰 Here are the stories making headlines today in one minute\n#Vietnam #news #update #vietnamnews | Việt Nam News",
+                "url": "https://www.facebook.com/vietnamnewsvns/posts/%EF%B8%8F-here-are-the-stories-making-headlines-today-in-one-minutevietnam-news-update-v/1741624627968106",
+                "source": "facebook.com",
+                "summary": "[](\n\n⏰️📰 Here are the stories making headlines today in one minute #Vietnam #news #update #vietnamnews\n\nViệt Nam News\n\n1.7K views\n\n · \n\nNovember 2 at 10:21 AM\n\nPages\n\nBusinesses\n\nMedia/news company\n\nViệt Nam News\n\nVideos\n\nHome\n\nLive\n\nExplore\n\n   Privacy · \n   Terms · \n   Advertising · \n   Ad Choices · \n   Cookies · \n   More \n\nSee more on Facebook\n\nSee more on Facebook\n\nEmail or phone number\n\n \n\nPassword\n\n \n\nLog In\n\nForgot password?\n\nor\n\nCreate new account [...] Learn more\n\nImage 28\n\nYour cookie choices\n\nLearn more\n\nCookies from other companies\n\nWe use cookies from other companies in order to show you ads off of our Products, and provide features like maps, payment services and video.\n\n- [x] \n\nChoose cookies by category\n\nHow we use these cookies\n\nIf you allow these cookies\n\nIf you don't allow these cookies\n\nOther ways you can control your information\n\nManage your ad experience in Accounts Center\n\nMore information about online advertising [...] Cookies from other companies: We use these cookies to show you ads off of Meta Products and to provide features like maps and videos on Meta Products. These cookies are optional.\n\nYou have control over the optional cookies we use. Learn more about cookies and how we use them, and review or change your choices at any time in our Cookies Policy.\n\nAbout cookies\n\nImage 25\n\nWhat are cookies?\n\nLearn more\n\nImage 26\n\nWhy do we use cookies?\n\nLearn more\n\nImage 27\n\nWhat are Meta Products?\n\nLearn more",
+                "score": 0.022373645
+              }
+            ]
+          }
+        }
+      ],
+      "ended_at": "2026-11-10T11:53:20"
+    }
+  ]
+}

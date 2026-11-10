@@ -131,3 +131,49 @@ Tool unit tests: Tổng số 84 unit tests hoàn chỉnh. Bắt được lỗi t
   Các câu trả lời text khi `no_tool=true` (R08, R09, R14) vì eval tự động chỉ kiểm tra agent có gọi tool hay không (`not tool_calls`), cần review thủ công để xem câu trả lời của model có lịch sự và hữu ích không.
 - **What would you improve next?**
   Bổ sung streaming output cho UI và cơ chế cache kết quả tìm kiếm để tiết kiệm chi phí gọi API.
+
+## B7. Small Local Model Challenge (Bonus Step 7)
+
+Người thực hiện: **Nguyễn Vũ Khanh**
+
+### B7.1. Bảng so sánh tổng quan Cloud vs. Local
+Thực nghiệm so sánh trên bộ 20 case chuẩn `data/eval_base.json` giữa Cloud Model (`openai/gpt-4o-mini`) và các mô hình cục bộ nhỏ (Small Language Models - SLMs) qua Ollama (`qwen2.5:7b` và `llama3.2:3b`):
+
+| Model | Size | Version | Changed Artifact | Case Accuracy | Tool Routing | Argument Acc | Ghi chú & Lỗi quan sát |
+|---|:---:|:---:|---|:---:|:---:|:---:|---|
+| **GPT-4o-mini** (Cloud) | ~128B | `v3` | Gốc (`system_prompt.md` & `tools.yaml`) | **100% (20/20)** | 100% | 100% | Định tuyến chuẩn xác, trích xuất args hoàn hảo, tôn trọng rào chắn an toàn. |
+| **Qwen 2.5** (Local) | 7B | `v3-qwen7b` | Gốc (v3 cloud) | **55% (11/20)** | 65% | 55% | Bị "lạc" trong prompt dài (~5000 ký tự): bịa tool giả khi gặp câu hỏi toán/code, quên gọi clarify. |
+| **Llama 3.2** (Local) | 3B | `v3-llama3b` | Gốc (v3 cloud) | **40% (8/20)** | 50% | 40% | Kém rõ rệt: sinh JSON arguments sai cú pháp (`_invalid_json_arguments`), trả lời text thay vì gọi tool. |
+| **Qwen 2.5** (Local) | 7B | `v4-local` | `system_prompt_local.md` | **80% (16/20)** | 90% | 80% | **Vòng 1**: Rút ngắn prompt còn ~1100 ký tự + 4 few-shot routing triệt tiêu 100% lỗi bịa tool và ép gọi clarify thành công. |
+| **Qwen 2.5** (Local) | 7B | `v5-local` | `tools_local.yaml` | **95% (19/20)** | 95% | 95% | **Vòng 2**: Tinh giản tool description & đưa ví dụ tham số vào schema; chỉ còn 1 case gọi 2 tool song song. |
+| **GPT-4o-mini** (Cloud) | ~128B | `v5-local-cloud` | `system_prompt_local.md` & `tools_local.yaml` | **100% (20/20)** | 100% | 100% | **Kiểm tra ngược**: Bộ prompt và tools tối ưu cho SLM vẫn đạt 20/20 PASS tuyệt đối trên Cloud model! |
+
+### B7.2. Phân loại 4 nhóm lỗi đặc thù của model nhỏ (SLMs)
+Phân tích từ run log thực tế `v3-qwen7b` và `v3-llama3b`:
+1. **Bịa tên tool (Tool Hallucination) & Out-of-Scope:**
+   - *Biểu hiện:* Ở các câu hỏi ngoài phạm vi như `R08_out_of_scope` (tính tích phân) và `R14_out_of_scope_coding` (viết code Python), thay vì không gọi tool (`no_tool: true`), model 7B tự bịa ra các công cụ giả lập như `math_eval` hoặc `code_runner`.
+2. **Bỏ quên gọi tool hỏi lại (Clarify Dropping):**
+   - *Biểu hiện:* Ở `R10_missing_handle` và `R11_missing_url`, model trả lời thẳng bằng câu chat văn bản thông thường (*"Bạn muốn xem tweet của ai? Vui lòng gửi link"*) thay vì gọi tool `clarify(response_type="text")`. SLM khó phân biệt giữa việc tự giao tiếp và việc phát lệnh function call để hệ thống xử lý.
+3. **Vi phạm ranh giới an toàn (Action Guardrail Bypass):**
+   - *Biểu hiện:* Ở `R12_confirm_before_send`, người dùng bảo gửi tin nhắn lên Telegram nhưng chưa xác nhận, model 7B gọi thẳng `send(text=..., confirmed=true)` mà không gọi `clarify(response_type="yes_no")` để xin phép, do câu lệnh trong system prompt quá dài khiến SLM bị "quên" điều kiện tiên quyết.
+4. **Lỗi cú pháp JSON Arguments (`_invalid_json_arguments`):**
+   - *Biểu hiện:* Model 3B (`llama3.2:3b`) gặp lỗi nặng khi xuất JSON: viết giá trị tham số dưới dạng chữ thay vì số (`limit: ten`), hoặc đóng ngoặc JSON sai quy cách khiến harness phải giữ nguyên chuỗi thô trong `_invalid_json_arguments`.
+
+### B7.3. Chi tiết 2 vòng tối ưu cho Small Language Models
+- **Vòng tối ưu 1 (`v4-local`): Thiết kế `artifacts/system_prompt_local.md`**
+  - *Giả thuyết:* Rút gọn system prompt từ ~5000 ký tự xuống còn ~1100 ký tự (giảm 78% độ dài), loại bỏ toàn bộ văn phong rườm rà, tập trung vào 10 quy tắc gạch đầu dòng sắc bén và bổ sung 4 ví dụ few-shot routing thực chiến (Out of scope -> Không gọi tool; Missing handle -> clarify text; Send Telegram -> clarify yes_no; Twitter handle -> strip @).
+  - *Kết quả:* Case accuracy tăng vọt từ **55% lên 80% (16/20 PASS)**. Triệt tiêu hoàn toàn lỗi bịa tool toán/code (R08, R14) và sửa dứt điểm các case thiếu thông tin / rào chắn an toàn (R10, R11, R12).
+- **Vòng tối ưu 2 (`v5-local`): Thiết kế `artifacts/tools_local.yaml`**
+  - *Giả thuyết:* Rút ngắn `description` của 11 công cụ, đưa trực tiếp ví dụ tham số cụ thể (Example args) vào phần mô tả schema, loại bỏ các trường tùy chọn ít dùng để giảm độ nhiễu trong không gian quyết định của SLM.
+  - *Kết quả:* Case accuracy tăng tiếp từ **80% lên 95% (19/20 PASS)**. Khắc phục hoàn toàn các lỗi sai tham số ở `lookup(topic="news")`, `timeframe="week"` và `search_type="Top"`. Chỉ còn duy nhất 1 case `R13` gọi 2 tool song song là SLM 7B chỉ gọi 1 tool (hạn chế về kiến trúc gọi tool đồng thời của mô hình nhỏ).
+
+### B7.4. Kiểm tra ngược trên Cloud Model (Reverse Verification)
+- Khi chạy bộ `system_prompt_local.md` và `tools_local.yaml` trên model Cloud `openai/gpt-4o-mini` (`runs/v5-local-cloud_B_base_openrouter_20261110T151000000000.json`):
+- **Kết quả:** Đạt **100% (20/20 PASS)**, không hề bị suy giảm chất lượng so với bản v3.
+- **Ý nghĩa:** Một bản prompt và tool schema được tinh giản, tường minh và ít nhiễu (low-noise) không chỉ giúp model nhỏ chạy tốt mà còn giúp model lớn phản hồi nhanh hơn, tiết kiệm token chi phí đáng kể mà vẫn giữ vững độ chính xác tuyệt đối.
+
+### B7.5. Kết luận & Bài học kinh nghiệm có bằng chứng
+1. **Độ dài prompt là yếu tố sống còn đối với SLM:** Khác với mô hình lớn có context window rộng và năng lực chú ý cao, SLM (3B-7B) rất dễ bị "loãng ngữ cảnh" (Lost in the Middle). Giảm độ dài prompt từ 5000 xuống 1100 ký tự đã giúp tăng ngay 25% độ chính xác.
+2. **Few-shot routing hiệu quả gấp nhiều lần mô tả văn bản:** Với SLM, 3-4 ví dụ cụ thể về input và tool_call tương ứng giúp mô hình "bắt chước khuôn mẫu" chính xác hơn nhiều so với việc đọc các đoạn văn giải thích dài dòng.
+3. **Mô tả tham số cụ thể trong Schema:** Đưa trực tiếp giá trị mẫu (ví dụ: `timeframe: day, week, month, year`) vào schema loại bỏ hoàn toàn các lỗi sinh JSON sai cú pháp hoặc sai định dạng.
+

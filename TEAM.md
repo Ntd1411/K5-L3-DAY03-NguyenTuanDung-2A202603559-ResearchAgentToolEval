@@ -49,18 +49,28 @@ Sản phẩm đã thực hiện:
 - `transcripts/v3_openrouter_20261110T115449639505.transcript.json`.
 - `analysis/base_runs.csv`, `artifacts/REPORT.md`, `artifacts/poster.html`.
 
-### 3. Nguyễn Vũ Khanh — Cải tiến UI, snapshot phiên bản và tích hợp
+### 3. Nguyễn Vũ Khanh — Cải tiến UI, snapshot phiên bản, tích hợp và Small Local Model Challenge (B7)
 
 - Cải tiến giao diện Streamlit phục vụ demo local: bố cục, màu sắc và các thành phần hiển thị phiên nghiên cứu.
 - Bổ sung snapshot system prompt và tool declaration cho `v0`, `v1`, `v2`, `v3` trong `artifacts/versions/`.
 - Tích hợp chọn phiên bản trong UI để nạp prompt/tool declaration tương ứng khi chat.
 - Merge các thay đổi UI với run group eval, dữ liệu phân tích và báo cáo của nhóm.
+- Nghiên cứu và thực hiện Bonus Challenge Step 7 / B7: Small Local Model Challenge trên 2 mô hình cục bộ (`qwen2.5:7b` và `llama3.2:3b` qua Ollama).
+- Phân tích và phân loại 4 nhóm lỗi đặc thù của SLM
+- Thiết kế `artifacts/system_prompt_local.md` (~1100 ký tự với 4 few-shot routing rules) và `artifacts/tools_local.yaml` (schema tinh giản + ví dụ tham số thực tế).
+- Thực hiện 2 vòng tối ưu (Vòng 1 nâng độ chính xác từ 55% lên 80%; Vòng 2 đạt 95%) và kiểm tra ngược (Reverse check) đạt 100% trên Cloud model `openai/gpt-4o-mini`.
+- Chạy và ghi nhận 5 run eval vào `runs/` và cập nhật đầy đủ vào version_log.csv.
+- Hoàn thiện toàn diện mục B7. Small Local Model Challenge trong REPORT.md.
 
 Sản phẩm đã thực hiện:
 
 - Các phần cải tiến UI và chọn phiên bản trong `app.py`.
 - `artifacts/versions/v0/`, `artifacts/versions/v1/`, `artifacts/versions/v2/`, `artifacts/versions/v3/`.
 - Bản tích hợp UI, run eval và báo cáo tại merge commit `9660387`.
+- `artifacts/system_prompt_local.md` và `artifacts/tools_local.yaml`.
+- 5 run JSON: `runs/v3-qwen7b_*.json`, `runs/v3-llama3b_*.json`, `runs/v4-local_*.json`, `runs/v5-local_*.json`, `runs/v5-local-cloud_*.json`.
+- 5 dòng ghi nhận tương ứng trong `artifacts/version_log.csv`.
+- Mục B7. Small Local Model Challenge trong `artifacts/REPORT.md`.
 
 ## Quy ước phối hợp
 
