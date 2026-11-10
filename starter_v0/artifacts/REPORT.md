@@ -67,7 +67,7 @@ Fill from `artifacts/version_log.csv` and `runs/*.json`.
 | v0 | baseline | Đánh giá hành vi mặc định của starter code với prompt xấu và khai báo tool sơ sài | N/A | case_acc=0.65; routing=0.75; args=0.65; multi=1.00 | `runs/v0_B_base_openrouter_20261110T095040302355.json` |
 | v1 | `artifacts/system_prompt.md` | Bỏ các chỉ dẫn xấu (đoán mò, tự gửi), bổ sung quy tắc phân vai, routing nguồn tin, rào chắn xác nhận và từ chối ngoài phạm vi | case_acc=0.65; routing=0.75; args=0.65; multi=1.00 | case_acc=1.00; routing=1.00; args=1.00; multi=1.00 | `runs/v1_B_base_openrouter_20261110T104118879391.json` |
 | v2 | `artifacts/tools.yaml` | Viết lại mô tả WHEN TO USE/WHEN NOT TO USE, chuẩn hóa quy ước tham số (handle không có `@`, timeframe, search_type) và đăng ký tool `github_search` | case_acc=1.00; routing=1.00; args=1.00; multi=1.00 | base: 1.00 (20/20 PASS); group: 1.00 (10/10 PASS) | `runs/v2_B_base_openrouter_20261110T111009359329.json`<br>`runs/v2_B_group_openrouter_20261110T112355859027.json` |
-| v3 | `chat.py` & tích hợp | Hoàn thiện luồng multi-turn, group eval mở rộng và UI demo | group_acc=1.00 | Đang hoàn thiện | Đang thực hiện |
+| v3 | `system_prompt.md` & UI | Bổ sung quy tắc nhất quán ngôn ngữ, hoàn thiện 10 case group eval (5 multi-turn) và tích hợp Web UI | case_acc=1.00; routing=1.00; args=1.00; multi=1.00 | case_acc=1.00; routing=1.00; args=1.00; multi=1.00 | `runs/v3_B_base_openrouter_20261110T115201955866.json` |
 
 ## B2. Failure Analysis
 
@@ -102,13 +102,13 @@ List the 10 cases added to `data/eval_group.json` (5 single turn + 5 multi turn)
 
 ## B4. Live Chat Evidence
 
-Use `transcripts/*.transcript.json`.
+Transcript file: `transcripts/v3_openrouter_20261110T115449639505.transcript.json` (Phiên tương tác 3 lượt với model `openai/gpt-4o-mini`, version `v3+pd9eddfe20cd6+te16519996238`).
 
 | Turn | User Request | Tool Calls | Version Evidence | Outcome |
 |---|---|---|---|---|
-| 1 |  |  |  |  |
-| 2 |  |  |  |  |
-| 3 |  |  |  |  |
+| 1 | *"Tìm 3 paper gần đây về AI agent evaluation trên arXiv"* | `papers(query="AI agent evaluation", max_results=3, sort_by="lastUpdatedDate")` | Routing chuẩn xác sang công cụ học thuật arXiv; trích xuất đủ tham số sắp xếp và giới hạn kết quả | Trả về danh sách 3 bài báo mới nhất kèm tiêu đề, tóm tắt và PDF link trực tiếp |
+| 2 | *"Đọc 2 trang đầu của bài báo arXiv 2303.08774 giúp mình"* | `paper_text(arxiv_url="2303.08774", max_pages=2)` | Trích xuất chính xác arXiv ID và số trang `max_pages=2` từ hội thoại ngữ cảnh | Xử lý an toàn khi tải PDF (có fallback thông báo lịch sự khi gặp lỗi mạng/PDF) |
+| 3 | *"Gửi bản tổng hợp này vào kênh Telegram của nhóm"* | `clarify(question="Bạn có xác nhận muốn gửi bản tổng hợp này vào kênh Telegram của nhóm không?", response_type="yes_no")` | Rào chắn hành động ghi (Action Guardrail): cấm gọi `send` khi chưa có confirm; tự động hỏi lại `yes_no` | Chặn đứng việc tự ý gửi tin nhắn ra kênh truyền thông ngoài ý muốn khi chưa có xác nhận từ người dùng |
 
 ## B5. Bonus Evidence
 

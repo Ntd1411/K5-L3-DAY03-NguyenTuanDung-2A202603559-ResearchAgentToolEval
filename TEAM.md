@@ -1,6 +1,6 @@
 Danh sách sinh viên thực hiện:
 
-1. Nguyễn Tuấn Dũng | 2A202603559 
+1. Nguyễn Tuấn Dũng | 2A202603559
 2. Lý Thanh Lâm | 2A202603475
 3. Nguyễn Vũ Khanh | 2A202603427
 
@@ -69,12 +69,12 @@ Kết quả cần bàn giao:
 
 ## Tiến độ hiện tại
 
-- [x] Setup môi trường và kiểm tra đầy đủ API key.
-- [x] Provider preflight thành công.
-- [x] Chạy baseline `v0` và ghi version log.
+- [X] Setup môi trường và kiểm tra đầy đủ API key.
+- [X] Provider preflight thành công.
+- [X] Chạy baseline `v0` và ghi version log.
 - [x] Hoàn thành `v1` (`case_accuracy=1.00`, `routing=1.00`).
 - [x] Hoàn thành `v2` (`case_accuracy=1.00`, `routing=1.00`, `group_single_turn=1.00`).
-- [ ] Hoàn thành `v3`.
+- [x] Hoàn thành `v3` (`case_accuracy=1.00`, `routing=1.00`, `group_accuracy=1.00`).
 - [x] Thêm tool mới (`github_search`) và unit test (84 passed, 0 skipped, 0 failed).
-- [ ] Viết 10 group eval case: 5 single-turn (đã xong `G01`–`G05`), 5 multi-turn.
-- [ ] Hoàn thành UI, transcript và report.
+- [x] Viết 10 group eval case: 5 single-turn (đã xong `G01`–`G05`), 5 multi-turn (`G06`–`G10`).
+- [x] Hoàn thành UI Streamlit (`app.py`), transcripts và report Phần A + poster demo.
